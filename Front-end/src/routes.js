@@ -1,19 +1,19 @@
 import React from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 
-import { Login } from "./pages";
-import { Cadastro } from "./pages";
-import { Home } from "./pages";
-import { Perfil } from "./pages";
-import { EditarPerfil } from "./pages";
-import { Disciplinas } from "./pages";
-import { Atividades } from "./pages";
-import { CriarDisciplina } from "./pages";
-import { CriarAtividade } from "./pages";
-import { VerDisciplina } from "./pages";
-import { VerAtividade } from "./pages";
-import { EditarDisciplina } from "./pages";
-import { EditarAtividade } from "./pages";
+import { Login } from "./pages/Login";
+import { Cadastro } from "./pages/Cadastro";
+import { Home } from "./pages/Home";
+import { Perfil } from "./pages/Perfil";
+import { EditarPerfil } from "./pages/EditarPerfil";
+import { Disciplinas } from "./pages/Disciplinas";
+import { Atividades } from "./pages/Atividades";
+import { CriarDisciplina } from "./pages/CriarDisciplina";
+import { CriarAtividade } from "./pages/CriarAtividade";
+import { VerDisciplina } from "./pages/VerDisciplina";
+import { VerAtividade } from "./pages/VerAtividade";
+import { EditarDisciplina } from "./pages/EditarDisciplina";
+import { EditarAtividade } from "./pages/EditarAtividade";
 
 const Routes = () => {
   return (
@@ -46,3 +46,5 @@ const Routes = () => {
     </BrowserRouter>
   );
 };
+
+export default Routes;

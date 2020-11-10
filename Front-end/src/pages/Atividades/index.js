@@ -1,5 +1,6 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
-export default function Atividades() {
-  return <div></div>;
+export function Atividades() {
+  return <div>oi</div>;
 }
