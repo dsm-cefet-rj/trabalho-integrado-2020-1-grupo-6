@@ -10,7 +10,7 @@ export function Login() {
       <div className="box">
         <div className="header">
           <h1>TaskBoard</h1>
-          <FiCheckSquare size={37} color="mediumblue" />
+          <FiCheckSquare size={37} color="#0629a9" />
         </div>
         <div className="corpo">
           <h2>Faça seu login</h2>
