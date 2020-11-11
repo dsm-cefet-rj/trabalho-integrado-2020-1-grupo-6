@@ -1,0 +1,76 @@
+body,
+h1,
+h2 {
+  margin: 0px;
+  font-family: system-ui;
+}
+
+.box {
+  background: thistle;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+  height: 80vh;
+  width: 90%;
+  max-width: 500px;
+  min-width: 300px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin-right: 40px;
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+#usuarioLogin {
+  font-size: 16px;
+  border-radius: 25px;
+  border-style: none;
+  padding: 15px;
+}
+
+#usuarioSenha {
+  font-size: 16px;
+  border-radius: 25px;
+  border-style: none;
+  padding: 15px;
+}
+
+#btnEntrar {
+  border: none;
+  background: floralwhite;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+label {
+  font-size: 23px;
+  padding-right: 10px;
+}
+
+#btnCadastrar {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
