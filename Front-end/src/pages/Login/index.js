@@ -10,22 +10,27 @@ export function Login() {
       <div className="box">
         <div className="header">
           <h1>TaskBoard</h1>
-          <FiCheckSquare size={35} color="purple" />
+          <FiCheckSquare size={37} color="mediumblue" />
         </div>
-        <h2>Faça seu login</h2>
-        <div>
-          <label>Usuário:</label>
-          <input id="usuarioLogin" placeholder="Digite seu usuário"></input>
-        </div>
-        <div>
-          <label>Senha:</label>
+        <div className="corpo">
+          <h2>Faça seu login</h2>
+
+          <input
+            id="usuarioLogin"
+            className="inputs"
+            placeholder="Digite seu usuário"
+          ></input>
           <input
             type="text"
             id="usuarioSenha"
+            className="inputs"
             placeholder="Digite sua senha"
           ></input>
+
+          <button type="submit" id="btnEntrar">
+            Entrar
+          </button>
         </div>
-        <input type="button" id="btnEntrar" value="Entrar"></input>
 
         <Link to="/cadastro" id="btnCadastrar">
           Cadastre-se aqui

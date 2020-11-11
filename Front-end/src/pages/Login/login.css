@@ -2,11 +2,10 @@ body,
 h1,
 h2 {
   margin: 0px;
-  font-family: system-ui;
 }
 
 .box {
-  background: thistle;
+  background: skyblue;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -16,6 +15,7 @@ h2 {
   width: 90%;
   max-width: 500px;
   min-width: 300px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .container {
@@ -31,46 +31,51 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
 }
 
 h1 {
-  margin-right: 40px;
-  font-size: 40px;
+  margin-right: 33px;
+  font-size: 37px;
 }
 
 h2 {
   font-size: 28px;
 }
 
-#usuarioLogin {
+.inputs {
   font-size: 16px;
   border-radius: 25px;
   border-style: none;
-  padding: 15px;
-}
-
-#usuarioSenha {
-  font-size: 16px;
-  border-radius: 25px;
-  border-style: none;
-  padding: 15px;
+  padding: 15px 40px;
+  outline: none;
+  margin-top: 30px;
+  font-family: "Montserrat", sans-serif;
 }
 
 #btnEntrar {
   border: none;
-  background: floralwhite;
+  background-color: white;
   border-radius: 25px;
-  padding: 10px 20px;
-  font-size: 15px;
-}
-
-label {
-  font-size: 23px;
-  padding-right: 10px;
+  padding: 10px 37px;
+  font-size: 17px;
+  outline: none;
+  margin-top: 30px;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
 }
 
 #btnCadastrar {
   text-decoration: none;
   color: black;
   font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.corpo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
