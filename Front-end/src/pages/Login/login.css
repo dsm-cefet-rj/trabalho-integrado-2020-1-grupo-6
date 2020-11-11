@@ -55,13 +55,14 @@ h2 {
 
 #btnEntrar {
   border: none;
-  background-color: white;
+  background-color: rgb(6, 41, 169);
   border-radius: 25px;
   padding: 10px 37px;
   font-size: 17px;
   outline: none;
   margin-top: 30px;
   font-weight: bold;
+  color: white;
   font-family: "Montserrat", sans-serif;
 }
 
