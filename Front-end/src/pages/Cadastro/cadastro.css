@@ -1,19 +1,31 @@
 body,
-h1,
 h2 {
   margin: 0px;
 }
 
-.box_login {
+.titulo_cadastro {
+  margin-right: 45px;
+  font-size: 28px;
+}
+
+.header_cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.box_cadastro {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 80vh;
+  height: 95vh;
+  width: 90%;
   font-family: "Montserrat", sans-serif;
 }
 
-.bloco_login {
+.bloco_cadastro {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -23,23 +35,7 @@ h2 {
   background: radial-gradient(skyblue, transparent);
 }
 
-.header_login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-#nome_app {
-  margin-right: 45px;
-  font-size: 42px;
-}
-
-.titulo_login {
-  font-size: 28px;
-}
-
-.inputs_login {
+.inputs_cadastro {
   font-size: 16px;
   border-radius: 25px;
   border-style: none;
@@ -47,10 +43,10 @@ h2 {
   outline: none;
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
-  width: 300px;
+  width: 450px;
 }
 
-#btnEntrar {
+#btnCriarConta {
   border: none;
   background-color: rgb(6, 41, 169);
   border-radius: 25px;
@@ -61,34 +57,28 @@ h2 {
   font-weight: bold;
   color: white;
   font-family: "Montserrat", sans-serif;
-}
-
-#btnCadastrar {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-}
-
-.box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 15px;
 }
 
 @media screen and (max-width: 750px) {
-  .inputs_login {
+  .inputs_cadastro {
     width: 260px;
+  }
+  .titulo_cadastro {
+    font-size: 27px;
+    margin-right: 37px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .inputs_login {
-    width: 210px;
+  .inputs_cadastro {
+    width: 220px;
   }
-  #nome_app {
-    font-size: 37px;
+  .titulo_cadastro {
+    font-size: 24px;
+    margin-right: 24px;
+  }
+  #btnCriarConta {
+    padding: 10px 37px;
   }
 }

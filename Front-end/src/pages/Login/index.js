@@ -6,24 +6,24 @@ import { FiCheckSquare } from "react-icons/fi";
 
 export function Login() {
   return (
-    <div className="container">
-      <div className="box">
-        <div className="header">
-          <h1>TaskBoard</h1>
-          <FiCheckSquare size={37} color="#0629a9" />
+    <div className="bloco_login">
+      <div className="box_login">
+        <div className="header_login">
+          <h1 id="nome_app">TaskBoard</h1>
+          <FiCheckSquare size={45} color="#0629a9" />
         </div>
-        <div className="corpo">
-          <h2>Faça seu login</h2>
+        <div className="box">
+          <h2 className="titulo_login">Faça seu login</h2>
 
           <input
             id="usuarioLogin"
-            className="inputs"
+            className="inputs_login"
             placeholder="Digite seu usuário"
           ></input>
           <input
             type="text"
             id="usuarioSenha"
-            className="inputs"
+            className="inputs_login"
             placeholder="Digite sua senha"
           ></input>
 
