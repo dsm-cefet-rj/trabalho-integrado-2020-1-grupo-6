@@ -1,19 +1,31 @@
 body,
-h1,
 h2 {
   margin: 0px;
 }
 
-.box_login {
+.titulo_editarDisciplina {
+    margin-right: 45px;
+    font-size: 28px;
+  }
+  
+.header_editarDisciplina {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+  
+.box_editarDisciplina {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 80vh;
+  height: 95vh;
+  width: 90%;
   font-family: "Montserrat", sans-serif;
 }
-
-.bloco_login {
+  
+.bloco_editarDisciplina {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -22,24 +34,8 @@ h2 {
   align-items: center;
   background: radial-gradient(skyblue, transparent);
 }
-
-.header_login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-#nome_app {
-  margin-right: 45px;
-  font-size: 42px;
-}
-
-.titulo_login {
-  font-size: 28px;
-}
-
-.inputs_login {
+  
+.inputs_editarDisciplina {
   font-size: 16px;
   border-radius: 25px;
   border-style: none;
@@ -47,10 +43,10 @@ h2 {
   outline: none;
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
-  width: 300px;
+  width: 450px;
 }
-
-#btnEntrar {
+  
+#btnSalvaredicaoDisciplina {
   border: none;
   background-color: rgb(6, 41, 169);
   border-radius: 25px;
@@ -61,34 +57,5 @@ h2 {
   font-weight: bold;
   color: white;
   font-family: "Montserrat", sans-serif;
-}
-
-#btnCadastrar {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-}
-
-.op_login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (max-width: 750px) {
-  .inputs_login {
-    width: 260px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .inputs_login {
-    width: 210px;
-  }
-  #nome_app {
-    font-size: 37px;
-  }
+  margin-bottom: 15px;
 }

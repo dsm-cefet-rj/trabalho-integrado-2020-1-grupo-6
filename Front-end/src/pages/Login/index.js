@@ -12,7 +12,7 @@ export function Login() {
           <h1 id="nome_app">TaskBoard</h1>
           <FiCheckSquare size={45} color="#0629a9" />
         </div>
-        <div className="box">
+        <div className="op_login">
           <h2 className="titulo_login">Faça seu login</h2>
 
           <input
