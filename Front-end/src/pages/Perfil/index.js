@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./perfil.css";
 import { useHistory } from "react-router-dom";
 import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
-import imgagemEscolhida from './src/voltar,jpeg'
+
 
 export function Perfil() {
     const [nomecompleto, setNomeCompleto] = useState("");
@@ -73,7 +73,8 @@ export function Perfil() {
             <Link to="/atividades" className="itens" id="minhasAtividade">
               Excluir
             </Link>
-            export default () => <img src={imgagemEscolhida}/>
+            <img src="/images/voltar.jpg"></img>;
+        
           </div>
           
         </div> 
