@@ -1,13 +1,26 @@
-.box_login {
+.tituloCriarDisciplina {
+  margin-right: 45px;
+  font-size: 38px;
+  color: navy;
+}
+
+.headerCriarDisciplina {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.boxCriarDisciplina {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 80vh;
+  width: 100%;
   font-family: "Montserrat", sans-serif;
 }
 
-.bloco_login {
+.blocoCriarDisciplina {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -17,24 +30,7 @@
   background: radial-gradient(skyblue, transparent);
 }
 
-.header_login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-#nome_app {
-  margin-right: 45px;
-  font-size: 42px;
-  color: navy;
-}
-
-.titulo_login {
-  font-size: 28px;
-}
-
-.inputs_login {
+.inputsCriarDisciplina {
   font-size: 16px;
   border-radius: 25px;
   border-style: none;
@@ -42,10 +38,20 @@
   outline: none;
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
-  width: 48vh;
+  width: 72vh;
 }
 
-#btnEntrar {
+#status {
+  font-size: 16px;
+  margin-top: 30px;
+  border-radius: 20px;
+  border-style: none;
+  padding: 10px 30px;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+#btnCriarDisciplina {
   border: none;
   background-color: rgb(6, 41, 169);
   border-radius: 25px;
@@ -56,34 +62,22 @@
   font-weight: 600;
   color: white;
   font-family: "Montserrat", sans-serif;
-}
-
-#btnCadastrar {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-}
-
-.op_login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (max-width: 750px) {
-  .inputs_login {
-    width: 260px;
-  }
+  margin-bottom: 15px;
 }
 
 @media screen and (max-width: 320px) {
-  .inputs_login {
-    width: 210px;
+  .inputsCriarDisciplina {
+    padding: 12px;
+    width: 50vh;
   }
-  #nome_app {
-    font-size: 37px;
+  .tituloCriarDisciplina {
+    margin-right: 32px;
+    font-size: 32px;
+  }
+  #status {
+    padding: 10px 20px;
+  }
+  #btnCriarDisciplina {
+    padding: 10px 40px;
   }
 }

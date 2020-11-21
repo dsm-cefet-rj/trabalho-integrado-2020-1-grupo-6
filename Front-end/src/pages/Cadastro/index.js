@@ -28,7 +28,7 @@ export function Cadastro() {
         <div className="box_cadastro">
           <div className="header_cadastro">
             <h2 className="titulo_cadastro">Faça seu cadastro</h2>
-            <FiCheckSquare size={40} color="#0629a9" />
+            <FiCheckSquare size={40} color="black" />
           </div>
           <input
             type="text"

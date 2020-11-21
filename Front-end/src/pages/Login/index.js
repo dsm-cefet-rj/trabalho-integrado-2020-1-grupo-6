@@ -21,7 +21,7 @@ export function Login() {
       <div className="box_login">
         <div className="header_login">
           <h1 id="nome_app">TaskBoard</h1>
-          <FiCheckSquare size={45} color="#0629a9" />
+          <FiCheckSquare size={45} color="black" />
         </div>
         <form onSubmit={submitLogin}>
           <div className="op_login">
