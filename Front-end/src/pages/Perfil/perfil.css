@@ -1,0 +1,13 @@
+
+
+  .opcao {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 6px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
+    background-color: steelblue;
+  } 
