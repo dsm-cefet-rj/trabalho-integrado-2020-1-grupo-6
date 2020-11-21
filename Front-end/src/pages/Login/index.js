@@ -4,16 +4,29 @@ import { Link } from "react-router-dom";
 import styles from "./login.css";
 import { FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
+import { api } from "../../services/api.js";
 
 export function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const history = useHistory();
 
-  function submitLogin() {
+  function submitLogin(event) {
+    event.preventDefault();
     console.log(login, senha);
 
-    history.push("/home");
+    api
+      .get("usuarios", {
+        params: { usuario: login, senha },
+      })
+      .then((response) => {
+        if (response.data.length != 1) {
+          alert("Esse usuário não existe");
+          return;
+        }
+        console.log(response.data);
+        history.push("/home");
+      });
   }
 
   return (
