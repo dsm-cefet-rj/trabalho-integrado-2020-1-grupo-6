@@ -38,7 +38,7 @@
   outline: none;
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
-  width: 72vh;
+  width: 450px;
 }
 
 #status {
@@ -65,19 +65,33 @@
   margin-bottom: 15px;
 }
 
+@media screen and (max-width: 750px) {
+  .inputsCriarDisciplina {
+    padding: 12px;
+    width: 320px;
+  }
+  .tituloCriarDisciplina {
+    margin-right: 30px;
+    font-size: 34px;
+  }
+  #status {
+    padding: 10px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .inputsCriarDisciplina {
     padding: 12px;
-    width: 50vh;
+    width: 275px;
   }
   .tituloCriarDisciplina {
-    margin-right: 32px;
-    font-size: 32px;
+    margin-right: 20px;
+    font-size: 31px;
   }
   #status {
-    padding: 10px 20px;
+    padding: 10px;
   }
   #btnCriarDisciplina {
-    padding: 10px 40px;
+    padding: 10px 30px;
   }
 }

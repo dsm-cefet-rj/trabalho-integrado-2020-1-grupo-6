@@ -38,7 +38,7 @@
   outline: none;
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
-  width: 72vh;
+  width: 450px;
 }
 
 #btnCriarConta {
@@ -57,7 +57,8 @@
 
 @media screen and (max-width: 750px) {
   .inputs_cadastro {
-    width: 260px;
+    width: 320px;
+    padding: 12px;
   }
   .titulo_cadastro {
     font-size: 27px;
@@ -67,13 +68,14 @@
 
 @media screen and (max-width: 320px) {
   .inputs_cadastro {
-    width: 220px;
+    padding: 12px;
+    width: 275px;
   }
   .titulo_cadastro {
     font-size: 24px;
     margin-right: 24px;
   }
   #btnCriarConta {
-    padding: 10px 37px;
+    padding: 10px 15px;
   }
 }

@@ -38,7 +38,7 @@
   outline: none;
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
-  width: 72vh;
+  width: 450px;
 }
 
 #editarStatus {
@@ -63,4 +63,35 @@
   color: white;
   font-family: "Montserrat", sans-serif;
   margin-bottom: 15px;
+}
+
+@media screen and (max-width: 750px) {
+  .inputs_editardisciplina {
+    padding: 12px;
+    width: 320px;
+  }
+  .titulo_editardisciplina {
+    margin-right: 21px;
+    font-size: 32px;
+  }
+  #editarStatus {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .inputs_editardisciplina {
+    padding: 12px;
+    width: 275px;
+  }
+  .titulo_editardisciplina {
+    margin-right: 15px;
+    font-size: 28px;
+  }
+  #editarStatus {
+    padding: 10px;
+  }
+  #btnSalvaredicaoDisciplina {
+    padding: 10px 30px;
+  }
 }
