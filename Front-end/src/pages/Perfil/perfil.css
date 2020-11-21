@@ -1,4 +1,4 @@
-.box_login {
+.box_perfil {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -7,7 +7,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.bloco_login {
+.bloco_perfil {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -17,7 +17,7 @@
   background: radial-gradient(skyblue, transparent);
 }
 
-.header_login {
+.header_perfil {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@
   font-size: 28px;
 }
 
-.inputs_login {
+.inputs_perfil {
   font-size: 16px;
   border-radius: 25px;
   border-style: none;
@@ -66,7 +66,7 @@
   font-weight: 600;
 }
 
-.op_login {
+.op_perfil {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,7 +86,15 @@
   #nome_app {
     font-size: 37px;
   }
+  .op_editarexcluir{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
+
+
+  }
   .opcao {
     justify-content: center;
     align-items: center;

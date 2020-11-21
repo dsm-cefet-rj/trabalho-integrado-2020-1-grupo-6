@@ -55,9 +55,9 @@ export function Perfil() {
               ></input>
                 </div>
           </form>
-
-
-              <div className="op_perfil">
+                
+  
+              <div className="op_editarexcluir">
           <div className="opcao">
             <FiArrowRight size={35} color="white" />
             <Link to="/disciplinas" className="itens" id="minhasDisciplinas">
