@@ -1,17 +1,17 @@
-.tituloCriarDisciplina {
+.tituloEditarAtividade {
   margin-right: 45px;
   font-size: 38px;
   color: navy;
 }
 
-.headerCriarDisciplina {
+.headerEditarAtividade {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
 }
 
-.boxCriarDisciplina {
+.boxEditarAtividade {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -20,7 +20,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.blocoCriarDisciplina {
+.blocoEditarAtividade {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -30,7 +30,7 @@
   background: radial-gradient(skyblue, transparent);
 }
 
-.inputsCriarDisciplina {
+.inputsEditarAtividade {
   font-size: 16px;
   border-radius: 25px;
   border-style: none;
@@ -41,7 +41,7 @@
   width: 450px;
 }
 
-#status {
+.editarStatusTipo {
   font-size: 16px;
   margin-top: 30px;
   border-radius: 20px;
@@ -51,7 +51,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-#btnCriarDisciplina {
+#btnSalvarEdicaoAtividade {
   border: none;
   background-color: rgb(6, 41, 169);
   border-radius: 25px;
@@ -65,41 +65,41 @@
   margin-bottom: 15px;
 }
 
-#statusDisciplinaEmAndamento {
-  color: orange;
+#editarStatusAtividadeAguardando {
+  color: red;
 }
 
-#statusDisciplinaConcluida {
+#editarStatusAtividadeConcluida {
   color: green;
 }
 
 @media screen and (max-width: 750px) {
-  .inputsCriarDisciplina {
+  .inputsEditarAtividade {
     padding: 12px;
     width: 320px;
   }
-  .tituloCriarDisciplina {
+  .tituloEditarAtividade {
     margin-right: 30px;
     font-size: 34px;
   }
-  #status {
+  .editarStatusTipo {
     padding: 10px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .inputsCriarDisciplina {
+  .inputsEditarAtividade {
     padding: 12px;
     width: 275px;
   }
-  .tituloCriarDisciplina {
+  .tituloEditarAtividade {
     margin-right: 20px;
     font-size: 31px;
   }
-  #status {
+  .editarStatusTipo {
     padding: 10px;
   }
-  #btnCriarDisciplina {
+  #btnSalvarEdicaoAtividade {
     padding: 10px 30px;
   }
 }

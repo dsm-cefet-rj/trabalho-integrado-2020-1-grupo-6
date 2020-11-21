@@ -1,17 +1,17 @@
-.tituloCriarDisciplina {
+.tituloCriarAtividade {
   margin-right: 45px;
   font-size: 38px;
   color: navy;
 }
 
-.headerCriarDisciplina {
+.headerCriarAtividade {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
 }
 
-.boxCriarDisciplina {
+.boxCriarAtividade {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -20,7 +20,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.blocoCriarDisciplina {
+.blocoCriarAtividade {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -30,7 +30,7 @@
   background: radial-gradient(skyblue, transparent);
 }
 
-.inputsCriarDisciplina {
+.inputsCriarAtividade {
   font-size: 16px;
   border-radius: 25px;
   border-style: none;
@@ -41,7 +41,7 @@
   width: 450px;
 }
 
-#status {
+.status_tipo {
   font-size: 16px;
   margin-top: 30px;
   border-radius: 20px;
@@ -51,7 +51,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-#btnCriarDisciplina {
+#btnCriarAtividade {
   border: none;
   background-color: rgb(6, 41, 169);
   border-radius: 25px;
@@ -65,41 +65,41 @@
   margin-bottom: 15px;
 }
 
-#statusDisciplinaEmAndamento {
-  color: orange;
+#statusAtividadeAguardando {
+  color: red;
 }
 
-#statusDisciplinaConcluida {
+#statusAtividadeConcluida {
   color: green;
 }
 
 @media screen and (max-width: 750px) {
-  .inputsCriarDisciplina {
+  .inputsCriarAtividade {
     padding: 12px;
     width: 320px;
   }
-  .tituloCriarDisciplina {
+  .tituloCriarAtividade {
     margin-right: 30px;
     font-size: 34px;
   }
-  #status {
+  .status_tipo {
     padding: 10px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .inputsCriarDisciplina {
+  .inputsCriarAtividade {
     padding: 12px;
     width: 275px;
   }
-  .tituloCriarDisciplina {
+  .tituloCriarAtividade {
     margin-right: 20px;
     font-size: 31px;
   }
-  #status {
+  .status_tipo {
     padding: 10px;
   }
-  #btnCriarDisciplina {
+  #btnCriarAtividade {
     padding: 10px 30px;
   }
 }

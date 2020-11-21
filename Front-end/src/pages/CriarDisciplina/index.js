@@ -19,7 +19,7 @@ export function CriarDisciplina() {
     event.preventDefault();
 
     console.log(nome, periodo, horario, local, nomeProfessor, material, status);
-    history.push("/Disciplinas");
+    history.push("/disciplinas");
   }
 
   return (
