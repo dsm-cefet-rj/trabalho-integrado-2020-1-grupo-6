@@ -88,21 +88,22 @@
   }
   
   
-  .opcao {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: 6px 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 25px;
-    margin-right:100px;
-    font-family: "Montserrat", sans-serif;
-    background-color: steelblue;
-
-  } 
+  
 } 
 
+.opcaoum {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 6px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 25px;
+  margin-right:100px;
+  font-family: "Montserrat", sans-serif;
+  background-color: steelblue;
+
+} 
 .opeditar{
   display: flex;
   flex-direction: row;
@@ -110,6 +111,16 @@
   align-items: center;
 }
 .opcaodois{
+  background-color: steelblue;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 6px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 25px;
+ 
+  font-family: "Montserrat", sans-serif;
   background-color: steelblue;
   right:100px;
 }
