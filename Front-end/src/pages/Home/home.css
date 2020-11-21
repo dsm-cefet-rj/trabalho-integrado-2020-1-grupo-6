@@ -1,8 +1,26 @@
 .op_home {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  min-height: 300px;
+}
+
+.opcao {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 6px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  background-color: steelblue;
+}
+
+.itens {
+  color: white;
+  text-decoration: none;
 }
 
 .box_home {
@@ -33,5 +51,6 @@
 
 #title {
   margin-right: 45px;
-  font-size: 42px;
+  font-size: 45px;
+  color: navy;
 }

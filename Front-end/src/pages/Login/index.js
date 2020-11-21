@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import styles from "./login.css";
 import { FiCheckSquare } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
 
 export function Login() {
+  const [login, setLogin] = useState("");
+  const [senha, setSenha] = useState("");
+  const history = useHistory();
+
+  function submitLogin() {
+    console.log(login, senha);
+
+    history.push("/home");
+  }
+
   return (
     <div className="bloco_login">
       <div className="box_login">
@@ -12,25 +23,32 @@ export function Login() {
           <h1 id="nome_app">TaskBoard</h1>
           <FiCheckSquare size={45} color="#0629a9" />
         </div>
-        <div className="op_login">
-          <h2 className="titulo_login">Faça seu login</h2>
+        <form onSubmit={submitLogin}>
+          <div className="op_login">
+            <h2 className="titulo_login">Faça seu login</h2>
 
-          <input
-            id="usuarioLogin"
-            className="inputs_login"
-            placeholder="Digite seu usuário"
-          ></input>
-          <input
-            type="text"
-            id="usuarioSenha"
-            className="inputs_login"
-            placeholder="Digite sua senha"
-          ></input>
+            <input
+              id="usuarioLogin"
+              className="inputs_login"
+              placeholder="Digite seu usuário"
+              value={login}
+              onChange={(e) => setLogin(e.target.value)}
+            ></input>
 
-          <button type="submit" id="btnEntrar">
-            Entrar
-          </button>
-        </div>
+            <input
+              type="password"
+              id="usuarioSenha"
+              className="inputs_login"
+              placeholder="Digite sua senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+            ></input>
+
+            <button type="submit" id="btnEntrar">
+              Entrar
+            </button>
+          </div>
+        </form>
 
         <Link to="/cadastro" id="btnCadastrar">
           Cadastre-se aqui

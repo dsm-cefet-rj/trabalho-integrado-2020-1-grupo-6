@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styles from "./home.css";
 import { Link } from "react-router-dom";
-import { FiCheckSquare } from "react-icons/fi";
+import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 
 export function Home() {
@@ -11,43 +11,30 @@ export function Home() {
       <div className="box_home">
         <div className="header_home">
           <h1 id="title">TaskBoard</h1>
-          <FiCheckSquare size={45} color="#0629a9" />
+          <FiCheckSquare size={45} color="black" />
         </div>
+
         <div className="op_home">
-          {/* <Link to="/disciplinas" id="btnCadastrar">
-           Minhas Disciplinas
-          </Link>
-          <Link to="/atividades" id="btnCadastrar">
-           Minhas Atividades
-          </Link>
-          <Link to="/perfil" id="btnCadastrar">
-           Meu Perfil
-          </Link> */}
-
-          
-
-
-         
-          {/* <button id="minhasAtividades">Minhas Atividades</button>
-          <button id="meuPerfil">Meu perfil</button> */}
+          <div className="opcao">
+            <FiArrowRight size={35} color="white" />
+            <Link to="/disciplinas" className="itens" id="minhasDisciplinas">
+              Minhas Disciplinas
+            </Link>
+          </div>
+          <div className="opcao">
+            <FiArrowRight size={35} color="white" />
+            <Link to="/atividades" className="itens" id="minhasAtividade">
+              Minhas Atividades
+            </Link>
+          </div>
+          <div className="opcao">
+            <FiArrowRight size={35} color="white" />
+            <Link to="/perfil" className="itens" id="meuPerfil">
+              Meu perfil
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-function HomeButton() {
-  const history = useHistory();
-
-  function handleClick() {
-    history.push("/disciplinas");
-  }
-  return(
-  <button id="minhasDisciplinas" onClick={handleClick}>Minhas Disciplinas</button>
-  );
-}
-
-
-
-
-

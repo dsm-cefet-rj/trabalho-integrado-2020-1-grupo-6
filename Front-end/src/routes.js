@@ -25,23 +25,24 @@ const Routes = () => {
       <Route path="/perfil/edit" component={EditarPerfil} exact />
       <Route path="/disciplinas" component={Disciplinas} exact />
       <Route path="/atividades" component={Atividades} exact />
+      <Route
+        path="/disciplinas/view/:disciplinaID"
+        component={VerDisciplina}
+        
+      />
       <Route path="/disciplinas/create" component={CriarDisciplina} exact />
       <Route path="/atividades/create" component={CriarAtividade} exact />
+      
+      <Route path="/atividades/view/:atividadeID" component={VerAtividade}  />
       <Route
-        path="/disciplinas/:disciplinaID"
-        component={VerDisciplina}
-        exact
-      />
-      <Route path="/atividades/:atividadeID" component={VerAtividade} exact />
-      <Route
-        path="/disciplinas/:disciplinaID/edit"
+        path="/disciplinas/edit/:disciplinaID"
         component={EditarDisciplina}
-        exact
+        
       />
       <Route
-        path="/atividades/:atividadeID/edit"
+        path="/atividades/edit/:atividadeID"
         component={EditarAtividade}
-        exact
+        
       />
     </BrowserRouter>
   );
