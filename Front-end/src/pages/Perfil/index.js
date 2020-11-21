@@ -54,17 +54,18 @@ export function Perfil() {
                 onChange={(e) => setCurso(e.target.value)}
               ></input>
                 </div>
-          </form>
                 
+          </form>
+          
   
-              <div className="op_editarexcluir">
+              <div className="opeditar">
           <div className="opcao">
             <FiArrowRight size={35} color="white" />
             <Link to="/disciplinas" className="itens" id="minhasDisciplinas">
               Editar
             </Link>
           </div>
-          <div className="opcao">
+          <div className="opcaodois">
             <FiArrowRight size={35} color="white" />
             <Link to="/atividades" className="itens" id="minhasAtividade">
               Excluir
@@ -72,7 +73,8 @@ export function Perfil() {
           </div>
           
         </div> 
-        </div>
+        
+      </div>
       </div>
     );
   }

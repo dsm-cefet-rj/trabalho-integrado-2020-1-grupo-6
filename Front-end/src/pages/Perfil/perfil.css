@@ -86,24 +86,30 @@
   #nome_app {
     font-size: 37px;
   }
-  .op_editarexcluir{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-
-
-  }
+  
+  
   .opcao {
     justify-content: center;
     align-items: center;
     display: flex;
     padding: 6px 15px;
-    border-radius: 10px;
+    border-radius: 50px;
     text-decoration: none;
     font-size: 25px;
+    margin-right:100px;
     font-family: "Montserrat", sans-serif;
     background-color: steelblue;
+
   } 
 } 
+
+.opeditar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.opcaodois{
+  background-color: steelblue;
+  right:100px;
+}
