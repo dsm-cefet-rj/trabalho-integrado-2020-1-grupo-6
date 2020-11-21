@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-//import styles from "./login.css";
+import styles from "./perfil.css";
 import { useHistory } from "react-router-dom";
 import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
 
