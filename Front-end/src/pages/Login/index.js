@@ -25,7 +25,7 @@ export function Login() {
           return;
         }
         console.log(response.data);
-        history.push("/home");
+        history.push("/home"); //falta redux
       });
   }
 

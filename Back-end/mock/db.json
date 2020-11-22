@@ -1,11 +1,18 @@
 {
   "usuarios": [
     {
-      "usuario": "ricardinhoninja123",
-      "senha": "12345",
-      "nome": "Ricardo Ninja",
+      "nome": "luiza guedes",
+      "usuario": "luludocon",
+      "curso": "economia",
+      "senha": "luluzinha",
+      "id": "RjQLt57"
+    },
+    {
+      "nome": "felipe",
+      "usuario": "felipe123",
       "curso": "Ciência da computação",
-      "id": "100"
+      "senha": "123123",
+      "id": "FbUIi-P"
     }
   ],
   "disciplinas": [
@@ -19,7 +26,6 @@
       "status": "Em andamento",
       "id": "200"
     },
-
     {
       "nome": "Arquitetura de linguagens",
       "periodo": "1º",
@@ -38,8 +44,10 @@
       "dataEntrega": "12/12/2020",
       "pontuacaoMax": "10",
       "status": "Aguardando",
-      "tipo": "prova",
+      "tipo": "Prova",
       "descricao": "HTML e Javascript",
+      "notaFinal": "9.0",
+      "arquivo": "prova.pdf",
       "id": "300"
     },
     {
@@ -48,8 +56,10 @@
       "dataEntrega": "07/01/2020",
       "pontuacaoMax": "10",
       "status": "Aguardando",
-      "tipo": "trabalho",
+      "tipo": "Trabalho",
       "descricao": "React",
+      "notaFinal": "9.0",
+      "arquivo": "prova.pdf",
       "id": "301"
     },
     {
@@ -58,8 +68,10 @@
       "dataEntrega": "01/11/2020",
       "pontuacaoMax": "10",
       "status": "Concluida",
-      "tipo": "prova",
+      "tipo": "Prova",
       "descricao": "linguagens de programacao",
+      "notaFinal": "9.0",
+      "arquivo": "prova.pdf",
       "id": "302"
     }
   ]

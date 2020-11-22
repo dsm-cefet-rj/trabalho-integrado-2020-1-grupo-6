@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import styles from "./CriarDisciplina.css";
 import { Link, useHistory } from "react-router-dom";
 import { FiCheckSquare } from "react-icons/fi";
+import { api } from "../../services/api.js";
 
 export function CriarDisciplina() {
   const [nome, setNome] = useState("");
@@ -19,7 +20,23 @@ export function CriarDisciplina() {
     event.preventDefault();
 
     console.log(nome, periodo, horario, local, nomeProfessor, material, status);
-    history.push("/disciplinas");
+
+    api
+      .get("disciplinas", {
+        params: {
+          nome,
+          periodo,
+          horario,
+          local,
+          professor: nomeProfessor,
+          material,
+          status,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        history.push("/disciplinas"); //falta redux
+      });
   }
 
   return (

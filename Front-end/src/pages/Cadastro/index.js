@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./cadastro.css";
 import { FiCheckSquare } from "react-icons/fi";
+import { api } from "../../services/api.js";
 
 export function Cadastro() {
   const [nome, setNome] = useState("");
@@ -19,7 +20,11 @@ export function Cadastro() {
       return;
     }
     console.log(nome, usuario, curso, senha, confirmaSenha);
-    history.push("/");
+
+    api.post("usuarios", { nome, usuario, curso, senha }).then((response) => {
+      console.log(response.data);
+      history.push("/"); //falta redux
+    });
   }
 
   return (

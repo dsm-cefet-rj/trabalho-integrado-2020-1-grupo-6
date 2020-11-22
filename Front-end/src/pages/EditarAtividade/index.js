@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import styles from "./EditarAtividade.css";
 import { Link, useHistory } from "react-router-dom";
 import { FiCheckSquare, FiFile } from "react-icons/fi";
+import { api } from "../../services/api.js";
 
 export function EditarAtividade() {
   const [nome, setNome] = useState("");
@@ -29,7 +30,23 @@ export function EditarAtividade() {
       notaFinal,
       arquivo
     );
-    history.push("/atividades/view/:atividadeID");
+    api
+      .get("atividades", {
+        params: {
+          nome,
+          dataEntrega,
+          pontuacaoMax,
+          status,
+          tipo,
+          descricao,
+          notaFinal,
+          arquivo,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        history.push("/atividades/view/:atividadeID"); //falta redux
+      });
   }
 
   return (

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { FiCheckSquare } from "react-icons/fi";
 import styles from "./EditarDisciplina.css";
 import { Link, useHistory } from "react-router-dom";
+import { api } from "../../services/api.js";
 
 export function EditarDisciplina() {
   const [nome, setNome] = useState("");
@@ -19,7 +20,23 @@ export function EditarDisciplina() {
     event.preventDefault();
 
     console.log(nome, periodo, horario, local, nomeProfessor, material, status);
-    history.push("/disciplinas/view/:disciplinaID");
+
+    api
+      .get("disciplinas", {
+        params: {
+          nome,
+          periodo,
+          horario,
+          local,
+          professor: nomeProfessor,
+          material,
+          status,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        history.push("/disciplinas/view/:disciplinaID"); //falta redux
+      });
   }
 
   return (
