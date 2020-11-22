@@ -1,0 +1,66 @@
+{
+  "usuarios": [
+    {
+      "usuario": "ricardinhoninja123",
+      "senha": "12345",
+      "nome": "Ricardo Ninja",
+      "curso": "Ciência da computação",
+      "id": "100"
+    }
+  ],
+  "disciplinas": [
+    {
+      "nome": "PSW",
+      "periodo": "4º",
+      "horario": "13:30",
+      "local": "Pavilhão 4",
+      "professor": "Diogo",
+      "material": "https://www.google.com",
+      "status": "Em andamento",
+      "id": "200"
+    },
+
+    {
+      "nome": "Arquitetura de linguagens",
+      "periodo": "1º",
+      "horario": "19:30",
+      "local": "Pavilhão 9",
+      "professor": "Rodolfo",
+      "material": "https://www.google.com",
+      "status": "Concluida",
+      "id": "201"
+    }
+  ],
+  "atividades": [
+    {
+      "nome": "prova P1",
+      "disciplina": "200",
+      "dataEntrega": "12/12/2020",
+      "pontuacaoMax": "10",
+      "status": "Aguardando",
+      "tipo": "prova",
+      "descricao": "HTML e Javascript",
+      "id": "300"
+    },
+    {
+      "nome": "trabalho P2",
+      "disciplina": "200",
+      "dataEntrega": "07/01/2020",
+      "pontuacaoMax": "10",
+      "status": "Aguardando",
+      "tipo": "trabalho",
+      "descricao": "React",
+      "id": "301"
+    },
+    {
+      "nome": "trabalho software",
+      "disciplina": "201",
+      "dataEntrega": "01/11/2020",
+      "pontuacaoMax": "10",
+      "status": "Concluida",
+      "tipo": "prova",
+      "descricao": "linguagens de programacao",
+      "id": "302"
+    }
+  ]
+}
