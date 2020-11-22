@@ -62,6 +62,15 @@ export function Perfil() {
           
   
               <div className="opeditar">
+             
+          <div className="opcaozero">
+            <FiArrowRight size={35} color="white" />
+            <Link to="/home" className="itens" id="minhasAtividade">
+              Voltar
+            </Link>
+          
+        </div> 
+
           <div className="opcaoum">
             <FiArrowRight size={35} color="white" />
             <Link to="/perfil/edit" className="itens" id="editarperfil">
@@ -72,13 +81,11 @@ export function Perfil() {
             <FiArrowRight size={35} color="white" />
             <Link to="/atividades" className="itens" id="minhasAtividade">
               Excluir
-            </Link>
-            <img src="/images/voltar.jpg"></img>;
-        
+            </Link>        
           </div>
-          
-        </div> 
+
         
+      </div>
       </div>
       </div>
     );

@@ -45,26 +45,7 @@
   width: 48vh;
 }
 
-#btnEntrar {
-  border: none;
-  background-color: rgb(6, 41, 169);
-  border-radius: 25px;
-  padding: 10px 45px;
-  font-size: 17px;
-  outline: none;
-  margin-top: 30px;
-  font-weight: 600;
-  color: white;
-  font-family: "Montserrat", sans-serif;
-}
 
-#btnCadastrar {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-}
 
 .op_perfil {
   display: flex;
@@ -91,6 +72,22 @@
   
 } 
 
+
+
+.opcaozero{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 6px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  background-color: steelblue;
+  margin-right: 50px;
+
+}
+
 .opcaoum {
   justify-content: center;
   align-items: center;
@@ -99,7 +96,7 @@
   border-radius: 50px;
   text-decoration: none;
   font-size: 25px;
-  margin-right:100px;
+  margin-right:80px;
   font-family: "Montserrat", sans-serif;
   background-color: steelblue;
 
@@ -119,8 +116,7 @@
   border-radius: 50px;
   text-decoration: none;
   font-size: 25px;
- 
   font-family: "Montserrat", sans-serif;
   background-color: steelblue;
-  right:100px;
 }
+
