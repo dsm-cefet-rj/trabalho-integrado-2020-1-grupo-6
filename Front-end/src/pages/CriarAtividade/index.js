@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import styles from "./CriarAtividade.css";
 import { Link, useHistory } from "react-router-dom";
 import { FiCheckSquare, FiFile } from "react-icons/fi";
+import { api } from "../../services/api.js";
 
 export function CriarAtividade() {
   const [nome, setNome] = useState("");
@@ -29,7 +30,22 @@ export function CriarAtividade() {
       notaFinal,
       arquivo
     );
-    history.push("/atividades");
+
+    api
+      .post("atividades", {
+        nome,
+        dataEntrega,
+        pontuacaoMax,
+        status,
+        tipo,
+        descricao,
+        notaFinal,
+        arquivo,
+      })
+      .then((response) => {
+        console.log(response.data);
+        history.push("/atividades"); //falta redux
+      });
   }
 
   return (

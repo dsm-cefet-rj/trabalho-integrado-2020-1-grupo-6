@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./home.css";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export function Home() {
+  const history = useHistory();
+  const usuario = useSelector((state) => state?.usuario);
+  useEffect(() => {
+    console.log(usuario);
+    if (!usuario) {
+      history.push("/");
+    }
+  }, []);
+
   return (
     <div className="bloco_home">
       <div className="box_home">
