@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./EditarAtividade.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { FiCheckSquare, FiFile } from "react-icons/fi";
+import { api } from "../../services/api.js";
 
 export function EditarAtividade() {
   const [nome, setNome] = useState("");
@@ -13,8 +14,35 @@ export function EditarAtividade() {
   const [descricao, setDescricao] = useState("");
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
+  const { atividadeID } = useParams();
 
   const history = useHistory();
+
+  useEffect(() => {
+    api
+      .get("atividades/" + atividadeID, {
+        params: {
+          nome,
+          dataEntrega,
+          pontuacaoMax,
+          status,
+          tipo,
+          descricao,
+          notaFinal,
+          arquivo,
+        },
+      })
+      .then((response) => {
+        setNome(response.data.nome);
+        setDataEntrega(response.data.dataEntrega);
+        setPontuacaoMax(response.data.pontuacaoMax);
+        setStatus(response.data.status);
+        setTipo(response.data.tipo);
+        setDescricao(response.data.descricao);
+        setNotaFinal(response.data.notaFinal);
+        setArquivo(response.data.arquivo);
+      });
+  }, []);
 
   function submitEditarAtividade(event) {
     event.preventDefault();
@@ -29,7 +57,22 @@ export function EditarAtividade() {
       notaFinal,
       arquivo
     );
-    history.push("/atividades/view/:atividadeID");
+
+    api
+      .put("atividades/" + atividadeID, {
+        nome,
+        dataEntrega,
+        pontuacaoMax,
+        status,
+        tipo,
+        descricao,
+        notaFinal,
+        arquivo,
+      })
+      .then((response) => {
+        console.log(response.data);
+        history.push("/atividades/view/:" + atividadeID); //falta redux
+      });
   }
 
   return (
@@ -121,7 +164,7 @@ export function EditarAtividade() {
           ></input>
 
           <button type="submit" id="btnSalvarEdicaoAtividade">
-            Criar
+            Salvar
           </button>
         </div>
       </form>

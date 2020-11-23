@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./CriarAtividade.css";
 import { Link, useHistory } from "react-router-dom";
 import { FiCheckSquare, FiFile } from "react-icons/fi";
+import { api } from "../../services/api.js";
+import { useSelector } from "react-redux";
 
 export function CriarAtividade() {
   const [nome, setNome] = useState("");
@@ -15,6 +17,14 @@ export function CriarAtividade() {
   const [arquivo, setArquivo] = useState("");
 
   const history = useHistory();
+
+  const usuario = useSelector((state) => state?.usuario);
+  useEffect(() => {
+    console.log(usuario);
+    if (!usuario) {
+      history.push("/");
+    }
+  }, []);
 
   function submitCriarAtividade(event) {
     event.preventDefault();
@@ -29,7 +39,22 @@ export function CriarAtividade() {
       notaFinal,
       arquivo
     );
-    history.push("/atividades");
+
+    api
+      .post("atividades", {
+        nome,
+        dataEntrega,
+        pontuacaoMax,
+        status,
+        tipo,
+        descricao,
+        notaFinal,
+        arquivo,
+      })
+      .then((response) => {
+        console.log(response.data);
+        history.push("/atividades"); //falta redux
+      });
   }
 
   return (

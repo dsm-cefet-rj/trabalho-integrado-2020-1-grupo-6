@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./CriarDisciplina.css";
 import { Link, useHistory } from "react-router-dom";
 import { FiCheckSquare } from "react-icons/fi";
+import { api } from "../../services/api.js";
+import { useSelector } from "react-redux";
 
 export function CriarDisciplina() {
   const [nome, setNome] = useState("");
@@ -15,11 +17,33 @@ export function CriarDisciplina() {
 
   const history = useHistory();
 
+  const usuario = useSelector((state) => state?.usuario);
+  useEffect(() => {
+    console.log(usuario);
+    if (!usuario) {
+      history.push("/");
+    }
+  }, []);
+
   function submitCriarDisciplina(event) {
     event.preventDefault();
 
     console.log(nome, periodo, horario, local, nomeProfessor, material, status);
-    history.push("/disciplinas");
+
+    api
+      .post("disciplinas", {
+        nome,
+        periodo,
+        horario,
+        local,
+        professor: nomeProfessor,
+        material,
+        status,
+      })
+      .then((response) => {
+        console.log(response.data);
+        history.push("/disciplinas"); //falta redux
+      });
   }
 
   return (
