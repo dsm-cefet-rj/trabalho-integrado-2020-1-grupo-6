@@ -27,7 +27,7 @@
       "id": "200"
     },
     {
-      "nome": "Arquitetura de linguagens",
+      "nome": "Arquitetura",
       "periodo": "1º",
       "horario": "19:30",
       "local": "Pavilhão 9",
@@ -35,6 +35,16 @@
       "material": "https://www.google.com",
       "status": "Concluida",
       "id": "201"
+    },
+    {
+      "nome": "Grafos",
+      "periodo": "4º",
+      "horario": "21:00",
+      "local": "Pavilhão 4",
+      "professor": "Pedro",
+      "material": "https://www.google.com",
+      "status": "Em andamento",
+      "id": "h8bOZsm"
     }
   ],
   "atividades": [
@@ -73,6 +83,28 @@
       "notaFinal": "9.0",
       "arquivo": "prova.pdf",
       "id": "302"
+    },
+    {
+      "nome": "trabalho grafos",
+      "dataEntrega": "23/04/2020",
+      "pontuacaoMax": "10",
+      "status": "Concluida",
+      "tipo": "Trabalho",
+      "descricao": "Grafos",
+      "notaFinal": "8.0",
+      "arquivo": "trabalho.pdf",
+      "id": "txiaWha"
+    },
+    {
+      "nome": "prova P1",
+      "dataEntrega": "12/12/2020",
+      "pontuacaoMax": "10",
+      "status": "Aguardando",
+      "tipo": "Prova",
+      "descricao": "Grafos",
+      "notaFinal": "3.0",
+      "arquivo": "trabalho.pdf",
+      "id": "ZKMfZ40"
     }
   ]
 }

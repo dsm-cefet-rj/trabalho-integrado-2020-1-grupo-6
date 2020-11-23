@@ -22,16 +22,14 @@ export function CriarDisciplina() {
     console.log(nome, periodo, horario, local, nomeProfessor, material, status);
 
     api
-      .get("disciplinas", {
-        params: {
-          nome,
-          periodo,
-          horario,
-          local,
-          professor: nomeProfessor,
-          material,
-          status,
-        },
+      .post("disciplinas", {
+        nome,
+        periodo,
+        horario,
+        local,
+        professor: nomeProfessor,
+        material,
+        status,
       })
       .then((response) => {
         console.log(response.data);

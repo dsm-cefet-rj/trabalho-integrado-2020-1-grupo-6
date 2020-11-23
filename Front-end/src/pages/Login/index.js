@@ -5,11 +5,13 @@ import styles from "./login.css";
 import { FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 import { api } from "../../services/api.js";
+import { useDispatch } from "react-redux";
 
 export function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const history = useHistory();
+  const dispatch = useDispatch();
 
   function submitLogin(event) {
     event.preventDefault();
@@ -21,10 +23,14 @@ export function Login() {
       })
       .then((response) => {
         if (response.data.length != 1) {
-          alert("Esse usuário não existe");
+          alert("Usuário e/ou senha estão incorretos");
           return;
         }
         console.log(response.data);
+        dispatch({
+          type: "fazerLogin",
+          payload: response.data[0],
+        });
         history.push("/home"); //falta redux
       });
   }

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { FiCheckSquare } from "react-icons/fi";
 import styles from "./EditarDisciplina.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { api } from "../../services/api.js";
 
 export function EditarDisciplina() {
@@ -13,29 +13,61 @@ export function EditarDisciplina() {
   const [nomeProfessor, setNomeProfessor] = useState("");
   const [material, setMaterial] = useState("");
   const [status, setStatus] = useState("Em andamento");
+  const { disciplinaID } = useParams();
+
+  // console.log(disciplinaID);
 
   const history = useHistory();
+
+  useEffect(() => {
+    api
+      .get("disciplinas/" + disciplinaID, {
+        nome,
+        periodo,
+        horario,
+        local,
+        professor: nomeProfessor,
+        material,
+        status,
+      })
+      .then((response) => {
+        setNome(response.data.nome);
+        setPeriodo(response.data.periodo);
+        setHorario(response.data.horario);
+        setLocal(response.data.local);
+        setNomeProfessor(response.data.professor);
+        setMaterial(response.data.material);
+        setStatus(response.data.status);
+      });
+  }, []);
 
   function submitEditarDisciplina(event) {
     event.preventDefault();
 
-    console.log(nome, periodo, horario, local, nomeProfessor, material, status);
+    console.log(
+      nome,
+      periodo,
+      horario,
+      local,
+      nomeProfessor,
+      material,
+      status,
+      disciplinaID
+    );
 
     api
-      .get("disciplinas", {
-        params: {
-          nome,
-          periodo,
-          horario,
-          local,
-          professor: nomeProfessor,
-          material,
-          status,
-        },
+      .put("disciplinas/" + disciplinaID, {
+        nome,
+        periodo,
+        horario,
+        local,
+        professor: nomeProfessor,
+        material,
+        status,
       })
       .then((response) => {
         console.log(response.data);
-        history.push("/disciplinas/view/:disciplinaID"); //falta redux
+        history.push("/disciplinas/view/:" + disciplinaID); //falta redux
       });
   }
 
