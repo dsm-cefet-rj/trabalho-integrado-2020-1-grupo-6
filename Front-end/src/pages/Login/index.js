@@ -31,7 +31,7 @@ export function Login() {
           type: "fazerLogin",
           payload: response.data[0],
         });
-        history.push("/home"); //falta redux
+        history.push("/home");
       });
   }
 

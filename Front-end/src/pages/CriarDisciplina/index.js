@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./CriarDisciplina.css";
 import { Link, useHistory } from "react-router-dom";
 import { FiCheckSquare } from "react-icons/fi";
 import { api } from "../../services/api.js";
+import { useSelector } from "react-redux";
 
 export function CriarDisciplina() {
   const [nome, setNome] = useState("");
@@ -15,6 +16,14 @@ export function CriarDisciplina() {
   const [status, setStatus] = useState("Em andamento");
 
   const history = useHistory();
+
+  const usuario = useSelector((state) => state?.usuario);
+  useEffect(() => {
+    console.log(usuario);
+    if (!usuario) {
+      history.push("/");
+    }
+  }, []);
 
   function submitCriarDisciplina(event) {
     event.preventDefault();
