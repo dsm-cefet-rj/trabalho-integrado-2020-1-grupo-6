@@ -5,7 +5,7 @@ Funcionalidade: Edita uma disciplina
   juntamente com o botão de salvar
 
 Dado que o formulário seja preenchido corretamente:
-  | id                          | valor                                                                   |
+  | id                                | valor                                                                   |
   | editarNomeDisciplina              | Evolução Planetária                                                        |
   | editarPeriodoDisciplina           | 2020.1                                                                  |
   | editarHorarioDisciplina           | 18:40                                                                   |
