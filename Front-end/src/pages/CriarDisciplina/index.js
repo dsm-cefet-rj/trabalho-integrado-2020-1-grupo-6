@@ -19,7 +19,7 @@ export function CriarDisciplina() {
 
   const usuario = useSelector((state) => state?.usuario);
   useEffect(() => {
-    console.log(usuario);
+    // console.log(usuario);
     if (!usuario) {
       history.push("/");
     }
@@ -28,7 +28,7 @@ export function CriarDisciplina() {
   function submitCriarDisciplina(event) {
     event.preventDefault();
 
-    console.log(nome, periodo, horario, local, nomeProfessor, material, status);
+    // console.log(nome, periodo, horario, local, nomeProfessor, material, status);
 
     api
       .post("disciplinas", {
@@ -39,10 +39,11 @@ export function CriarDisciplina() {
         professor: nomeProfessor,
         material,
         status,
+        idUsuario: usuario.id,
       })
       .then((response) => {
         console.log(response.data);
-        history.push("/disciplinas"); //falta redux
+        history.push("/disciplinas");
       });
   }
 
