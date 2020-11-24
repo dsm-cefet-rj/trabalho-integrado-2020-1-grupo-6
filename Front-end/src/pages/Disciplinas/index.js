@@ -8,29 +8,31 @@ import { useSelector } from "react-redux";
 
 export function Disciplinas() {
   const usuario = useSelector((state) => state?.usuario);
-  const [Disciplina, setDisciplina] = useState("");
+  const [disciplinas, setDisciplinas] = useState("");
   const history = useHistory();
   // console.log(usuario);
 
   useEffect(() => {
-    // console.log(usuario);
     if (!usuario) {
       history.push("/");
+      return;
     }
+
     api
       .get("disciplinas", {
         params: {
-          // idUsuario: usuario.id,
+          idUsuario: usuario.id,
         },
       })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
+        setDisciplinas(response.data);
       });
   }, []);
 
-  function submitDisciplinas() {
-    // console.log(Disciplina);
+  console.log(disciplinas);
 
+  function submitDisciplinas() {
     history.push("/home");
   }
 
@@ -60,8 +62,6 @@ export function Disciplinas() {
             id="pesquisaDisciplina"
             className="inputsDisciplinas"
             placeholder="Disciplina"
-            value={Disciplina}
-            onChange={(e) => setDisciplina(e.target.value)}
           ></input>
 
           <select name="Status" id="filtroDisciplina">
@@ -71,11 +71,7 @@ export function Disciplinas() {
           </select>
           <button id="btnBuscaDisciplina">Buscar</button>
 
-          <table
-            id="tabelaDisciplinas"
-            className="table table-striped"
-            border="1"
-          >
+          <table id="tabelaDisciplinas" border="1">
             <thead>
               <tr>
                 <th>Disciplina</th>
@@ -85,18 +81,21 @@ export function Disciplinas() {
             </thead>
 
             <tbody>
-              <tr>
-                <td>
-                  <Link
-                    id="nomeDisciplinaTabela"
-                    to="/disciplina/view/:disciplinaID"
-                  >
-                    PSW
-                  </Link>
-                </td>
-                <td>4° período</td>
-                <td>Concluída</td>
-              </tr>
+              {disciplinas &&
+                disciplinas.map((disciplina) => (
+                  <tr>
+                    <td>
+                      <Link
+                        id="nomeDisciplinaTabela"
+                        to={"/disciplina/view/" + disciplina.id}
+                      >
+                        {disciplina.nome}
+                      </Link>
+                    </td>
+                    <td>{disciplina.periodo}</td>
+                    <td>{disciplina.status}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
