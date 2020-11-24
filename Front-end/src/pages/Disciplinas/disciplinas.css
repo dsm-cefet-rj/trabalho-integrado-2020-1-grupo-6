@@ -37,6 +37,11 @@
   font-family: "Montserrat", sans-serif;
   background-color: white;
   margin-top: 30px;
+  border-radius: 10px;
+}
+#tabelaDisciplinas th,
+td {
+  padding: 10px;
 }
 
 #nomeDisciplinaTabela {
@@ -77,47 +82,3 @@
   font-family: "Montserrat", sans-serif;
   width: 48vh;
 }
-
-/* .opcaozero {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  padding: 6px 15px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 25px;
-  font-family: "Montserrat", sans-serif;
-  background-color: steelblue;
-  margin-right: 50px;
-}
-
-.opcaoum {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  padding: 6px 15px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 25px;
-  margin-right: 80px;
-  font-family: "Montserrat", sans-serif;
-  background-color: steelblue;
-}
-.opeditar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.opcaodois {
-  background-color: steelblue;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  padding: 6px 15px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 25px;
-  font-family: "Montserrat", sans-serif;
-  background-color: steelblue;
-} */

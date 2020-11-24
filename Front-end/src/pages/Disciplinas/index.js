@@ -8,7 +8,9 @@ import { useSelector } from "react-redux";
 
 export function Disciplinas() {
   const usuario = useSelector((state) => state?.usuario);
-  const [disciplinas, setDisciplinas] = useState("");
+  const [disciplinas, setDisciplinas] = useState([]);
+  const [filtroNome, setFiltroNome] = useState("");
+  const [filtroStatus, setFiltroStatus] = useState("");
   const history = useHistory();
   // console.log(usuario);
 
@@ -32,46 +34,61 @@ export function Disciplinas() {
 
   console.log(disciplinas);
 
-  function submitDisciplinas() {
-    history.push("/home");
-  }
-
   function toCriarDisciplina() {
     history.push("/disciplinas/create");
   }
 
-  function toVerDisciplina() {
-    history.push("/disciplina/view/:disciplinaID");
+  function requisicaoFiltros() {
+    api
+      .get("disciplinas", {
+        params: {
+          ...(filtroStatus && { status: filtroStatus }),
+          ...(filtroNome && { nome: filtroNome }),
+          idUsuario: usuario.id,
+        },
+      })
+      .then((response) => {
+        setDisciplinas(response.data);
+      });
   }
 
   return (
     <div className="blocoDisciplinas">
-      <form onSubmit={submitDisciplinas}>
-        <div className="boxDisciplinas">
-          <div className="headerDisciplinas">
-            <h2 className="tituloDisciplinas">Disciplinas</h2>
-            <FiPlusCircle
-              id="adicionarDisciplina"
-              onClick={toCriarDisciplina}
-              size={40}
-              color="black"
-            />
-          </div>
+      <div className="boxDisciplinas">
+        <div className="headerDisciplinas">
+          <h2 className="tituloDisciplinas">Disciplinas</h2>
+          <FiPlusCircle
+            id="adicionarDisciplina"
+            onClick={toCriarDisciplina}
+            size={40}
+            color="black"
+          />
+        </div>
 
-          <input
-            id="pesquisaDisciplina"
-            className="inputsDisciplinas"
-            placeholder="Disciplina"
-          ></input>
+        <input
+          id="pesquisaDisciplina"
+          className="inputsDisciplinas"
+          placeholder="Disciplina"
+          value={filtroNome}
+          onChange={(e) => setFiltroNome(e.target.value)}
+        ></input>
 
-          <select name="Status" id="filtroDisciplina">
-            <option value=""></option>
-            <option value="Em andamento">Em Andamento</option>
-            <option value="Concluida">Concluida</option>
-          </select>
-          <button id="btnBuscaDisciplina">Buscar</button>
+        <select
+          name="Status"
+          id="filtroDisciplina"
+          value={filtroStatus}
+          onChange={(e) => setFiltroStatus(e.target.value)}
+        >
+          <option value=""></option>
+          <option value="Em andamento">Em Andamento</option>
+          <option value="Concluida">Concluida</option>
+        </select>
+        <button id="btnBuscaDisciplina" onClick={requisicaoFiltros}>
+          Buscar
+        </button>
 
-          <table id="tabelaDisciplinas" border="1">
+        {disciplinas.length > 0 ? (
+          <table id="tabelaDisciplinas">
             <thead>
               <tr>
                 <th>Disciplina</th>
@@ -79,27 +96,27 @@ export function Disciplinas() {
                 <th>Status</th>
               </tr>
             </thead>
-
             <tbody>
-              {disciplinas &&
-                disciplinas.map((disciplina) => (
-                  <tr>
-                    <td>
-                      <Link
-                        id="nomeDisciplinaTabela"
-                        to={"/disciplina/view/" + disciplina.id}
-                      >
-                        {disciplina.nome}
-                      </Link>
-                    </td>
-                    <td>{disciplina.periodo}</td>
-                    <td>{disciplina.status}</td>
-                  </tr>
-                ))}
+              {disciplinas.map((disciplina) => (
+                <tr key={disciplina.id}>
+                  <td>
+                    <Link
+                      id="nomeDisciplinaTabela"
+                      to={"/disciplinas/view/" + disciplina.id}
+                    >
+                      {disciplina.nome}
+                    </Link>
+                  </td>
+                  <td>{disciplina.periodo}</td>
+                  <td>{disciplina.status}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
-        </div>
-      </form>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }

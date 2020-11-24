@@ -15,12 +15,18 @@ export function CriarAtividade() {
   const [descricao, setDescricao] = useState("");
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
+  const [disciplinas, setDisciplinas] = useState("");
 
   const history = useHistory();
 
-  const usuario = useSelector((state) => state?.usuario);
+  const { usuario, disciplina } = useSelector((state) => ({
+    usuario: state?.usuario,
+    disciplina: state?.disciplina,
+  }));
+
   useEffect(() => {
     console.log(usuario);
+    console.log(disciplina);
     if (!usuario) {
       history.push("/");
     }
@@ -29,16 +35,16 @@ export function CriarAtividade() {
   function submitCriarAtividade(event) {
     event.preventDefault();
 
-    console.log(
-      nome,
-      dataEntrega,
-      pontuacaoMax,
-      status,
-      tipo,
-      descricao,
-      notaFinal,
-      arquivo
-    );
+    // console.log(
+    //   nome,
+    //   dataEntrega,
+    //   pontuacaoMax,
+    //   status,
+    //   tipo,
+    //   descricao,
+    //   notaFinal,
+    //   arquivo,
+    // );
 
     api
       .post("atividades", {
@@ -50,10 +56,11 @@ export function CriarAtividade() {
         descricao,
         notaFinal,
         arquivo,
+        idDisciplina: disciplina,
       })
       .then((response) => {
-        console.log(response.data);
-        history.push("/atividades"); //falta redux
+        // console.log(response.data);
+        history.push("/disciplinas/view/" + disciplina);
       });
   }
 

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { FiCheckSquare } from "react-icons/fi";
 import styles from "./EditarDisciplina.css";
 import { Link, useHistory, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
 export function EditarDisciplina() {
@@ -15,30 +16,22 @@ export function EditarDisciplina() {
   const [status, setStatus] = useState("Em andamento");
   const { disciplinaID } = useParams();
 
+  const usuario = useSelector((state) => state.usuario);
+
   // console.log(disciplinaID);
 
   const history = useHistory();
 
   useEffect(() => {
-    api
-      .get("disciplinas/" + disciplinaID, {
-        nome,
-        periodo,
-        horario,
-        local,
-        professor: nomeProfessor,
-        material,
-        status,
-      })
-      .then((response) => {
-        setNome(response.data.nome);
-        setPeriodo(response.data.periodo);
-        setHorario(response.data.horario);
-        setLocal(response.data.local);
-        setNomeProfessor(response.data.professor);
-        setMaterial(response.data.material);
-        setStatus(response.data.status);
-      });
+    api.get("disciplinas/" + disciplinaID).then((response) => {
+      setNome(response.data.nome);
+      setPeriodo(response.data.periodo);
+      setHorario(response.data.horario);
+      setLocal(response.data.local);
+      setNomeProfessor(response.data.professor);
+      setMaterial(response.data.material);
+      setStatus(response.data.status);
+    });
   }, []);
 
   function submitEditarDisciplina(event) {
@@ -64,10 +57,11 @@ export function EditarDisciplina() {
         professor: nomeProfessor,
         material,
         status,
+        idUsuario: usuario.id,
       })
       .then((response) => {
         console.log(response.data);
-        history.push("/disciplinas/view/:" + disciplinaID); //falta redux
+        history.push("/disciplinas/view/" + disciplinaID);
       });
   }
 

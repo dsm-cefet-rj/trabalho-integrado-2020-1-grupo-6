@@ -14,8 +14,6 @@ export function Atividades() {
     history.push("/home");
   }
 
- 
-
   return (
     <div className="bloco_perfil">
       <div className="box_perfil">
@@ -34,34 +32,22 @@ export function Atividades() {
               value={Disciplina}
               onChange={(e) => setDisciplina(e.target.value)}
             ></input>
-              <select name="Status" id="statusdisciplina">
-                <option value="1">Em Andamento</option>
-                <option value="2">Concluida</option>
-                </select>
-</div>
+            <select name="Status" id="statusdisciplina">
+              <option value="1">Em Andamento</option>
+              <option value="2">Concluida</option>
+            </select>
+          </div>
+        </form>
 
-             </form>
+        <div></div>
+        <table id="tabledisciplinas" class="table table-striped" border="1">
+          <td>Atividade</td>
+          <td>Data De Entrega</td>
+          <td>Status</td>
 
-             <div>
-
-
-
-             </div>
-             <table id="tabledisciplinas" class="table table-striped" border="1">   
-        <td>Atividade</td>
-        <td>Data De Entrega</td>
-        <td>Status</td>
-   
-    <tbody id="myTable"></tbody>
-</table>
-
-
-             </div> 
-             
-             
-             
-             </div>
-            );
-          
-
-          }
+          <tbody id="myTable"></tbody>
+        </table>
+      </div>
+    </div>
+  );
+}

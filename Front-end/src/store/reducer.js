@@ -1,7 +1,6 @@
 const initialState = {
   usuario: null,
   disciplina: null,
-  atividade: null,
 };
 
 export function reducer(state = initialState, action) {
@@ -10,6 +9,12 @@ export function reducer(state = initialState, action) {
       return {
         ...state,
         usuario: action.payload,
+      };
+      break;
+    case "criarAtividade":
+      return {
+        ...state,
+        disciplina: action.payload,
       };
       break;
 
