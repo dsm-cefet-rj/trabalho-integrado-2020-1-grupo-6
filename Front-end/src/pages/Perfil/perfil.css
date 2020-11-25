@@ -1,13 +1,13 @@
-.box_perfil {
+.boxPerfil {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 80vh;
+  width: 100%;
   font-family: "Montserrat", sans-serif;
 }
 
-.bloco_perfil {
+.blocoPerfil {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -17,106 +17,59 @@
   background: radial-gradient(skyblue, transparent);
 }
 
-.header_perfil {
+.headerPerfil {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  align-items: center;
+  margin-top: 30px;
 }
 
-#nome_app {
+#tituloPerfil {
   margin-right: 45px;
-  font-size: 42px;
+  font-size: 40px;
   color: navy;
 }
 
-.titulo_login {
-  font-size: 28px;
+.btns {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
 }
 
-.inputs_perfil {
-  font-size: 16px;
+.opPerfil {
+  margin-top: 50px;
+  background-color: steelblue;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.itemsPerfil {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#btnEditarPerfil {
+  border: none;
+  background-color: rgb(6, 41, 169);
   border-radius: 25px;
-  border-style: none;
-  padding: 15px 40px;
+  padding: 10px 45px;
+  font-size: 17px;
+  margin-right: 25px;
   outline: none;
-  margin-top: 30px;
+  font-weight: 600;
+  color: white;
   font-family: "Montserrat", sans-serif;
-  width: 48vh;
 }
 
-
-
-.op_perfil {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (max-width: 750px) {
-  .inputs_login {
-    width: 260px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .inputs_login {
-    width: 210px;
-  }
-  #nome_app {
-    font-size: 37px;
-  }
-  
-  
-  
-} 
-
-
-
-.opcaozero{
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  padding: 6px 15px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 25px;
+#btnExcluirPerfil {
+  border: none;
+  background-color: rgb(6, 41, 169);
+  border-radius: 25px;
+  padding: 10px 45px;
+  font-size: 17px;
+  outline: none;
+  font-weight: 600;
+  color: white;
   font-family: "Montserrat", sans-serif;
-  background-color: steelblue;
-  margin-right: 50px;
-
 }
-
-.opcaoum {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  padding: 6px 15px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 25px;
-  margin-right:80px;
-  font-family: "Montserrat", sans-serif;
-  background-color: steelblue;
-
-} 
-.opeditar{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.opcaodois{
-  background-color: steelblue;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  padding: 6px 15px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 25px;
-  font-family: "Montserrat", sans-serif;
-  background-color: steelblue;
-}
-

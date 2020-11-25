@@ -1,5 +1,6 @@
 {
   "usuarios": [
+<<<<<<< HEAD
     {
       "nome": "luiza guedes",
       "usuario": "luludocon",
@@ -134,162 +135,12 @@
       "idUsuario": "6knp4_x",
       "id": "3LksGA_"
     }
+=======
+    
   ],
-  "atividades": [
-    {
-      "nome": "prova P1",
-      "disciplina": "200",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "HTML e Javascript",
-      "notaFinal": "9.0",
-      "arquivo": "prova.pdf",
-      "id": "300",
-      "idDisciplina": "iN4rJp_"
-    },
-    {
-      "nome": "trabalho P2",
-      "disciplina": "200",
-      "dataEntrega": "07/01/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Trabalho",
-      "descricao": "React",
-      "notaFinal": "9.0",
-      "arquivo": "prova.pdf",
-      "id": "301"
-    },
-    {
-      "nome": "trabalho software",
-      "disciplina": "201",
-      "dataEntrega": "01/11/2020",
-      "pontuacaoMax": "10",
-      "status": "Concluida",
-      "tipo": "Prova",
-      "descricao": "linguagens de programacao",
-      "notaFinal": "9.0",
-      "arquivo": "prova.pdf",
-      "id": "302"
-    },
-    {
-      "nome": "trabalho grafos",
-      "dataEntrega": "23/04/2020",
-      "pontuacaoMax": "10",
-      "status": "Concluida",
-      "tipo": "Trabalho",
-      "descricao": "Grafos",
-      "notaFinal": "8.0",
-      "arquivo": "trabalho.pdf",
-      "id": "txiaWha"
-    },
-    {
-      "nome": "prova P1",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "Grafos",
-      "notaFinal": "3.0",
-      "arquivo": "trabalho.pdf",
-      "id": "ZKMfZ40"
-    },
-    {
-      "nome": "trabalho grafos",
-      "dataEntrega": "23/04/2020",
-      "pontuacaoMax": "10",
-      "status": "Concluida",
-      "tipo": "Trabalho",
-      "descricao": "Grafos",
-      "notaFinal": "9.0",
-      "arquivo": "trabalho.pdf",
-      "idDisciplina": "iN4rJp_",
-      "id": "Dg-0XmM"
-    },
-    {
-      "nome": "prova",
-      "dataEntrega": "23/09",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "eee",
-      "notaFinal": "3.0",
-      "arquivo": "wwwww",
-      "idDisciplina": "75iRw27",
-      "id": "TiQk2ly"
-    },
-    {
-      "nome": "fggg",
-      "dataEntrega": "ddddd",
-      "pontuacaoMax": "saaaaaa",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "eee",
-      "notaFinal": "ffff",
-      "arquivo": "wwwww",
-      "idDisciplina": "iN4rJp_",
-      "id": "SfLG3rU"
-    },
-    {
-      "nome": "fggg",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "HTML e Javascript",
-      "notaFinal": "9.0",
-      "arquivo": "prova.pdf",
-      "idDisciplina": "iN4rJp_",
-      "id": "REM_f0s"
-    },
-    {
-      "nome": "trabalho grafos",
-      "dataEntrega": "23/09",
-      "pontuacaoMax": "saaaaaa",
-      "status": "Aguardando",
-      "tipo": "Trabalho",
-      "descricao": "Grafos",
-      "notaFinal": "3.0",
-      "arquivo": "prova.pdf",
-      "idDisciplina": "iN4rJp_",
-      "id": "5JLsrR8"
-    },
-    {
-      "nome": "prova P1",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "HTML e Javascript",
-      "notaFinal": "",
-      "arquivo": "",
-      "idDisciplina": "200",
-      "id": "yRrN8VZ"
-    },
-    {
-      "nome": "prova P1",
-      "dataEntrega": "23/04/2020",
-      "pontuacaoMax": "saaaaaa",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "Grafos",
-      "notaFinal": "9.0",
-      "arquivo": "wwwww",
-      "idDisciplina": "201",
-      "id": "oT9hkjp"
-    },
-    {
-      "nome": "prova P1",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "eee",
-      "notaFinal": "3.0",
-      "arquivo": "trabalho.pdf",
-      "idDisciplina": "bycV97T",
-      "id": "KiH7ENq"
-    }
-  ]
+  "disciplinas": [
+    
+>>>>>>> 1f434a8cd222b243ceb45930bfe5dc4ead534e16
+  ],
+  "atividades": []
 }

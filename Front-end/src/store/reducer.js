@@ -17,6 +17,12 @@ export function reducer(state = initialState, action) {
         disciplina: action.payload,
       };
       break;
+    case "atualizarUsuario":
+      return {
+        ...state,
+        usuario: action.payload,
+      };
+      break;
 
     default:
       break;
