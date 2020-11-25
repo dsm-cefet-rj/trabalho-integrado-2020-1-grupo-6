@@ -27,6 +27,13 @@
       "curso": "ciencia da computacao",
       "senha": "1234",
       "id": "6knp4_x"
+    },
+    {
+      "nome": "teste",
+      "usuario": "teste",
+      "curso": "teste",
+      "senha": "teste",
+      "id": "2bOlUt8"
     }
   ],
   "disciplinas": [
