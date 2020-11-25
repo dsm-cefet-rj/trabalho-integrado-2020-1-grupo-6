@@ -20,16 +20,16 @@ export function CriarAtividade() {
   const history = useHistory();
 
   const { usuario, disciplina } = useSelector((state) => ({
-    usuario: state?.usuario,
+    usuario: JSON.parse(localStorage.getItem("USUARIO")),
     disciplina: state?.disciplina,
   }));
 
   useEffect(() => {
     console.log(usuario);
     console.log(disciplina);
-    if (!usuario) {
-      history.push("/");
-    }
+    // if (!usuario) {
+    //   history.push("/");
+    // }
   }, []);
 
   function submitCriarAtividade(event) {

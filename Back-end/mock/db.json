@@ -1,9 +1,56 @@
 {
   "usuarios": [
-    
+    {
+      "nome": "Luíza Guedes",
+      "usuario": "luizaguedes",
+      "curso": "Ciência da computação",
+      "senha": "luluzinha123",
+      "id": 1
+    },
+    {
+      "nome": "Ricardo ninja",
+      "usuario": "ricardo",
+      "curso": "ciencia",
+      "senha": "123",
+      "id": 2
+    }
   ],
   "disciplinas": [
-    
+    {
+      "nome": "Grafos",
+      "periodo": "4º",
+      "horario": "13:30",
+      "local": "Pavilhão 4",
+      "professor": "Pedro",
+      "material": "https://google.com",
+      "status": "Concluida",
+      "idUsuario": 1,
+      "id": 2
+    },
+    {
+      "nome": "PAC",
+      "periodo": "4º",
+      "horario": "13:30",
+      "local": "Pavilhão 4",
+      "professor": "Diogo",
+      "material": "",
+      "status": "Em andamento",
+      "idUsuario": 2,
+      "id": 3
+    }
   ],
-  "atividades": []
+  "atividades": [
+    {
+      "nome": "trabalho grafos",
+      "dataEntrega": "23/04/2020",
+      "pontuacaoMax": "10",
+      "status": "Concluida",
+      "tipo": "Trabalho",
+      "descricao": "Grafos",
+      "notaFinal": "3.0",
+      "arquivo": "trabalho.pdf",
+      "idDisciplina": "1",
+      "id": 2
+    }
+  ]
 }

@@ -12,7 +12,9 @@ export function EditarPerfil() {
   const [curso, setCurso] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
-  const usuario = useSelector((state) => state?.usuario);
+  const usuario =
+    useSelector((state) => state?.usuario) ||
+    JSON.parse(localStorage.getItem("USUARIO"));
 
   useEffect(() => {
     setNome(usuario.nome);
