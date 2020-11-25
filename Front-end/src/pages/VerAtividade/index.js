@@ -16,10 +16,14 @@ export function VerAtividade() {
   const [pontuacaoMax, setPontuacaoMax] = useState("");
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
+  const [disciplina, setDisciplina] = useState({});
   const history = useHistory();
 
-  const usuario = useSelector((state) => state?.usuario);
-  const disciplina = useSelector((state) => state.disciplina);
+  const { usuario } = useSelector((state) => {
+    return {
+      usuario: state.usuario,
+    };
+  });
 
   useEffect(() => {
     if (!usuario) {
@@ -31,7 +35,6 @@ export function VerAtividade() {
       .get("atividades/" + atividadeID, {
         params: {
           idUsuario: usuario.id,
-          idDisciplina: disciplina.id,
         },
       })
       .then((response) => {
@@ -43,6 +46,11 @@ export function VerAtividade() {
         setPontuacaoMax(response.data.pontuacaoMax);
         setNotaFinal(response.data.notaFinal);
         setArquivo(response.data.arquivo);
+        api
+          .get("disciplinas/" + response.data.idDisciplina)
+          .then((disciplina) => {
+            setDisciplina(disciplina.data);
+          });
       });
   }, []);
 
@@ -59,12 +67,27 @@ export function VerAtividade() {
   return (
     <div className="blocoVerAtividade">
       <div className="boxVerAtividade">
-        <div className="headerVerAtividade">
-          <h1 id="tituloVerAtividade">{nome}</h1>
-          <h2>{disciplina.nome}</h2>
-          <FiEdit size={45} color="black" onClick={toEditarAtividade} />
-          <FiTrash2 size={45} color="black" onClick={toRemoverAtividade} />
+        <div className="header">
+          <div className="headerVerAtividade">
+            <h1 id="tituloVerAtividade">{nome}</h1>
+            <h2>{disciplina.nome}</h2>
+          </div>
+          <div className="icons">
+            <FiEdit
+              size={40}
+              id="editarAtividade"
+              color="black"
+              onClick={toEditarAtividade}
+            />
+            <FiTrash2
+              size={40}
+              id="excluirAtividade"
+              color="black"
+              onClick={toRemoverAtividade}
+            />
+          </div>
         </div>
+
         <div className="opVerAtividade">
           <div id="statusVerAtividade">{status}</div>
 

@@ -13,6 +13,7 @@ export function Atividades() {
   const [filtroNome, setFiltroNome] = useState("");
   const [filtroStatus, setFiltroStatus] = useState("");
   const history = useHistory();
+  const [disciplinas, setDisciplinas] = useState({});
   // console.log(usuario);
 
   useEffect(() => {
@@ -28,12 +29,31 @@ export function Atividades() {
         },
       })
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
+
         setAtividades(response.data);
+
+        response.data.map((atividade) => {
+          if (
+            !atividade.idDisciplina ||
+            atividade.idDisciplina in disciplinas
+          ) {
+            return;
+          }
+
+          api
+            .get("disciplinas/" + atividade.idDisciplina)
+            .then((disciplina) => {
+              setDisciplinas({
+                ...disciplinas,
+                [disciplina.data.id]: disciplina.data,
+              });
+            });
+        });
       });
   }, []);
 
-  console.log(Atividades);
+  // console.log(atividades);
 
   function requisicaoFiltrosAtividades() {
     api
@@ -47,6 +67,7 @@ export function Atividades() {
       .then((response) => {
         setAtividades(response.data);
       });
+    // console.log(disciplinas);
   }
 
   return (
@@ -79,7 +100,7 @@ export function Atividades() {
           Buscar
         </button>
 
-        {atividades.length > 0 ? (
+        {atividades.length > 0 && disciplinas ? (
           <table id="tabelaAtividades">
             <thead>
               <tr>
@@ -97,6 +118,7 @@ export function Atividades() {
                       to={"/atividades/view/" + atividade.id}
                     >
                       {atividade.nome}
+                      {disciplinas[atividade.idDisciplina]?.nome}
                     </Link>
                   </td>
                   <td>{atividade.dataEntrega}</td>

@@ -125,7 +125,7 @@ export function VerDisciplina() {
           </select>
         </div>
       </div>
-      {atividades ? (
+      {atividades.length > 0 ? (
         <table id="tabelaAtividadesDisciplina" border="1">
           <thead>
             <tr>
