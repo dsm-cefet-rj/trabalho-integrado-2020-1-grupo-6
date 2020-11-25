@@ -10,8 +10,8 @@ Given('Dado que o formulario seja preenchido corretamente', async function(disci
             id: parseInt(d.id),
         }
         this.disciplinas[i] = d_cast;
-        await window.fetch('http://localhost:3000/'); // mudar o redirecionamento
-        await window.fetch('http://localhost:3000/', {method: 'POST', body: JSON.stringify(p_cast),
+        await window.fetch('http://localhost:3000/disciplinas/edit/'); 
+        await window.fetch('http://localhost:3000/disciplinas/edit/', {method: 'POST', body: JSON.stringify(p_cast),
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -19,7 +19,6 @@ Given('Dado que o formulario seja preenchido corretamente', async function(disci
         });
         i++;
     }
-
     
 });
 

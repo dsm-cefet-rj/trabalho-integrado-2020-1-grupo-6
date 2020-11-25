@@ -1,6 +1,7 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
-Given("que é exibida a tela de visualização de disciplina")
+Given("que é exibida a tela de visualização de disciplina") // talvez um cy.visit (funcione)
+// ver como funciona. 
 
 // editar disciplina
 When("clico em editar disciplina")

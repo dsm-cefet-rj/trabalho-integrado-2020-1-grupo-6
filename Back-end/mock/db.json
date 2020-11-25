@@ -13,6 +13,20 @@
       "curso": "Ciência da computação",
       "senha": "123123",
       "id": "FbUIi-P"
+    },
+    {
+      "nome": "Gabriel",
+      "usuario": "souto",
+      "curso": "Comp",
+      "senha": "123",
+      "id": "e9AuTpx"
+    },
+    {
+      "nome": "gabriel souto",
+      "usuario": "soutog",
+      "curso": "ciencia da computacao",
+      "senha": "1234",
+      "id": "6knp4_x"
     }
   ],
   "disciplinas": [
@@ -97,6 +111,28 @@
       "status": "Em andamento",
       "idUsuario": "RjQLt57",
       "id": "9QFZJkT"
+    },
+    {
+      "nome": "matematica",
+      "periodo": "5",
+      "horario": "19:00",
+      "local": "pavilhao",
+      "professor": "diogo",
+      "material": "https://www.google.com/search?channel=fs&client=ubuntu&q=cypress+and+cucumber",
+      "status": "Em andamento",
+      "idUsuario": "e9AuTpx",
+      "id": "d1wHjIf"
+    },
+    {
+      "nome": "matematica",
+      "periodo": "1 periodo",
+      "horario": "18:00",
+      "local": "pavilhao",
+      "professor": "Renato",
+      "material": "https://github.com/samlucax/calculator-cucumber-cypress/blob/advanced-version/cypress/integration/Calculadora.feature",
+      "status": "Em andamento",
+      "idUsuario": "6knp4_x",
+      "id": "3LksGA_"
     }
   ],
   "atividades": [
