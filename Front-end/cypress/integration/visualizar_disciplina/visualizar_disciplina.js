@@ -1,21 +1,35 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
-Given("que é exibida a tela de visualização de disciplina") // talvez um cy.visit (funcione)
-// ver como funciona. 
+Given("que é exibida a tela de visualização de disciplina", () => {
+    cy.visit('./')
 
-// editar disciplina
-When("clico em editar disciplina")
+    cy.get('#usuarioLogin').type('soutog')
+    cy.get('#usuarioSenha').type(1234)
 
-Then("a tela de editar disciplina é exibida")
+    cy.get('#btnEntrar').click()
 
-// excluir disciplina
-When("clico em excluir disciplina")
+    cy.get('#minhasDisciplinas').click()
+}) 
 
-Then("é exibida a tela de listagem de disciplinas")
 
-And("a disciplina é deletada")
+When("clico em uma disciplina", () => {
+    cy.get('#nomeDisciplinaTabela').click()
 
-//visualizar disciplina
-When("clico em uma atividade")
+    
+})
 
-Then("é exibida a tela de visualização da atividade")
+Then("a tela de editar disciplina é exibida", () =>{
+    cy.visit()
+})
+
+// // excluir disciplina
+// When("clico em excluir disciplina")
+
+// Then("é exibida a tela de listagem de disciplinas")
+
+// And("a disciplina é deletada")
+
+// //visualizar disciplina
+// When("clico em uma atividade")
+
+// Then("é exibida a tela de visualização da atividade")
