@@ -21,15 +21,15 @@ export function VerAtividade() {
 
   const { usuario } = useSelector((state) => {
     return {
-      usuario: state.usuario,
+      usuario: JSON.parse(localStorage.getItem("USUARIO")),
     };
   });
 
   useEffect(() => {
-    if (!usuario) {
-      history.push("/");
-      return;
-    }
+    // if (!usuario) {
+    //   history.push("/");
+    //   return;
+    // }
 
     api
       .get("atividades/" + atividadeID, {

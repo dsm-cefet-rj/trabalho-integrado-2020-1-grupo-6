@@ -16,7 +16,9 @@ export function EditarDisciplina() {
   const [status, setStatus] = useState("Em andamento");
   const { disciplinaID } = useParams();
 
-  const usuario = useSelector((state) => state.usuario);
+  const usuario =
+    useSelector((state) => state.usuario) ||
+    JSON.parse(localStorage.getItem("USUARIO"));
 
   // console.log(disciplinaID);
 

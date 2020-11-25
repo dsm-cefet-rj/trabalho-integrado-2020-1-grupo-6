@@ -7,7 +7,9 @@ import { api } from "../../services/api";
 import { useSelector } from "react-redux";
 
 export function Disciplinas() {
-  const usuario = useSelector((state) => state?.usuario);
+  const usuario =
+    useSelector((state) => state?.usuario) ||
+    JSON.parse(localStorage.getItem("USUARIO"));
   const [disciplinas, setDisciplinas] = useState([]);
   const [filtroNome, setFiltroNome] = useState("");
   const [filtroStatus, setFiltroStatus] = useState("");
@@ -15,10 +17,10 @@ export function Disciplinas() {
   // console.log(usuario);
 
   useEffect(() => {
-    if (!usuario) {
-      history.push("/");
-      return;
-    }
+    // if (!usuario) {
+    //   history.push("/");
+    //   return;
+    // }
 
     api
       .get("disciplinas", {

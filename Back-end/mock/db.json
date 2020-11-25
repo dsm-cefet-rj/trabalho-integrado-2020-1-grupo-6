@@ -1,6 +1,5 @@
 {
   "usuarios": [
-<<<<<<< HEAD
     {
       "nome": "luiza guedes",
       "usuario": "luludocon",
@@ -28,6 +27,13 @@
       "curso": "ciencia da computacao",
       "senha": "1234",
       "id": "6knp4_x"
+    },
+    {
+      "nome": "teste",
+      "usuario": "teste",
+      "curso": "teste",
+      "senha": "teste",
+      "id": "2bOlUt8"
     }
   ],
   "disciplinas": [
@@ -134,13 +140,29 @@
       "status": "Em andamento",
       "idUsuario": "6knp4_x",
       "id": "3LksGA_"
+    },
+    {
+      "nome": "discreta",
+      "periodo": "3",
+      "horario": "14:00",
+      "local": "Sala 2",
+      "professor": "Diego",
+      "material": "https://pt.wikipedia.org/wiki/Matem%C3%A1tica_discreta",
+      "status": "Concluida",
+      "idUsuario": "6knp4_x",
+      "id": "f2ZBbTk"
+    },
+    {
+      "nome": "Estrutura de Dados",
+      "periodo": "2",
+      "horario": "17:00-18:20",
+      "local": "lab2",
+      "professor": "Mirna",
+      "material": "https://sites.google.com/site/proffdesiqueiraed/aulas/aula-1---introducao-a-estrutura-de-dados",
+      "status": "Em andamento",
+      "idUsuario": "6knp4_x",
+      "id": "jABOvvv"
     }
-=======
-    
-  ],
-  "disciplinas": [
-    
->>>>>>> 1f434a8cd222b243ceb45930bfe5dc4ead534e16
   ],
   "atividades": []
 }

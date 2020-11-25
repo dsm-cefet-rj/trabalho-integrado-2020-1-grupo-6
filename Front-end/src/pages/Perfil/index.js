@@ -12,13 +12,15 @@ export function Perfil() {
   const [nomeUsuario, setNomeUsuario] = useState("");
   const [curso, setCurso] = useState("");
   const history = useHistory();
-  const usuario = useSelector((state) => state?.usuario);
+  const usuario =
+    useSelector((state) => state?.usuario) ||
+    JSON.parse(localStorage.getItem("USUARIO"));
 
   useEffect(() => {
-    if (!usuario) {
-      history.push("/");
-      return;
-    }
+    // if (!usuario) {
+    //   history.push("/");
+    //   return;
+    // }
   }, []);
 
   function toEditarPerfil(event) {

@@ -1,11 +1,12 @@
-const initialState = {
-  usuario: null,
+export const initialState = {
+  usuario: JSON.parse(localStorage.getItem("USUARIO")),
   disciplina: null,
 };
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
     case "fazerLogin":
+      localStorage.setItem("USUARIO", JSON.stringify(action.payload));
       return {
         ...state,
         usuario: action.payload,

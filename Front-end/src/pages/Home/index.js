@@ -8,7 +8,9 @@ import { useSelector } from "react-redux";
 
 export function Home() {
   const history = useHistory();
-  const usuario = useSelector((state) => state?.usuario);
+  const usuario =
+    useSelector((state) => state?.usuario) ||
+    JSON.parse(localStorage.getItem("USUARIO"));
   useEffect(() => {
     console.log(usuario);
     if (!usuario) {
