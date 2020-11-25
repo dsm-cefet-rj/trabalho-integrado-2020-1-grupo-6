@@ -1,124 +1,159 @@
 import ReactDOM from "react-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
+import { useHistory, useParams } from "react-router-dom";
+import { FiPlusCircle, FiEdit, FiTrash2 } from "react-icons/fi";
 import styles from "./verdisciplina.css";
+import { useSelector, useDispatch } from "react-redux";
+import { api } from "../../services/api.js";
 
 export function VerDisciplina() {
-  const [Periodo, setPeriodo] = useState("");
-  const [Horario, setHorario] = useState("");
-  const [Local, setLocal] = useState("");
-  const [Professor, setProfessor] = useState("");
-  const [Material, setMaterial] = useState("");
   const history = useHistory();
+  const dispatch = useDispatch();
+  const [nome, setNome] = useState("");
+  const [periodo, setPeriodo] = useState("");
+  const [horario, setHorario] = useState("");
+  const [local, setLocal] = useState("");
+  const [nomeProfessor, setNomeProfessor] = useState("");
+  const [material, setMaterial] = useState("");
+  const [status, setStatus] = useState("Em andamento");
+  const [atividades, setAtividades] = useState("");
+  const { disciplinaID } = useParams();
+  // console.log(disciplinaID);
 
-  function submitPerfil() {
-    console.log(Periodo, Horario, Local, Professor, Material );
+  const usuario = useSelector((state) => state?.usuario);
+  // console.log(usuario);
 
-    history.push("/home");
+  useEffect(() => {
+    if (!usuario) {
+      history.push("/");
+      return;
+    }
+
+    api
+      .get("disciplinas/" + disciplinaID, {
+        params: {
+          idUsuario: usuario.id,
+        },
+      })
+      .then((response) => {
+        // console.log(response.data);
+        setNome(response.data.nome);
+        setPeriodo(response.data.periodo);
+        setHorario(response.data.horario);
+        setLocal(response.data.local);
+        setNomeProfessor(response.data.professor);
+        setMaterial(response.data.material);
+        setStatus(response.data.status);
+      });
+
+    api
+      .get("atividades", {
+        params: {
+          idDisciplina: disciplinaID,
+        },
+      })
+      .then((response) => {
+        // console.log(response.data);
+        setAtividades(response.data);
+      });
+  }, []);
+
+  function toCriarAtividade() {
+    dispatch({
+      type: "criarAtividade",
+      payload: disciplinaID,
+    });
+    history.push("/atividades/create");
   }
 
+  function toEditarDisciplina() {
+    history.push("/disciplinas/edit/" + disciplinaID);
+  }
 
- 
+  function toRemoveDisciplina() {
+    api.delete("disciplinas/" + disciplinaID).then((response) => {
+      history.push("/disciplinas");
+    });
+  }
 
   return (
-    <div className="bloco_perfil">
-      <div className="box_perfil">
-        <div className="header_perfil">
-          <h1 id="nome_app">NomeAtividade</h1>
-          <FiCheckSquare size={45} color="black" />
+    <div className="blocoVerDisciplina">
+      <div className="boxVerDisciplina">
+        <div className="headerVerDisciplina">
+          <h1 id="tituloVerDisciplina">{nome}</h1>
+          <FiEdit
+            size={30}
+            id="editarDisciplina"
+            onClick={toEditarDisciplina}
+            color="black"
+          />
+          <FiTrash2
+            size={30}
+            id="excluirDisciplina"
+            onClick={toRemoveDisciplina}
+            color="black"
+          />
         </div>
-        <div className="dadosdisciplina">
-        <select name="Status" id="statusdisciplina">
-                <option value="1">Em Andamento</option>
-                <option value="2">Concluida</option>
-                </select>
-                 
+        <div className="opVerDisciplina">
+          <div id="statusVerDisciplina">{status}</div>
 
-
-                </div>
-        <form onSubmit={submitPerfil}>
-          <div className="op_perfil">
-            <h2 className="titulo_perfil"></h2>
-
-            <input
-              id="Periodo"
-              className="inputs_perfil"
-              placeholder="Periodo"
-              value={Periodo}
-              onChange={(e) => setPeriodo(e.target.value)}
-            ></input>
-            <input
-              id="Horario"
-              className="inputs_perfil"
-              placeholder="Horario"
-              value={Horario}
-              onChange={(e) => setHorario(e.target.value)}
-            ></input>
-            <input
-              id="Local"
-              className="inputs_perfil"
-              placeholder="Local"
-              value={Local}
-              onChange={(e) => setLocal(e.target.value)}
-            ></input>
-            <input
-              id="Professor"
-              className="inputs_perfil"
-              placeholder="Professor"
-              value={Professor}
-              onChange={(e) => setProfessor(e.target.value)}
-            ></input>
-            <input
-              id="Material"
-              className="inputs_perfil"
-              placeholder="Material"
-              value={Material}
-              onChange={(e) => setMaterial(e.target.value)}
-            ></input>
-      
-              
-</div>
-
-             </form>
-             <div className="header_perfil">
-          <h1 id="nome_app">Atividades</h1>
-        
+          <div className="itemsVerDisciplina">Período: {periodo}</div>
+          <div className="itemsVerDisciplina">Horário: {horario}</div>
+          <div className="itemsVerDisciplina">Local: {local}</div>
+          <div className="itemsVerDisciplina">Professor: {nomeProfessor}</div>
+          <div className="itemsVerDisciplina">
+            Material: <Link to={material}>{material}</Link>
+          </div>
         </div>
 
-        <div className="atividades">
-        <select name="Status" id="statusatividades">
-                <option value="1">Aguardando</option>
-                <option value="2">Concluida</option>
-                <option value="3">Todas</option>
-                </select>
-                 
+        <div className="headerAtividadesDisciplina">
+          <h1 id="tituloAtividadeDisciplina">Atividades</h1>
+          <FiPlusCircle
+            id="adicionarAtividade"
+            onClick={toCriarAtividade}
+            size={40}
+            color="black"
+          />
+        </div>
 
-
-                </div>
-
-
-             <div>
-
-
-
-             </div>
-             <table id="tabledisciplinas" class="table table-striped" border="1">   
-        <td>Atividade</td>
-        <td>Data De Entrega</td>
-        <td>Status</td>
-   
-    <tbody id="myTable"></tbody>
-</table>
-
-
-             </div> 
-             
-             
-             
-             </div>
-            );
-          
-
-          }
+        <div>
+          <select name="Status" id="filtroAtividadeDisciplina">
+            <option value=""></option>
+            <option value="Aguardando">Aguardando</option>
+            <option value="Concluida">Concluida</option>
+          </select>
+        </div>
+      </div>
+      {atividades.length > 0 ? (
+        <table id="tabelaAtividadesDisciplina" border="1">
+          <thead>
+            <tr>
+              <td>Atividade</td>
+              <td>Data de Entrega</td>
+              <td>Status</td>
+            </tr>
+          </thead>
+          <tbody>
+            {atividades.map((atividade) => (
+              <tr key={atividade.id}>
+                <td>
+                  <Link
+                    id="nomeAtividadeDisciplinaTabela"
+                    to={"/atividades/view/" + atividade.id}
+                  >
+                    {atividade.nome}
+                  </Link>
+                </td>
+                <td>{atividade.dataEntrega}</td>
+                <td>{atividade.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        ""
+      )}
+    </div>
+  );
+}

@@ -23,7 +23,7 @@ export function Cadastro() {
 
     api.post("usuarios", { nome, usuario, curso, senha }).then((response) => {
       console.log(response.data);
-      history.push("/"); //falta redux
+      history.push("/");
     });
   }
 

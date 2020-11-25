@@ -1,160 +1,84 @@
-.box_perfil {
-    display: initial;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 80vh;
-    font-family: "Montserrat", sans-serif;
-  }
-  
-  .bloco_perfil {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(skyblue, transparent);
-  }
-  
-  .header_perfil {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  #nome_app {
-    margin-right: 45px;
-    font-size: 42px;
-    color: navy;
-  }
-  
-  .titulo_login {
-    font-size: 28px;
-  }
-  
-  .inputs_perfil {
-    font-size: 16px;
-    border-radius: 25px;
-    border-style: none;
-    padding: 15px 40px;
-    outline: none;
-    margin-top: 30px;
-    font-family: "Montserrat", sans-serif;
-    width: 48vh;
-  }
-  
-  #tabledisciplinas{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    background-color: white;
-   
-    margin-top:40px;
+.boxVerDisciplina {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
 
+.blocoVerDisciplina {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(skyblue, transparent);
+}
 
-  }
+.headerVerDisciplina {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
 
-  #statusdisciplina{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    background-color: white;
-    margin-right: 180px;
-    margin-top:20px;
-  }
-  
-  .op_perfil {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
-  }
-  
-  @media screen and (max-width: 750px) {
-    .inputs_login {
-      width: 260px;
-    }
-  }
-  
-  @media screen and (max-width: 320px) {
-    .inputs_login {
-      width: 210px;
-    }
-    #nome_app {
-      font-size: 37px;
-    }
-    
-    
-    
-  } 
-  
-  #ProcurarDisciplina{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: 6px 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    background-color: white;
-    margin-right: 50px;
+.headerAtividadesDisciplina {
+  display: flex;
+  margin-top: 30px;
+}
 
-  }
-  
-  .opcaozero{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: 6px 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    background-color: steelblue;
-    margin-right: 50px;
-  
-  }
-  
-  .opcaoum {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: 6px 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 25px;
-    margin-right:80px;
-    font-family: "Montserrat", sans-serif;
-    background-color: steelblue;
-  
-  } 
-  .opeditar{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  .opcaodois{
-    background-color: steelblue;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: 6px 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 25px;
-    font-family: "Montserrat", sans-serif;
-    background-color: steelblue;
-  }
-  
+.opVerDisciplina {
+  margin-top: 30px;
+}
+
+.itemsVerDisciplina {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#tituloVerDisciplina {
+  margin-right: 45px;
+  font-size: 42px;
+  color: navy;
+}
+
+#tituloAtividadeDisciplina {
+  font-size: 30px;
+  margin-right: 30px;
+}
+
+#statusVerDisciplina {
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#editarDisciplina {
+  margin-right: 8px;
+}
+
+#filtroAtividadeDisciplina {
+  font-size: 16px;
+  margin-top: 30px;
+  border-radius: 20px;
+  border-style: none;
+  padding: 10px 30px;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+#tabelaAtividadesDisciplina {
+  border: none;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
+  margin-top: 30px;
+}
+
+#nomeAtividadeDisciplinaTabela {
+  text-decoration: none;
+  color: black;
+}

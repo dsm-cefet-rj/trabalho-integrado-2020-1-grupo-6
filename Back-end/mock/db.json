@@ -1,5 +1,6 @@
 {
   "usuarios": [
+<<<<<<< HEAD
     {
       "nome": "luiza guedes",
       "usuario": "luludocon",
@@ -13,6 +14,20 @@
       "curso": "Ciência da computação",
       "senha": "123123",
       "id": "FbUIi-P"
+    },
+    {
+      "nome": "Gabriel",
+      "usuario": "souto",
+      "curso": "Comp",
+      "senha": "123",
+      "id": "e9AuTpx"
+    },
+    {
+      "nome": "gabriel souto",
+      "usuario": "soutog",
+      "curso": "ciencia da computacao",
+      "senha": "1234",
+      "id": "6knp4_x"
     }
   ],
   "disciplinas": [
@@ -21,7 +36,7 @@
       "periodo": "4º",
       "horario": "13:30",
       "local": "Pavilhão 4",
-      "professor": "Diogo",
+      "professor": "João",
       "material": "https://www.google.com",
       "status": "Em andamento",
       "id": "200"
@@ -30,7 +45,7 @@
       "nome": "Arquitetura",
       "periodo": "1º",
       "horario": "19:30",
-      "local": "Pavilhão 9",
+      "local": "Pavilhão 10",
       "professor": "Rodolfo",
       "material": "https://www.google.com",
       "status": "Concluida",
@@ -39,72 +54,93 @@
     {
       "nome": "Grafos",
       "periodo": "4º",
-      "horario": "21:00",
+      "horario": "13:30",
+      "local": "Pavilhão 4",
+      "professor": "João",
+      "material": "https://google.com",
+      "status": "Em andamento",
+      "id": "iN4rJp_"
+    },
+    {
+      "nome": "Arquitetura",
+      "periodo": "4º",
+      "horario": "20:00",
+      "local": "Pavilhão 9",
+      "professor": "Diogo",
+      "material": "https://google.com",
+      "status": "Concluida",
+      "id": "75iRw27"
+    },
+    {
+      "nome": "Grafos",
+      "periodo": "4º",
+      "horario": "13:30",
+      "local": "Pavilhão 4",
+      "professor": "Diogo",
+      "material": "https://google.com",
+      "status": "Em andamento",
+      "idUsuario": "FbUIi-P",
+      "id": "tUUUbSh"
+    },
+    {
+      "nome": "PSW",
+      "periodo": "4º",
+      "horario": "20:30",
+      "local": "Pavilhão 4",
+      "professor": "Diogo",
+      "material": "https://google.com",
+      "status": "Em andamento",
+      "id": "p-284J-"
+    },
+    {
+      "nome": "Arquitetura",
+      "periodo": "4º",
+      "horario": "20:03",
       "local": "Pavilhão 4",
       "professor": "Pedro",
-      "material": "https://www.google.com",
+      "material": "https://google.com",
+      "status": "Concluida",
+      "id": "cSj3QVm"
+    },
+    {
+      "nome": "Grafos",
+      "periodo": "4º",
+      "horario": "13:30",
+      "local": "Pavilhão 4",
+      "professor": "Diogo",
+      "material": "",
       "status": "Em andamento",
-      "id": "h8bOZsm"
+      "idUsuario": "RjQLt57",
+      "id": "9QFZJkT"
+    },
+    {
+      "nome": "matematica",
+      "periodo": "5",
+      "horario": "19:00",
+      "local": "pavilhao",
+      "professor": "diogo",
+      "material": "https://www.google.com/search?channel=fs&client=ubuntu&q=cypress+and+cucumber",
+      "status": "Em andamento",
+      "idUsuario": "e9AuTpx",
+      "id": "d1wHjIf"
+    },
+    {
+      "nome": "matematica",
+      "periodo": "1 periodo",
+      "horario": "18:00",
+      "local": "pavilhao",
+      "professor": "Renato",
+      "material": "https://github.com/samlucax/calculator-cucumber-cypress/blob/advanced-version/cypress/integration/Calculadora.feature",
+      "status": "Em andamento",
+      "idUsuario": "6knp4_x",
+      "id": "3LksGA_"
     }
+=======
+    
   ],
-  "atividades": [
-    {
-      "nome": "prova P1",
-      "disciplina": "200",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "HTML e Javascript",
-      "notaFinal": "9.0",
-      "arquivo": "prova.pdf",
-      "id": "300"
-    },
-    {
-      "nome": "trabalho P2",
-      "disciplina": "200",
-      "dataEntrega": "07/01/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Trabalho",
-      "descricao": "React",
-      "notaFinal": "9.0",
-      "arquivo": "prova.pdf",
-      "id": "301"
-    },
-    {
-      "nome": "trabalho software",
-      "disciplina": "201",
-      "dataEntrega": "01/11/2020",
-      "pontuacaoMax": "10",
-      "status": "Concluida",
-      "tipo": "Prova",
-      "descricao": "linguagens de programacao",
-      "notaFinal": "9.0",
-      "arquivo": "prova.pdf",
-      "id": "302"
-    },
-    {
-      "nome": "trabalho grafos",
-      "dataEntrega": "23/04/2020",
-      "pontuacaoMax": "10",
-      "status": "Concluida",
-      "tipo": "Trabalho",
-      "descricao": "Grafos",
-      "notaFinal": "8.0",
-      "arquivo": "trabalho.pdf",
-      "id": "txiaWha"
-    },
-    {
-      "nome": "prova P1",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "Grafos",
-      "notaFinal": "3.0",
-      "arquivo": "trabalho.pdf",
-      "id": "ZKMfZ40"
-    }
-  ]
+  "disciplinas": [
+    
+>>>>>>> 1f434a8cd222b243ceb45930bfe5dc4ead534e16
+  ],
+  "atividades": []
 }

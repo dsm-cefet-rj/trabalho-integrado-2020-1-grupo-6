@@ -14,34 +14,23 @@ export function EditarAtividade() {
   const [descricao, setDescricao] = useState("");
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
+  const [idDisciplina, setIdDisciplina] = useState("");
   const { atividadeID } = useParams();
 
   const history = useHistory();
 
   useEffect(() => {
-    api
-      .get("atividades/" + atividadeID, {
-        params: {
-          nome,
-          dataEntrega,
-          pontuacaoMax,
-          status,
-          tipo,
-          descricao,
-          notaFinal,
-          arquivo,
-        },
-      })
-      .then((response) => {
-        setNome(response.data.nome);
-        setDataEntrega(response.data.dataEntrega);
-        setPontuacaoMax(response.data.pontuacaoMax);
-        setStatus(response.data.status);
-        setTipo(response.data.tipo);
-        setDescricao(response.data.descricao);
-        setNotaFinal(response.data.notaFinal);
-        setArquivo(response.data.arquivo);
-      });
+    api.get("atividades/" + atividadeID).then((response) => {
+      setNome(response.data.nome);
+      setDataEntrega(response.data.dataEntrega);
+      setPontuacaoMax(response.data.pontuacaoMax);
+      setStatus(response.data.status);
+      setTipo(response.data.tipo);
+      setDescricao(response.data.descricao);
+      setNotaFinal(response.data.notaFinal);
+      setArquivo(response.data.arquivo);
+      setIdDisciplina(response.data.idDisciplina);
+    });
   }, []);
 
   function submitEditarAtividade(event) {
@@ -68,10 +57,11 @@ export function EditarAtividade() {
         descricao,
         notaFinal,
         arquivo,
+        idDisciplina,
       })
       .then((response) => {
         console.log(response.data);
-        history.push("/atividades/view/:" + atividadeID); //falta redux
+        history.push("/atividades/view/" + atividadeID);
       });
   }
 

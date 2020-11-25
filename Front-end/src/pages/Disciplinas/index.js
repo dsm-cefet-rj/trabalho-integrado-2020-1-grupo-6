@@ -1,68 +1,122 @@
 import ReactDOM from "react-dom";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import styles from "./disciplinas.css";
-import { useHistory } from "react-router-dom";
-import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
+import { Link, useHistory } from "react-router-dom";
+import { FiPlusCircle } from "react-icons/fi";
+import { api } from "../../services/api";
+import { useSelector } from "react-redux";
 
 export function Disciplinas() {
-  const [Disciplina, setDisciplina] = useState("");
+  const usuario = useSelector((state) => state?.usuario);
+  const [disciplinas, setDisciplinas] = useState([]);
+  const [filtroNome, setFiltroNome] = useState("");
+  const [filtroStatus, setFiltroStatus] = useState("");
   const history = useHistory();
+  // console.log(usuario);
 
-  function submitPerfil() {
-    console.log(Disciplina);
+  useEffect(() => {
+    if (!usuario) {
+      history.push("/");
+      return;
+    }
 
-    history.push("/home");
+    api
+      .get("disciplinas", {
+        params: {
+          idUsuario: usuario.id,
+        },
+      })
+      .then((response) => {
+        // console.log(response.data);
+        setDisciplinas(response.data);
+      });
+  }, []);
+
+  console.log(disciplinas);
+
+  function toCriarDisciplina() {
+    history.push("/disciplinas/create");
   }
 
- 
+  function requisicaoFiltros() {
+    api
+      .get("disciplinas", {
+        params: {
+          ...(filtroStatus && { status: filtroStatus }),
+          ...(filtroNome && { nome: filtroNome }),
+          idUsuario: usuario.id,
+        },
+      })
+      .then((response) => {
+        setDisciplinas(response.data);
+      });
+  }
 
   return (
-    <div className="bloco_perfil">
-      <div className="box_perfil">
-        <div className="header_perfil">
-          <h1 id="nome_app">Disciplinas</h1>
-          <FiCheckSquare size={45} color="black" />
+    <div className="blocoDisciplinas">
+      <div className="boxDisciplinas">
+        <div className="headerDisciplinas">
+          <h2 className="tituloDisciplinas">Disciplinas</h2>
+          <FiPlusCircle
+            id="adicionarDisciplina"
+            onClick={toCriarDisciplina}
+            size={40}
+            color="black"
+          />
         </div>
-        <form onSubmit={submitPerfil}>
-          <div className="op_perfil">
-            <h2 className="titulo_perfil"></h2>
 
-            <input
-              id="ProcurarDisciplina"
-              className="inputs_perfil"
-              placeholder="Disciplina"
-              value={Disciplina}
-              onChange={(e) => setDisciplina(e.target.value)}
-            ></input>
-              <select name="Status" id="statusdisciplina">
-                <option value="1">Em Andamento</option>
-                <option value="2">Concluida</option>
-                </select>
-</div>
+        <input
+          id="pesquisaDisciplina"
+          className="inputsDisciplinas"
+          placeholder="Disciplina"
+          value={filtroNome}
+          onChange={(e) => setFiltroNome(e.target.value)}
+        ></input>
 
-             </form>
+        <select
+          name="Status"
+          id="filtroDisciplina"
+          value={filtroStatus}
+          onChange={(e) => setFiltroStatus(e.target.value)}
+        >
+          <option value=""></option>
+          <option value="Em andamento">Em Andamento</option>
+          <option value="Concluida">Concluida</option>
+        </select>
+        <button id="btnBuscaDisciplina" onClick={requisicaoFiltros}>
+          Buscar
+        </button>
 
-             <div>
-
-
-
-             </div>
-             <table id="tabledisciplinas" class="table table-striped" border="1">   
-        <td>Disciplina</td>
-        <td>Duração</td>
-        <td>Status</td>
-   
-    <tbody id="myTable"></tbody>
-</table>
-
-
-             </div> 
-             
-             
-             
-             </div>
-            );
-          
-
-          }
+        {disciplinas.length > 0 ? (
+          <table id="tabelaDisciplinas">
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>Período</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {disciplinas.map((disciplina) => (
+                <tr key={disciplina.id}>
+                  <td>
+                    <Link
+                      id="nomeDisciplinaTabela"
+                      to={"/disciplinas/view/" + disciplina.id}
+                    >
+                      {disciplina.nome}
+                    </Link>
+                  </td>
+                  <td>{disciplina.periodo}</td>
+                  <td>{disciplina.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          ""
+        )}
+      </div>
+    </div>
+  );
+}
