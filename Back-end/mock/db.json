@@ -1,5 +1,6 @@
 {
   "usuarios": [
+
     {
       "nome": "Luíza Guedes",
       "usuario": "luizaguedes",
@@ -13,30 +14,143 @@
       "curso": "ciencia",
       "senha": "123",
       "id": 2
+    },
+
+  
+
+    {
+      "nome": "luiza guedes",
+      "usuario": "luludocon",
+      "curso": "economia",
+      "senha": "luluzinha",
+      "id": "RjQLt57"
+    },
+    {
+      "nome": "felipe",
+      "usuario": "felipe123",
+      "curso": "Ciência da computação",
+      "senha": "123123",
+      "id": "FbUIi-P"
+    },
+    {
+      "nome": "Gabriel",
+      "usuario": "souto",
+      "curso": "Comp",
+      "senha": "123",
+      "id": "e9AuTpx"
+    },
+    {
+      "nome": "gabriel souto",
+      "usuario": "soutog",
+      "curso": "ciencia da computacao",
+      "senha": "1234",
+      "id": "6knp4_x"
     }
   ],
   "disciplinas": [
+    {
+      "nome": "PSW",
+      "periodo": "4º",
+      "horario": "13:30",
+      "local": "Pavilhão 4",
+      "professor": "João",
+      "material": "https://www.google.com",
+      "status": "Em andamento",
+      "id": "200"
+    },
+    {
+      "nome": "Arquitetura",
+      "periodo": "1º",
+      "horario": "19:30",
+      "local": "Pavilhão 10",
+      "professor": "Rodolfo",
+      "material": "https://www.google.com",
+      "status": "Concluida",
+      "id": "201"
+    },
     {
       "nome": "Grafos",
       "periodo": "4º",
       "horario": "13:30",
       "local": "Pavilhão 4",
+      "professor": "João",
+      "material": "https://google.com",
+      "status": "Em andamento",
+      "id": "iN4rJp_"
+    },
+    {
+      "nome": "Arquitetura",
+      "periodo": "4º",
+      "horario": "20:00",
+      "local": "Pavilhão 9",
+      "professor": "Diogo",
+      "material": "https://google.com",
+      "status": "Concluida",
+      "id": "75iRw27"
+    },
+    {
+      "nome": "Grafos",
+      "periodo": "4º",
+      "horario": "13:30",
+      "local": "Pavilhão 4",
+      "professor": "Diogo",
+      "material": "https://google.com",
+      "status": "Em andamento",
+      "idUsuario": "FbUIi-P",
+      "id": "tUUUbSh"
+    },
+    {
+      "nome": "PSW",
+      "periodo": "4º",
+      "horario": "20:30",
+      "local": "Pavilhão 4",
+      "professor": "Diogo",
+      "material": "https://google.com",
+      "status": "Em andamento",
+      "id": "p-284J-"
+    },
+    {
+      "nome": "Arquitetura",
+      "periodo": "4º",
+      "horario": "20:03",
+      "local": "Pavilhão 4",
       "professor": "Pedro",
       "material": "https://google.com",
       "status": "Concluida",
-      "idUsuario": 1,
-      "id": 2
+      "id": "cSj3QVm"
     },
     {
-      "nome": "PAC",
+      "nome": "Grafos",
       "periodo": "4º",
       "horario": "13:30",
       "local": "Pavilhão 4",
       "professor": "Diogo",
       "material": "",
       "status": "Em andamento",
-      "idUsuario": 2,
-      "id": 3
+      "idUsuario": "RjQLt57",
+      "id": "9QFZJkT"
+    },
+    {
+      "nome": "matematica",
+      "periodo": "5",
+      "horario": "19:00",
+      "local": "pavilhao",
+      "professor": "diogo",
+      "material": "https://www.google.com/search?channel=fs&client=ubuntu&q=cypress+and+cucumber",
+      "status": "Em andamento",
+      "idUsuario": "e9AuTpx",
+      "id": "d1wHjIf"
+    },
+    {
+      "nome": "matematica",
+      "periodo": "1 periodo",
+      "horario": "18:00",
+      "local": "pavilhao",
+      "professor": "Renato",
+      "material": "https://github.com/samlucax/calculator-cucumber-cypress/blob/advanced-version/cypress/integration/Calculadora.feature",
+      "status": "Em andamento",
+      "idUsuario": "6knp4_x",
+      "id": "3LksGA_"
     }
   ],
   "atividades": [
