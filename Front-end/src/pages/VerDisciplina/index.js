@@ -21,14 +21,16 @@ export function VerDisciplina() {
   const { disciplinaID } = useParams();
   // console.log(disciplinaID);
 
-  const usuario = useSelector((state) => state?.usuario);
+  const usuario =
+    useSelector((state) => state?.usuario) ||
+    JSON.parse(localStorage.getItem("USUARIO"));
   // console.log(usuario);
 
   useEffect(() => {
-    if (!usuario) {
-      history.push("/");
-      return;
-    }
+    // if (!usuario) {
+    //   history.push("/");
+    //   return;
+    // }
 
     api
       .get("disciplinas/" + disciplinaID, {

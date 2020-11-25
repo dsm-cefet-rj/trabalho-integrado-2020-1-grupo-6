@@ -17,12 +17,14 @@ export function CriarDisciplina() {
 
   const history = useHistory();
 
-  const usuario = useSelector((state) => state?.usuario);
+  const usuario =
+    useSelector((state) => state?.usuario) ||
+    JSON.parse(localStorage.getItem("USUARIO"));
   useEffect(() => {
     // console.log(usuario);
-    if (!usuario) {
-      history.push("/");
-    }
+    // if (!usuario) {
+    //   history.push("/");
+    // }
   }, []);
 
   function submitCriarDisciplina(event) {
