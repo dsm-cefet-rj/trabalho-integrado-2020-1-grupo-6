@@ -1,133 +1,84 @@
 import ReactDOM from "react-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./veratividade.css";
-import { useHistory } from "react-router-dom";
-import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
+import { useHistory, useParams } from "react-router-dom";
+import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import { api } from "../../services/api.js";
 
 export function VerAtividade() {
-  const [Disciplina, setDisciplina] = useState("");
-  const [DataEntrega, setDataEntrega] = useState("");
-  const [Descrição, setDescrição] = useState("");
-  const [PontuaçãoMax, setPontuaçãoMax] = useState("");
-  const [Nota, setNota] = useState("");
-  const [Arquivo, setArquivo] = useState("");
+  const { atividadeID } = useParams();
+  const [nome, setNome] = useState("");
+  const [status, setStatus] = useState("");
+  const [dataEntrega, setDataEntrega] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [pontuacaoMax, setPontuacaoMax] = useState("");
+  const [notaFinal, setNotaFinal] = useState("");
+  const [arquivo, setArquivo] = useState("");
   const history = useHistory();
 
-  function submitPerfil() {
-    console.log(Disciplina,DataEntrega, Descrição, PontuaçãoMax, Nota, Arquivo );
+  const usuario = useSelector((state) => state?.usuario);
+  const disciplina = useSelector((state) => state.disciplina);
 
-    history.push("/home");
+  useEffect(() => {
+    if (!usuario) {
+      history.push("/");
+      return;
+    }
+
+    api
+      .get("atividades/" + atividadeID, {
+        params: {
+          idUsuario: usuario.id,
+          idDisciplina: disciplina.id,
+        },
+      })
+      .then((response) => {
+        // console.log(response.data);
+        setNome(response.data.nome);
+        setStatus(response.data.status);
+        setDataEntrega(response.data.dataEntrega);
+        setDescricao(response.data.descricao);
+        setPontuacaoMax(response.data.pontuacaoMax);
+        setNotaFinal(response.data.notaFinal);
+        setArquivo(response.data.arquivo);
+      });
+  }, []);
+
+  function toEditarAtividade() {
+    history.push("/atividades/edit/" + atividadeID);
   }
 
-
- 
+  function toRemoverAtividade() {
+    api.delete("atividades/" + atividadeID).then((response) => {
+      history.push("/disciplinas/view/" + disciplina.id);
+    });
+  }
 
   return (
-    <div className="bloco_perfil">
-      <div className="box_perfil">
-        <div className="header_perfil">
-          <h1 id="nome_app">Prova/Atividade</h1>
-          <FiCheckSquare size={45} color="black" />
+    <div className="blocoVerAtividade">
+      <div className="boxVerAtividade">
+        <div className="headerVerAtividade">
+          <h1 id="tituloVerAtividade">{nome}</h1>
+          <h2>{disciplina.nome}</h2>
+          <FiEdit size={45} color="black" onClick={toEditarAtividade} />
+          <FiTrash2 size={45} color="black" onClick={toRemoverAtividade} />
         </div>
-        <input
-              id="Disciplina"
-              className="inputs_perfil"
-              placeholder="Disciplina"
-              value={Disciplina}
-              onChange={(e) => setDisciplina(e.target.value)}
-            ></input>
+        <div className="opVerAtividade">
+          <div id="statusVerAtividade">{status}</div>
 
-        <div className="dadosdisciplina">
-        <select name="Status" id="statusdisciplina">
-                <option value="1">Aguardando</option>
-                <option value="2">Concluida</option>
-                </select>
-                 
-
-
-                </div>
-        <form onSubmit={submitPerfil}>
-          <div className="op_perfil">
-            <h2 className="titulo_perfil"></h2>
-
-            <input
-              id="DataEntrega"
-              className="inputs_perfil"
-              placeholder="Data de Entrega"
-              value={DataEntrega}
-              onChange={(e) => setDataEntrega(e.target.value)}
-            ></input>
-            <input
-              id="Descrição"
-              className="inputs_perfil"
-              placeholder="Descrição"
-              value={Descrição}
-              onChange={(e) => setDescrição(e.target.value)}
-            ></input>
-            <input
-              id="PontuaçãoMax"
-              className="inputs_perfil"
-              placeholder="PontuaçãoMaxima"
-              value={PontuaçãoMax}
-              onChange={(e) => setPontuaçãoMax(e.target.value)}
-            ></input>
-            <input
-              id="Nota"
-              className="inputs_perfil"
-              placeholder="Nota"
-              value={Nota}
-              onChange={(e) => setNota(e.target.value)}
-            ></input>
-            <input
-              id="Arquivo"
-              className="inputs_perfil"
-              placeholder="Arquivo"
-              value={Arquivo}
-              onChange={(e) => setArquivo(e.target.value)}
-            ></input>
-      
-              
-</div>
-
-             </form>
-             <div className="header_perfil">
-          <h1 id="nome_app">Atividades</h1>
-        
+          <div className="itemsVerAtividade">
+            Data de entrega: {dataEntrega}
+          </div>
+          <div className="itemsVerAtividade">Descrição: {descricao}</div>
+          <div className="itemsVerAtividade">
+            Pontuação Máxima: {pontuacaoMax}
+          </div>
+          <div className="itemsVerAtividade">Nota Final: {notaFinal}</div>
+          <div className="itemsVerAtividade">Arquivo: {arquivo}</div>
         </div>
-
-        <div className="atividades">
-        <select name="Status" id="statusatividades">
-                <option value="1">Aguardando</option>
-                <option value="2">Concluida</option>
-                <option value="3">Todas</option>
-                </select>
-                 
-
-
-                </div>
-
-
-             <div>
-
-
-
-             </div>
-             <table id="tabledisciplinas" class="table table-striped" border="1">   
-        <td>Atividade</td>
-        <td>Data De Entrega</td>
-        <td>Status</td>
-   
-    <tbody id="myTable"></tbody>
-</table>
-
-
-             </div> 
-             
-             
-             
-             </div>
-            );
-          
-
-          }
+      </div>
+    </div>
+  );
+}

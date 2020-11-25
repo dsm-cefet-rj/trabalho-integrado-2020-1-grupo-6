@@ -3,16 +3,9 @@
     {
       "nome": "luiza guedes",
       "usuario": "luludocon",
-      "curso": "economia",
-      "senha": "luluzinha",
-      "id": "RjQLt57"
-    },
-    {
-      "nome": "felipe",
-      "usuario": "felipe123",
       "curso": "Ciência da computação",
-      "senha": "123123",
-      "id": "FbUIi-P"
+      "senha": "lulu",
+      "id": 1
     }
   ],
   "disciplinas": [

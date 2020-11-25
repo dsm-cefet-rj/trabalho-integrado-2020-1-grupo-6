@@ -1,63 +1,74 @@
 import ReactDOM from "react-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
+import { FiCheckSquare } from "react-icons/fi";
 import styles from "./editarperfil.css";
+import { useDispatch, useSelector } from "react-redux";
+import { api } from "../../services/api.js";
 
 export function EditarPerfil() {
- 
-  const [nomecompleto, setNomeCompleto] = useState("");
-    const [nomeusuario, setNomeUsuario] = useState("");
-    const [curso, setCurso] = useState("");
-    const history = useHistory();
-  
-    function submitPerfil() {
-      console.log(nomecompleto, nomeusuario, curso);
-  
-      history.push("/home");
-    }
+  const [nome, setNome] = useState("");
+  const [curso, setCurso] = useState("");
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const usuario = useSelector((state) => state?.usuario);
 
-   
-  
-    return (
-      <div className="bloco_perfil">
-        <div className="box_perfil">
-          <div className="header_perfil">
-            <h1 id="nome_app">Editar Perfil</h1>
+  useEffect(() => {
+    setNome(usuario.nome);
+    setCurso(usuario.curso);
+  }, []);
+
+  function submitEditarPerfil(event) {
+    event.preventDefault();
+
+    api
+      .put("usuarios/" + usuario.id, {
+        nome,
+        curso,
+        usuario: usuario.usuario,
+        senha: usuario.senha,
+      })
+      .then((response) => {
+        dispatch({
+          type: "atualizarUsuario",
+          payload: response.data,
+        });
+
+        history.push("/perfil");
+      });
+  }
+
+  return (
+    <div className="blocoEditarPerfil">
+      <form onSubmit={submitEditarPerfil}>
+        <div className="boxEditarPerfil">
+          <div className="headerEditarPerfil">
+            <h1 id="tituloEditarPerfil">Editar Perfil</h1>
             <FiCheckSquare size={45} color="black" />
           </div>
-          <form onSubmit={submitPerfil}>
-            <div className="op_perfil">
-              <h2 className="titulo_perfil"></h2>
-  
-              <input
-                id="NomeCompleto"
-                className="inputs_perfil"
-                placeholder="Nome Completo"
-                value={nomecompleto}
-                onChange={(e) => setNomeCompleto(e.target.value)}
-              ></input>
-               
-               <input
-                type="curso"
-                id="curso"
-                className="inputs_perfil"
-                placeholder="Nome do Curso"
-                value={curso}
-                onChange={(e) => setCurso(e.target.value)}
-              ></input>
-       
-       <div className="BotaoSalvar">
-       <button type="submit" id="btnSalvar">
-              Salvar
-            </button>
-            </div>   
-            </div> 
-          </form>
-          
-          </div>
-      </div>
-      );
 
+          <input
+            id="editarNomeCompleto"
+            className="inputsEditarPerfil"
+            placeholder="Nome Completo"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          ></input>
+
+          <input
+            id="editarNomeCurso"
+            className="inputsEditarPerfil"
+            placeholder="Nome do Curso"
+            value={curso}
+            onChange={(e) => setCurso(e.target.value)}
+          ></input>
+
+          <button type="submit" id="btnSalvarEdicaoPerfil">
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }
