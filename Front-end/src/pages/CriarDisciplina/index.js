@@ -59,7 +59,7 @@ export function CriarDisciplina() {
             className="inputsCriarDisciplina"
             placeholder="Digite nome da disciplina"
             value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            onChange={(e) => setNome(e.target.value.toUpperCase())}
           ></input>
           <input
             type="text"

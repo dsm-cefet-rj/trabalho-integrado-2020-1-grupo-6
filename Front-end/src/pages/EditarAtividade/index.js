@@ -70,7 +70,7 @@ export function EditarAtividade() {
             className="inputsEditarAtividade"
             placeholder="Digite nome da atividade"
             value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            onChange={(e) => setNome(e.target.value.toUpperCase())}
           ></input>
           <input
             type="text"

@@ -42,17 +42,6 @@
       "id": "d1wHjIf"
     },
     {
-      "nome": "Matematica",
-      "periodo": "2020.1",
-      "horario": "18:40",
-      "local": "Pavilhão 5",
-      "professor": "Diogo",
-      "material": "https://www.sciencedirect.com/topics/earth-and-planetary-sciences/planetary-evolution",
-      "status": "Em andamento",
-      "idUsuario": "6knp4_x",
-      "id": "3LksGA_"
-    },
-    {
       "nome": "Discreta",
       "periodo": "2°",
       "horario": "17h",
@@ -64,7 +53,7 @@
       "id": "Wa-7kqD"
     },
     {
-      "nome": "Banco de dados",
+      "nome": "BANCO DE DADOS",
       "periodo": "2°",
       "horario": "20:00",
       "local": "Pavilhão 4",
@@ -117,39 +106,6 @@
       "status": "Em andamento",
       "idUsuario": "2bOlUt8",
       "id": "ZcRlzKL"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "QTdnXQ9"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "ZcRlzKL"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "X2U8FRc"
     },
     {
       "nome": "matematica",
@@ -260,25 +216,21 @@
       "notaFinal": "9",
       "arquivo": "resolucaoProvaP1.docx",
       "idDisciplina": "3LksGA_",
-<<<<<<< HEAD
       "idUsuario": "6knp4_x",
       "id": 11
-=======
-      "id": 8
     },
     {
-      "nome": "matematica",
-      "dataEntrega": "14/10",
-      "pontuacaoMax": "100",
+      "nome": "OPERAÇÃO ATUALIZAÇÃO",
+      "dataEntrega": "15/04/2020",
+      "pontuacaoMax": "10",
       "status": "Aguardando",
       "tipo": "Prova",
-      "descricao": "Pavilhão 7",
-      "notaFinal": "100",
-      "arquivo": "png.pdf",
-      "idDisciplina": "FjvGV6h",
-      "idUsuario": 2,
-      "id": 9
->>>>>>> 274b9435602fe914eef11f0bac7f78315ba745c2
+      "descricao": "",
+      "notaFinal": "9",
+      "arquivo": "",
+      "idDisciplina": "qqWUs9f",
+      "idUsuario": 1,
+      "id": 12
     }
   ]
 }

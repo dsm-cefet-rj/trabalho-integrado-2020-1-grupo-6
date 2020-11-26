@@ -85,7 +85,7 @@ export function Atividades() {
           id="pesquisaAtividade"
           placeholder="Atividade"
           value={filtroNome}
-          onChange={(e) => setFiltroNome(e.target.value)}
+          onChange={(e) => setFiltroNome(e.target.value.toUpperCase())}
         ></input>
 
         <select
