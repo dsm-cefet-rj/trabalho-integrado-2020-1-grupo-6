@@ -172,30 +172,54 @@
       "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
       "status": "Em andamento",
       "idUsuario": "2bOlUt8",
-      "id": "V2k2iWo"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "wUVleAJ"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
       "id": "ZcRlzKL"
+    },
+    {
+      "nome": "Evolução estelar",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": "2bOlUt8",
+      "id": "QTdnXQ9"
+    },
+    {
+      "nome": "Evolução estelar",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": "2bOlUt8",
+      "id": "-ErQyKT"
+    },
+    {
+      "nome": "Evolução estelar",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": "2bOlUt8",
+      "id": "5_KMa4e"
     }
   ],
-  "atividades": []
+  "atividades": [
+    {
+      "nome": "teste de atividadeteste edição nometeste edição nome",
+      "dataEntrega": "teste de datateste edição entregateste edição entrega",
+      "pontuacaoMax": "teste de pontuação máximateste ediçãoteste edição",
+      "status": "Aguardando",
+      "tipo": "Trabalho",
+      "descricao": "teste da funcionalidade de criar atividadeteste ediçãoteste edição",
+      "notaFinal": "teste de nota finalteste ediçãoteste edição",
+      "arquivo": "atividade.jpg.exeteste ediçãoteste edição",
+      "idDisciplina": "ZcRlzKL",
+      "id": 1
+    }
+  ]
 }
