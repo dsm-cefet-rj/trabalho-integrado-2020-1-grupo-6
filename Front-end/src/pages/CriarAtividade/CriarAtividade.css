@@ -1,0 +1,105 @@
+.tituloCriarAtividade {
+  margin-right: 45px;
+  font-size: 38px;
+  color: navy;
+}
+
+.headerCriarAtividade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.boxCriarAtividade {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.blocoCriarAtividade {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(skyblue, transparent);
+}
+
+.inputsCriarAtividade {
+  font-size: 16px;
+  border-radius: 25px;
+  border-style: none;
+  padding: 15px 40px;
+  outline: none;
+  margin-top: 30px;
+  font-family: "Montserrat", sans-serif;
+  width: 450px;
+}
+
+.status_tipo {
+  font-size: 16px;
+  margin-top: 30px;
+  border-radius: 20px;
+  border-style: none;
+  padding: 10px 30px;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+#btnCriarAtividade {
+  border: none;
+  background-color: rgb(6, 41, 169);
+  border-radius: 25px;
+  padding: 10px 45px;
+  font-size: 17px;
+  outline: none;
+  margin-top: 30px;
+  font-weight: 600;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 15px;
+}
+
+#statusAtividadeAguardando {
+  color: red;
+}
+
+#statusAtividadeConcluida {
+  color: green;
+}
+
+@media screen and (max-width: 750px) {
+  .inputsCriarAtividade {
+    padding: 12px;
+    width: 320px;
+  }
+  .tituloCriarAtividade {
+    margin-right: 30px;
+    font-size: 34px;
+  }
+  .status_tipo {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .inputsCriarAtividade {
+    padding: 12px;
+    width: 275px;
+  }
+  .tituloCriarAtividade {
+    margin-right: 20px;
+    font-size: 31px;
+  }
+  .status_tipo {
+    padding: 10px;
+  }
+  #btnCriarAtividade {
+    padding: 10px 30px;
+  }
+}

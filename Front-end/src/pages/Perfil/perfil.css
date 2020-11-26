@@ -1,0 +1,122 @@
+.box_perfil {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+.bloco_perfil {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(skyblue, transparent);
+}
+
+.header_perfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#nome_app {
+  margin-right: 45px;
+  font-size: 42px;
+  color: navy;
+}
+
+.titulo_login {
+  font-size: 28px;
+}
+
+.inputs_perfil {
+  font-size: 16px;
+  border-radius: 25px;
+  border-style: none;
+  padding: 15px 40px;
+  outline: none;
+  margin-top: 30px;
+  font-family: "Montserrat", sans-serif;
+  width: 48vh;
+}
+
+
+
+.op_perfil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+  .inputs_login {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .inputs_login {
+    width: 210px;
+  }
+  #nome_app {
+    font-size: 37px;
+  }
+  
+  
+  
+} 
+
+
+
+.opcaozero{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 6px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  background-color: steelblue;
+  margin-right: 50px;
+
+}
+
+.opcaoum {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 6px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 25px;
+  margin-right:80px;
+  font-family: "Montserrat", sans-serif;
+  background-color: steelblue;
+
+} 
+.opeditar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.opcaodois{
+  background-color: steelblue;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 6px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  background-color: steelblue;
+}
+
