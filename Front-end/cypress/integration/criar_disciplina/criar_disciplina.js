@@ -4,7 +4,7 @@ let formulario;
 
 Given('que o formulário seja preenchido corretamente:', () => {
   formulario = {
-    'nomeDisciplina': 'Evolução estelar',
+    'nomeDisciplina': 'matematica',
     'periodoDisciplina': '2020.2',
     'horarioDisciplina': '18:20',
     'localDisciplina': 'Pavilhão 7',

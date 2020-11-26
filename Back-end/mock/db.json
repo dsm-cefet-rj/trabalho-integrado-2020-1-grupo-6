@@ -35,12 +35,12 @@
       "id": "d1wHjIf"
     },
     {
-      "nome": "matematica",
-      "periodo": "1 periodo",
-      "horario": "18:00",
-      "local": "pavilhao",
-      "professor": "Renato",
-      "material": "https://github.com/samlucax/calculator-cucumber-cypress/blob/advanced-version/cypress/integration/Calculadora.feature",
+      "nome": "Matematica",
+      "periodo": "2020.1",
+      "horario": "18:40",
+      "local": "Pavilhão 5",
+      "professor": "Diogo",
+      "material": "https://www.sciencedirect.com/topics/earth-and-planetary-sciences/planetary-evolution",
       "status": "Em andamento",
       "idUsuario": "6knp4_x",
       "id": "3LksGA_"
@@ -88,7 +88,19 @@
       "status": "Concluida",
       "idUsuario": "6knp4_x",
       "id": "f2ZBbTk"
+    },
+    {
+      "nome": "Estrutura de Dados",
+      "periodo": "2",
+      "horario": "17:00-18:20",
+      "local": "lab2",
+      "professor": "Mirna",
+      "material": "https://sites.google.com/site/proffdesiqueiraed/aulas/aula-1---introducao-a-estrutura-de-dados",
+      "status": "Em andamento",
+      "idUsuario": "6knp4_x",
+      "id": "jABOvvv"
     }
+    
   ],
   "atividades": [
     {

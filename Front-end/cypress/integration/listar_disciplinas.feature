@@ -20,25 +20,11 @@ Funcionalidade: Listagem de Disciplinas
             Quando digito o nome da disciplina que desejo visualizar
             Então é exibida na tela de listagem de disciplinas 
                 E apenas a disciplina encontrada está nela
+    
         
-        Cenário: Acessar disciplina
-            Dado que é exibida a tela de listagem de disciplinas
-            Quando clico na disciplina na listagem de disciplinas
-            Então é exibida a tela de visualização da disciplina com seus detalhes e atividades associadas
-        
-        Cenário: Criar disciplina
-            Quando clico no ícone de criar disciplina
-            Então a tela de cadastramento de nova disciplina é exibida
-        
-        Cenário: Editar disciplina
-            Dado que é exibida a tela de visualização da disciplina
-            Quando clico no ícone de editar disciplina
-            Então a tela de edição de disciplina é apresentada
-                E os dados cadastrados estão preenchidos
-        
-        Cenário: Excluir disciplina
-            Dado que é exibida a tela de visualização da disciplina
-            Quando clico no ícone de excluir disciplina
-            Então é exibida a tela de listagem das disciplinas 
-                E a disciplina excluída não está nela
+        #Cenário: Excluir disciplina
+            #Dado que é exibida a tela de visualização da disciplina
+            #Quando clico no ícone de excluir disciplina
+           # Então é exibida a tela de listagem das disciplinas 
+                #E a disciplina excluída não está nela
 
