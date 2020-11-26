@@ -68,7 +68,7 @@ export function Disciplinas() {
           className="inputsDisciplinas"
           placeholder="Disciplina"
           value={filtroNome}
-          onChange={(e) => setFiltroNome(e.target.value)}
+          onChange={(e) => setFiltroNome(e.target.value.toUpperCase())}
         ></input>
 
         <select
