@@ -5,12 +5,11 @@ let formulario;
 Given('que o formulário seja preenchido corretamente:', () => {
   formulario = {
     'nomeAtividade': 'matematica',
-    'dataEntregaAtividade': '2020.2',
-    'pontuacaoMaxAtividade': '18:20',
+    'dataEntregaAtividade': '14/10',
+    'pontuacaoMaxAtividade': '100',
     'descricaoAtividade': 'Pavilhão 7',
-    'notaFinalAtividade': 'Carl Sagan',
-    'arquivoAtividade': 'https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do',
-    'status': 'Em andamento',
+    'notaFinalAtividade': '100',
+    'arquivoAtividade': 'png.pdf',
   };
 
   cy.visit('./');
@@ -18,7 +17,7 @@ Given('que o formulário seja preenchido corretamente:', () => {
   cy.get('#usuarioSenha').type('teste');
   cy.get('#btnEntrar').click();
   cy.get('#minhasDisciplinas').click();
-  cy.get('nomeDisciplinaTabela').click();
+  cy.get('#nomeDisciplinaTabela').click();
   cy.get('#adicionarAtividade').click();
 
   cy.url().should('eq', 'http://localhost:3000/atividades/create');
