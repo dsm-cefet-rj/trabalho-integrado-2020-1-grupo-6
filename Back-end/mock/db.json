@@ -20,6 +20,13 @@
       "usuario": "soutog",
       "senha": "1234",
       "id": "6knp4_x"
+    },
+    {
+      "nome": "teste",
+      "usuario": "teste",
+      "curso": "teste",
+      "senha": "teste",
+      "id": 2
     }
   ],
   "disciplinas": [
@@ -154,6 +161,17 @@
       "status": "Em andamento",
       "idUsuario": "2bOlUt8",
       "id": "Kpvu8UP"
+    },
+    {
+      "nome": "uma coisa",
+      "periodo": "periodo 2",
+      "horario": "4 horas",
+      "local": "n sei",
+      "professor": "n quero",
+      "material": "google.com",
+      "status": "Concluida",
+      "idUsuario": 2,
+      "id": "FjvGV6h"
     }
   ],
   "atividades": [
@@ -242,8 +260,25 @@
       "notaFinal": "9",
       "arquivo": "resolucaoProvaP1.docx",
       "idDisciplina": "3LksGA_",
+<<<<<<< HEAD
       "idUsuario": "6knp4_x",
       "id": 11
+=======
+      "id": 8
+    },
+    {
+      "nome": "matematica",
+      "dataEntrega": "14/10",
+      "pontuacaoMax": "100",
+      "status": "Aguardando",
+      "tipo": "Prova",
+      "descricao": "Pavilhão 7",
+      "notaFinal": "100",
+      "arquivo": "png.pdf",
+      "idDisciplina": "FjvGV6h",
+      "idUsuario": 2,
+      "id": 9
+>>>>>>> 274b9435602fe914eef11f0bac7f78315ba745c2
     }
   ]
 }
