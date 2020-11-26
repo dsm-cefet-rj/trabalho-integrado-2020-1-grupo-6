@@ -5,16 +5,13 @@ Funcionalidade: Visualiza uma atividade
   juntamente com as opções de editar e excluir
 
 Cenário: Exibir atividade
-  Quando a tela de visualizar atividade é acessada
+  Dado que a tela de visualização de atividades é acessada
+  Quando clico em uma atividade
   Então a atividade é exibida
 
-Cenário: Editar atividade
-  Dado que é exibida a tela de visualização de atividade
-  Quando clico em editar atividade
-  Então a tela de editar atividade é exibida
 
-Cenário: Excluir atividade
-  Dado que é exibida a tela de visualização de atividade
-  Quando clico em excluir atividade
-  Então é exibida a tela de listagem de atividades
-  E a atividade é deletada
+#Cenário: Excluir atividade
+ # Dado que é exibida a tela de visualização de atividade
+  #Quando clico em excluir atividade
+  #Então é exibida  a tela de visualização da disciplina
+  #E a atividade é deletada
