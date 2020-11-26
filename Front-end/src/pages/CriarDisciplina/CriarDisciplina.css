@@ -65,14 +65,6 @@
   margin-bottom: 15px;
 }
 
-#statusDisciplinaEmAndamento {
-  color: orange;
-}
-
-#statusDisciplinaConcluida {
-  color: green;
-}
-
 @media screen and (max-width: 750px) {
   .inputsCriarDisciplina {
     padding: 12px;

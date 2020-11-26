@@ -38,7 +38,6 @@ export function VerAtividade() {
         },
       })
       .then((response) => {
-        // console.log(response.data);
         setNome(response.data.nome);
         setStatus(response.data.status);
         setDataEntrega(response.data.dataEntrega);

@@ -53,3 +53,21 @@
   color: white;
   font-family: "Montserrat", sans-serif;
 }
+
+@media screen and (max-width: 750px) {
+  .inputsEditarPerfil {
+    width: 270px;
+  }
+  #tituloEditarPerfil {
+    margin-right: 32px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .inputsEditarPerfil {
+    width: 230px;
+  }
+  #tituloEditarPerfil {
+    margin-right: 18px;
+  }
+}

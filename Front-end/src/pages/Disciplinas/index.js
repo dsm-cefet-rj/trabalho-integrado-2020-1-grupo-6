@@ -14,7 +14,6 @@ export function Disciplinas() {
   const [filtroNome, setFiltroNome] = useState("");
   const [filtroStatus, setFiltroStatus] = useState("");
   const history = useHistory();
-  // console.log(usuario);
 
   useEffect(() => {
     // if (!usuario) {
@@ -29,12 +28,9 @@ export function Disciplinas() {
         },
       })
       .then((response) => {
-        // console.log(response.data);
         setDisciplinas(response.data);
       });
   }, []);
-
-  console.log(disciplinas);
 
   function toCriarDisciplina() {
     history.push("/disciplinas/create");

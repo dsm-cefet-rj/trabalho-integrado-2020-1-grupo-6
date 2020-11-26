@@ -18,13 +18,12 @@ export function VerDisciplina() {
   const [material, setMaterial] = useState("");
   const [status, setStatus] = useState("Em andamento");
   const [atividades, setAtividades] = useState("");
+  const [filtroStatus, setFiltroStatus] = useState("");
   const { disciplinaID } = useParams();
-  // console.log(disciplinaID);
 
   const usuario =
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
-  // console.log(usuario);
 
   useEffect(() => {
     // if (!usuario) {
@@ -39,7 +38,6 @@ export function VerDisciplina() {
         },
       })
       .then((response) => {
-        // console.log(response.data);
         setNome(response.data.nome);
         setPeriodo(response.data.periodo);
         setHorario(response.data.horario);
@@ -56,7 +54,6 @@ export function VerDisciplina() {
         },
       })
       .then((response) => {
-        // console.log(response.data);
         setAtividades(response.data);
       });
   }, []);
@@ -79,23 +76,39 @@ export function VerDisciplina() {
     });
   }
 
+  function requisicaoFiltros() {
+    api
+      .get("atividades", {
+        params: {
+          ...(filtroStatus && { status: filtroStatus }),
+          idUsuario: usuario.id,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setAtividades(response.data);
+      });
+  }
+
   return (
     <div className="blocoVerDisciplina">
       <div className="boxVerDisciplina">
         <div className="headerVerDisciplina">
           <h1 id="tituloVerDisciplina">{nome}</h1>
-          <FiEdit
-            size={30}
-            id="editarDisciplina"
-            onClick={toEditarDisciplina}
-            color="black"
-          />
-          <FiTrash2
-            size={30}
-            id="excluirDisciplina"
-            onClick={toRemoveDisciplina}
-            color="black"
-          />
+          <div className="icones">
+            <FiEdit
+              size={30}
+              id="editarDisciplina"
+              onClick={toEditarDisciplina}
+              color="black"
+            />
+            <FiTrash2
+              size={30}
+              id="excluirDisciplina"
+              onClick={toRemoveDisciplina}
+              color="black"
+            />
+          </div>
         </div>
         <div className="opVerDisciplina">
           <div id="statusVerDisciplina">{status}</div>
@@ -119,16 +132,24 @@ export function VerDisciplina() {
           />
         </div>
 
-        <div>
-          <select name="Status" id="filtroAtividadeDisciplina">
+        <div className="filtroAtividade">
+          <select
+            name="Status"
+            id="filtroAtividadeDisciplina"
+            value={filtroStatus}
+            onChange={(e) => setFiltroStatus(e.target.value)}
+          >
             <option value=""></option>
             <option value="Aguardando">Aguardando</option>
             <option value="Concluida">Concluida</option>
           </select>
+          <button id="btnBuscaAtividade" onClick={requisicaoFiltros}>
+            Buscar
+          </button>
         </div>
       </div>
       {atividades.length > 0 ? (
-        <table id="tabelaAtividadesDisciplina" border="1">
+        <table id="tabelaAtividadesDisciplina">
           <thead>
             <tr>
               <td>Atividade</td>
