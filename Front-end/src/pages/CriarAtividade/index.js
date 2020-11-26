@@ -35,17 +35,6 @@ export function CriarAtividade() {
   function submitCriarAtividade(event) {
     event.preventDefault();
 
-    // console.log(
-    //   nome,
-    //   dataEntrega,
-    //   pontuacaoMax,
-    //   status,
-    //   tipo,
-    //   descricao,
-    //   notaFinal,
-    //   arquivo,
-    // );
-
     api
       .post("atividades", {
         nome,
@@ -57,9 +46,10 @@ export function CriarAtividade() {
         notaFinal,
         arquivo,
         idDisciplina: disciplina,
+        idUsuario: usuario.id,
       })
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
         history.push("/disciplinas/view/" + disciplina);
       });
   }

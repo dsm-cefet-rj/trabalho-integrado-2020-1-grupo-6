@@ -65,14 +65,6 @@
   margin-bottom: 15px;
 }
 
-#statusAtividadeAguardando {
-  color: red;
-}
-
-#statusAtividadeConcluida {
-  color: green;
-}
-
 @media screen and (max-width: 750px) {
   .inputsCriarAtividade {
     padding: 12px;
