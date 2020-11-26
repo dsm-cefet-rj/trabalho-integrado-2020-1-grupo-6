@@ -23,10 +23,17 @@
     },
     {
       "nome": "gabriel souto",
-      "usuario": "soutog",
       "curso": "ciencia da computacao",
+      "usuario": "soutog",
       "senha": "1234",
       "id": "6knp4_x"
+    },
+    {
+      "nome": "teste",
+      "usuario": "teste",
+      "curso": "teste",
+      "senha": "teste",
+      "id": "2bOlUt8"
     }
   ],
   "disciplinas": [
@@ -95,6 +102,72 @@
       "status": "Em andamento",
       "idUsuario": 1,
       "id": "ORW7ZCE"
+    },
+    {
+      "nome": "discreta",
+      "periodo": "3",
+      "horario": "14:00",
+      "local": "Sala 2",
+      "professor": "Diego",
+      "material": "https://pt.wikipedia.org/wiki/Matem%C3%A1tica_discreta",
+      "status": "Concluida",
+      "idUsuario": "6knp4_x",
+      "id": "f2ZBbTk"
+    },
+    {
+      "nome": "Estrutura de Dados",
+      "periodo": "2",
+      "horario": "17:00-18:20",
+      "local": "lab2",
+      "professor": "Mirna",
+      "material": "https://sites.google.com/site/proffdesiqueiraed/aulas/aula-1---introducao-a-estrutura-de-dados",
+      "status": "Em andamento",
+      "idUsuario": "6knp4_x",
+      "id": "jABOvvv"
+    },
+    {
+      "nome": "Evolução estelar",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": "2bOlUt8",
+      "id": "ZcRlzKL"
+    },
+    {
+      "nome": "Evolução estelar",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": "2bOlUt8",
+      "id": "QTdnXQ9"
+    },
+    {
+      "nome": "Evolução estelar",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": "2bOlUt8",
+      "id": "-ErQyKT"
+    },
+    {
+      "nome": "Evolução estelar",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": "2bOlUt8",
+      "id": "5_KMa4e"
     }
   ],
   "atividades": [
@@ -146,6 +219,18 @@
       "arquivo": "",
       "idDisciplina": "ORW7ZCE",
       "id": 6
+    },
+    {
+      "nome": "teste de atividadeteste edição nometeste edição nome",
+      "dataEntrega": "teste de datateste edição entregateste edição entrega",
+      "pontuacaoMax": "teste de pontuação máximateste ediçãoteste edição",
+      "status": "Aguardando",
+      "tipo": "Trabalho",
+      "descricao": "teste da funcionalidade de criar atividadeteste ediçãoteste edição",
+      "notaFinal": "teste de nota finalteste ediçãoteste edição",
+      "arquivo": "atividade.jpg.exeteste ediçãoteste edição",
+      "idDisciplina": "ZcRlzKL",
+      "id": 1
     }
   ]
 }
