@@ -1,6 +1,5 @@
 {
   "usuarios": [
-
     {
       "nome": "Luíza Guedes",
       "usuario": "luizaguedes",
@@ -14,23 +13,6 @@
       "curso": "ciencia",
       "senha": "123",
       "id": 2
-    },
-
-  
-
-    {
-      "nome": "luiza guedes",
-      "usuario": "luludocon",
-      "curso": "economia",
-      "senha": "luluzinha",
-      "id": "RjQLt57"
-    },
-    {
-      "nome": "felipe",
-      "usuario": "felipe123",
-      "curso": "Ciência da computação",
-      "senha": "123123",
-      "id": "FbUIi-P"
     },
     {
       "nome": "Gabriel",
@@ -49,46 +31,6 @@
   ],
   "disciplinas": [
     {
-      "nome": "PSW",
-      "periodo": "4º",
-      "horario": "13:30",
-      "local": "Pavilhão 4",
-      "professor": "João",
-      "material": "https://www.google.com",
-      "status": "Em andamento",
-      "id": "200"
-    },
-    {
-      "nome": "Arquitetura",
-      "periodo": "1º",
-      "horario": "19:30",
-      "local": "Pavilhão 10",
-      "professor": "Rodolfo",
-      "material": "https://www.google.com",
-      "status": "Concluida",
-      "id": "201"
-    },
-    {
-      "nome": "Grafos",
-      "periodo": "4º",
-      "horario": "13:30",
-      "local": "Pavilhão 4",
-      "professor": "João",
-      "material": "https://google.com",
-      "status": "Em andamento",
-      "id": "iN4rJp_"
-    },
-    {
-      "nome": "Arquitetura",
-      "periodo": "4º",
-      "horario": "20:00",
-      "local": "Pavilhão 9",
-      "professor": "Diogo",
-      "material": "https://google.com",
-      "status": "Concluida",
-      "id": "75iRw27"
-    },
-    {
       "nome": "Grafos",
       "periodo": "4º",
       "horario": "13:30",
@@ -98,37 +40,6 @@
       "status": "Em andamento",
       "idUsuario": "FbUIi-P",
       "id": "tUUUbSh"
-    },
-    {
-      "nome": "PSW",
-      "periodo": "4º",
-      "horario": "20:30",
-      "local": "Pavilhão 4",
-      "professor": "Diogo",
-      "material": "https://google.com",
-      "status": "Em andamento",
-      "id": "p-284J-"
-    },
-    {
-      "nome": "Arquitetura",
-      "periodo": "4º",
-      "horario": "20:03",
-      "local": "Pavilhão 4",
-      "professor": "Pedro",
-      "material": "https://google.com",
-      "status": "Concluida",
-      "id": "cSj3QVm"
-    },
-    {
-      "nome": "Grafos",
-      "periodo": "4º",
-      "horario": "13:30",
-      "local": "Pavilhão 4",
-      "professor": "Diogo",
-      "material": "",
-      "status": "Em andamento",
-      "idUsuario": "RjQLt57",
-      "id": "9QFZJkT"
     },
     {
       "nome": "matematica",
@@ -151,20 +62,90 @@
       "status": "Em andamento",
       "idUsuario": "6knp4_x",
       "id": "3LksGA_"
+    },
+    {
+      "nome": "Discreta",
+      "periodo": "2°",
+      "horario": "17h",
+      "local": "Pavilhão 4",
+      "professor": "Renata",
+      "material": "https://google.com",
+      "status": "Concluida",
+      "idUsuario": 1,
+      "id": "Wa-7kqD"
+    },
+    {
+      "nome": "Banco de dados",
+      "periodo": "2°",
+      "horario": "20:00",
+      "local": "Pavilhão 4",
+      "professor": "Kelle",
+      "material": "https://google.com",
+      "status": "Concluida",
+      "idUsuario": 1,
+      "id": "qqWUs9f"
+    },
+    {
+      "nome": "Metodologia",
+      "periodo": "5º",
+      "horario": "20:00",
+      "local": "Pavilhão 4",
+      "professor": "João",
+      "material": "https://google.com",
+      "status": "Em andamento",
+      "idUsuario": 1,
+      "id": "ORW7ZCE"
     }
   ],
   "atividades": [
+    
     {
-      "nome": "trabalho grafos",
-      "dataEntrega": "23/04/2020",
+      "nome": "Prova 1",
+      "dataEntrega": "01/03/2019",
       "pontuacaoMax": "10",
       "status": "Concluida",
+      "tipo": "Prova",
+      "descricao": "análise de relacionamento",
+      "notaFinal": "10",
+      "arquivo": "prova.pdf",
+      "idDisciplina": "Wa-7kqD",
+      "id": 3
+    },
+    {
+      "nome": "Prova 2",
+      "dataEntrega": "01/06/2019",
+      "pontuacaoMax": "2",
+      "status": "Concluida",
       "tipo": "Trabalho",
-      "descricao": "Grafos",
+      "descricao": "Probabilidade",
       "notaFinal": "3.0",
       "arquivo": "trabalho.pdf",
-      "idDisciplina": "1",
-      "id": 2
+      "idDisciplina": "Wa-7kqD",
+      "id": 4
+    },
+    {
+      "nome": "Trabalho p1",
+      "dataEntrega": "12/12/2020",
+      "pontuacaoMax": "10",
+      "status": "Aguardando",
+      "tipo": "Prova",
+      "descricao": "Relacionamento X Entidade",
+      "notaFinal": "9.0",
+      "arquivo": "prova.pdf",
+      "idDisciplina": "qqWUs9f",
+      "id": 5
+    },
+    {
+      "nome": "Video sobre proposta",
+      "dataEntrega": "01/01/2021",
+      "pontuacaoMax": "10",
+      "status": "Aguardando",
+      "tipo": "Trabalho",
+      "descricao": "Video explicativo sobre proposta de pesquisa",
+      "notaFinal": "",
+      "arquivo": "",
+      "idDisciplina": "ORW7ZCE",
+      "id": 6
     }
   ]
 }

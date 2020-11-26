@@ -31,31 +31,35 @@ export function Atividades() {
         },
       })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
 
         setAtividades(response.data);
-
-        response.data.map((atividade) => {
-          if (
-            !atividade.idDisciplina ||
-            atividade.idDisciplina in disciplinas
-          ) {
-            return;
-          }
-
-          api
-            .get("disciplinas/" + atividade.idDisciplina)
-            .then((disciplina) => {
-              setDisciplinas({
-                ...disciplinas,
-                [disciplina.data.id]: disciplina.data,
-              });
-            });
+        console.log(atividades);
+        const _disciplinas = {};
+        Promise.all(
+          response.data.map((atividade) => {
+            if (
+              !atividade.idDisciplina ||
+              atividade.idDisciplina in _disciplinas
+            ) {
+              return;
+            }
+            _disciplinas[atividade.idDisciplina] = atividade.idDisciplina;
+            return api.get("disciplinas/" + atividade.idDisciplina);
+          })
+        ).then((disc) => {
+          const disciplinas__ = {};
+          disc.map((res) => {
+            if (!res) {
+              return;
+            }
+            disciplinas__[res.data.id] = res.data;
+            // console.log(_disciplinas);
+          });
+          setDisciplinas(disciplinas__);
         });
       });
   }, []);
-
-  // console.log(atividades);
 
   function requisicaoFiltrosAtividades() {
     api
@@ -68,8 +72,10 @@ export function Atividades() {
       })
       .then((response) => {
         setAtividades(response.data);
+        // console.log(response.data);
       });
-    // console.log(disciplinas);
+    console.log(disciplinas);
+    // console.log(atividades);
   }
 
   return (
@@ -120,7 +126,10 @@ export function Atividades() {
                       to={"/atividades/view/" + atividade.id}
                     >
                       {atividade.nome}
-                      {disciplinas[atividade.idDisciplina]?.nome}
+
+                      <h5 id="nomeDisciplina_">
+                        {disciplinas[atividade.idDisciplina]?.nome}
+                      </h5>
                     </Link>
                   </td>
                   <td>{atividade.dataEntrega}</td>
