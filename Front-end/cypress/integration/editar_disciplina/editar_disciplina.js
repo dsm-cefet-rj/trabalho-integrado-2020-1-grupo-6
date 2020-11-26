@@ -1,32 +1,49 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 
-Given('Dado que o formulario seja preenchido corretamente', async function(disciplinas){
-    this.disciplinas = disciplinas.hashes(); 
-    var i = 0; 
+let formulario;
 
-    for(let d of this.disciplinas){
-        let d_cast = {
-            ...d,
-            id: parseInt(d.id),
-        }
-        this.disciplinas[i] = d_cast;
-        await window.fetch('http://localhost:3000/disciplinas/edit/'); 
-        await window.fetch('http://localhost:3000/disciplinas/edit/', {method: 'POST', body: JSON.stringify(p_cast),
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        });
-        i++;
-    }
+Given('que o formulário seja preenchido corretamente:', () => {
+    formulario = {
+      'editarNomeDisciplina': 'Matematica',
+      'editarPeriodoDisciplina': '2020.1',
+      'editarHorarioDisciplina': '18:40',
+      'editarLocalDisciplina': 'Pavilhão 5',
+      'editarNomeProfessorDisciplina': 'Diogo',
+      'editarMaterialDisciplina': 'https://www.sciencedirect.com/topics/earth-and-planetary-sciences/planetary-evolution',
+    //   'editarStatus': 'Em andamento',
+    };
+
+    cy.visit('./');
+    cy.get('#usuarioLogin').type('soutog');
+    cy.get('#usuarioSenha').type(1234);
+    cy.get('#btnEntrar').click();
+    cy.url().should('eq', 'http://localhost:3000/home');
+    cy.get('#minhasDisciplinas').click();
+    cy.url().should('eq', 'http://localhost:3000/disciplinas');
     
+    cy.get('#nomeDisciplinaTabela').should('have.attr', 'href');
+    cy.get('#nomeDisciplinaTabela').click();
+    cy.url().should('eq', 'http://localhost:3000/disciplinas/view/3LksGA_');
+
+    cy.url().should('eq', 'http://localhost:3000/disciplinas/view/3LksGA_');
+    cy.get('#editarDisciplina').click();
+
+    cy.url().should('eq', 'http://localhost:3000/disciplinas/edit/3LksGA_');
+
+    for(let key of Object.keys(formulario)) {
+        // if(cy.get(`#${key}`) !== cy.get("#editarStatus")){
+        //     cy.get(`#${key}`).clear();
+        // }
+        cy.get(`#${key}`).clear();
+        cy.get(`#${key}`).type(formulario[key]);
+    }
 });
 
-When('clico em salvar', () => cy.get('#btnSalvaredicaoDisciplina').click());
-
-Then('Os campos da disciplina são atuallizados', function(){
-
+When('eu clico em salvar', () => {
+    cy.get('#btnSalvaredicaoDisciplina').click();
 });
 
-// listar todas as disciplinas. (visitar a pagina)
-And("A tela de visualização é exibida", () => cy.visit('./listar_disciplinas'));
+
+Then('a tela de visualização da disciplina é exibida', () => {
+    cy.url().should('eq', 'http://localhost:3000/disciplinas/view/3LksGA_');
+});
