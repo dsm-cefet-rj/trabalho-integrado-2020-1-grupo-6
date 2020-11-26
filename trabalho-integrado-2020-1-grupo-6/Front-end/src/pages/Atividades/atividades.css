@@ -1,0 +1,116 @@
+.boxAtividades {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.blocoAtividades {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(skyblue, transparent);
+}
+
+.headerAtividades {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.tituloAtividades {
+  margin-right: 45px;
+  font-size: 40px;
+  color: navy;
+}
+
+#tabelaAtividades {
+  border: none;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
+  margin: 30px;
+  border-radius: 10px;
+}
+#tabelaAtividades th,
+td {
+  padding: 10px;
+}
+
+#pesquisaAtividade {
+  font-size: 18px;
+  border-radius: 25px;
+  border-style: none;
+  padding: 15px 40px;
+  outline: none;
+  margin-top: 30px;
+  font-family: "Montserrat", sans-serif;
+  width: 48vh;
+}
+
+#filtroAtividade {
+  font-size: 16px;
+  margin-top: 30px;
+  border-radius: 20px;
+  border-style: none;
+  padding: 10px 30px;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+#btnBuscaAtividade {
+  border: none;
+  background-color: rgb(6, 41, 169);
+  border-radius: 25px;
+  padding: 10px 45px;
+  font-size: 17px;
+  outline: none;
+  margin-top: 30px;
+  font-weight: 600;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+#nomeAtividadeTabela {
+  text-decoration: none;
+  color: black;
+}
+
+#nomeDisciplina_ {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 750px) {
+  #pesquisaAtividade {
+    width: 250px;
+  }
+  #tabelaAtividades {
+    margin: 30px;
+    font-size: 13px;
+  }
+  .tituloAtividades {
+    margin-right: 35px;
+  }
+  #nomeDisciplina_ {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #pesquisaAtividade {
+    width: 233px;
+  }
+  #tabelaAtividades {
+    font-size: 11px;
+  }
+  .tituloAtividades {
+    margin-right: 25px;
+  }
+}

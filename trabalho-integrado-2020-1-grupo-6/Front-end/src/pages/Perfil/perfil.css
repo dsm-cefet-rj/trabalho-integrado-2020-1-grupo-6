@@ -1,0 +1,102 @@
+.boxPerfil {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.blocoPerfil {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(skyblue, transparent);
+}
+
+.headerPerfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tituloPerfil {
+  margin-right: 45px;
+  font-size: 40px;
+  color: navy;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.opPerfil {
+  margin-top: 50px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.itemsPerfil {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#btnEditarPerfil {
+  border: none;
+  background-color: rgb(6, 41, 169);
+  border-radius: 25px;
+  padding: 10px 45px;
+  font-size: 17px;
+  margin-right: 25px;
+  outline: none;
+  font-weight: 600;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+#btnExcluirPerfil {
+  border: none;
+  background-color: rgb(6, 41, 169);
+  border-radius: 25px;
+  padding: 10px 45px;
+  font-size: 17px;
+  outline: none;
+  font-weight: 600;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media screen and (max-width: 750px) {
+  .opPerfil {
+    margin: 40px 30px 0px 30px;
+  }
+  #tituloPerfil {
+    margin-right: 39px;
+  }
+  #btnExcluirPerfil {
+    padding: 10px 30px;
+  }
+  #btnEditarPerfil {
+    padding: 10px 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .opPerfil {
+    margin: 40px 30px 0px 30px;
+  }
+  #tituloPerfil {
+    margin-right: 30px;
+  }
+  #btnExcluirPerfil {
+    padding: 10px 30px;
+  }
+  #btnEditarPerfil {
+    padding: 10px 30px;
+  }
+}

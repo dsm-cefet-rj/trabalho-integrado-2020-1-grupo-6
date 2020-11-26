@@ -1,0 +1,6 @@
+{
+    "git.ignoreLimitWarning": true,
+
+    "jestrunner.jestCommand": "npm run test --"
+}
+
