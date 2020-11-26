@@ -1,46 +1,41 @@
 // This will be a new feature implementation on cypress
 
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
-//import cy from "cypress"
 
-Given('que temos disciplinas cadastradas', async function (disciplinas) {
-    this.disciplinas = disciplinas.hashes();
-    var i = 0;
+Given("que temos disciplinas cadastradas", () => {
+    
+    cy.visit('./')
+    cy.get('#usuarioLogin').type('soutog')
+    cy.get('#usuarioSenha').type(1234)
+    cy.get('#btnEntrar').click()
+    cy.url().should('eq', 'http://localhost:3000/home')
 
-    for(let d of this.disciplinas){
+    cy.get('#minhasDisciplinas').click()
+    cy.url().should('eq', 'http://localhost:3000/disciplinas')
 
-        let d_cast = {
-            ...d,
-            id: parseInt(d.id)
-        }
-        this.disciplinas[i] = d_cast;
-        await window.fetch('http://192.168.0.13:3000/disciplinas/' + d.id, {method: 'DELETE'})
-        await window.fetch('http://192.168.0.13:3000/disciplinas/', {method: 'POST', body: JSON.stringify(d_cast),
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        });
+}); 
 
-        i++;
-    }
+When('clico em Minhas disciplinas na Home', () => cy.visit('./disciplinas'));
+
+Then('as disciplinas são exibidas', function () {
+    cy.get('#tabelaDisciplinas').click()
+    cy.url().should('eq', 'http://localhost:3000/disciplinas')
+   
+    
+});
+
+When("digito o nome da disciplina que desejo visualizar", () => {
+    cy.get('#pesquisaDisciplina').type('matematica')
+    cy.get('#btnBuscaDisciplina').click()
+});
+
+Then('é exibida na tela de listagem de disciplinas', function () {
+    cy.get('#nomeDisciplinaTabela') //.click()
+    cy.url().should('eq', 'http://localhost:3000/disciplinas')
+});
+And("apenas a disciplina encontrada está nela", function () {
 
 });
 
-/*When('clico em Minhas disciplinas na Home', () => cy.visit('./disciplinas'));
 
-Then('as disciplinas são exibidas', function() {
-    for (let d of this.disciplinas){
-        //nome da disciplina
-        cy.get(d.id)
-            .contains(d.Nome)
-            .should('be.visible');
-
-        //dados da disciplina
-        cy.get(d.id)
-            .contains(d.status)
-            .should('be.visible')
-
-    }
-    
-});*/
+ 
