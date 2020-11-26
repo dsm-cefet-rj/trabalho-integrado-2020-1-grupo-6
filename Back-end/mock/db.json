@@ -8,13 +8,6 @@
       "id": 1
     },
     {
-      "nome": "Ricardo ninja",
-      "usuario": "ricardo",
-      "curso": "ciencia",
-      "senha": "123",
-      "id": 2
-    },
-    {
       "nome": "Gabriel",
       "usuario": "souto",
       "curso": "Comp",
@@ -27,27 +20,9 @@
       "usuario": "soutog",
       "senha": "1234",
       "id": "6knp4_x"
-    },
-    {
-      "nome": "teste",
-      "usuario": "teste",
-      "curso": "teste",
-      "senha": "teste",
-      "id": "2bOlUt8"
     }
   ],
   "disciplinas": [
-    {
-      "nome": "Grafos",
-      "periodo": "4º",
-      "horario": "13:30",
-      "local": "Pavilhão 4",
-      "professor": "Diogo",
-      "material": "https://google.com",
-      "status": "Em andamento",
-      "idUsuario": "FbUIi-P",
-      "id": "tUUUbSh"
-    },
     {
       "nome": "matematica",
       "periodo": "5",
@@ -113,124 +88,47 @@
       "status": "Concluida",
       "idUsuario": "6knp4_x",
       "id": "f2ZBbTk"
-    },
-    {
-      "nome": "Estrutura de Dados",
-      "periodo": "2",
-      "horario": "17:00-18:20",
-      "local": "lab2",
-      "professor": "Mirna",
-      "material": "https://sites.google.com/site/proffdesiqueiraed/aulas/aula-1---introducao-a-estrutura-de-dados",
-      "status": "Em andamento",
-      "idUsuario": "6knp4_x",
-      "id": "jABOvvv"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "ZcRlzKL"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "QTdnXQ9"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "-ErQyKT"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "5_KMa4e"
     }
   ],
   "atividades": [
-    
     {
-      "nome": "Prova 1",
-      "dataEntrega": "01/03/2019",
-      "pontuacaoMax": "10",
+      "nome": "teste",
+      "dataEntrega": "",
+      "pontuacaoMax": "",
+      "status": "Aguardando",
+      "tipo": "Prova",
+      "descricao": "",
+      "notaFinal": "",
+      "arquivo": "",
+      "idDisciplina": "d1wHjIf",
+      "idUsuario": "e9AuTpx",
+      "id": 2
+    },
+    {
+      "nome": "prova P1",
+      "dataEntrega": "",
+      "pontuacaoMax": "",
       "status": "Concluida",
       "tipo": "Prova",
-      "descricao": "análise de relacionamento",
-      "notaFinal": "10",
-      "arquivo": "prova.pdf",
-      "idDisciplina": "Wa-7kqD",
+      "descricao": "",
+      "notaFinal": "",
+      "arquivo": "",
+      "idDisciplina": "d1wHjIf",
+      "idUsuario": "e9AuTpx",
       "id": 3
     },
     {
-      "nome": "Prova 2",
-      "dataEntrega": "01/06/2019",
-      "pontuacaoMax": "2",
-      "status": "Concluida",
-      "tipo": "Trabalho",
-      "descricao": "Probabilidade",
-      "notaFinal": "3.0",
-      "arquivo": "trabalho.pdf",
-      "idDisciplina": "Wa-7kqD",
-      "id": 4
-    },
-    {
-      "nome": "Trabalho p1",
+      "nome": "Video Proposta Pesquisa",
       "dataEntrega": "12/12/2020",
       "pontuacaoMax": "10",
       "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "Relacionamento X Entidade",
-      "notaFinal": "9.0",
-      "arquivo": "prova.pdf",
-      "idDisciplina": "qqWUs9f",
-      "id": 5
-    },
-    {
-      "nome": "Video sobre proposta",
-      "dataEntrega": "01/01/2021",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
       "tipo": "Trabalho",
-      "descricao": "Video explicativo sobre proposta de pesquisa",
+      "descricao": "Video explicativa de proposta de pesquisa",
       "notaFinal": "",
       "arquivo": "",
       "idDisciplina": "ORW7ZCE",
-      "id": 6
-    },
-    {
-      "nome": "teste de atividadeteste edição nometeste edição nome",
-      "dataEntrega": "teste de datateste edição entregateste edição entrega",
-      "pontuacaoMax": "teste de pontuação máximateste ediçãoteste edição",
-      "status": "Aguardando",
-      "tipo": "Trabalho",
-      "descricao": "teste da funcionalidade de criar atividadeteste ediçãoteste edição",
-      "notaFinal": "teste de nota finalteste ediçãoteste edição",
-      "arquivo": "atividade.jpg.exeteste ediçãoteste edição",
-      "idDisciplina": "ZcRlzKL",
-      "id": 1
+      "idUsuario": 1,
+      "id": 4
     }
   ]
 }

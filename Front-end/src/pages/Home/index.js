@@ -12,7 +12,6 @@ export function Home() {
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
   useEffect(() => {
-    console.log(usuario);
     if (!usuario) {
       history.push("/");
     }

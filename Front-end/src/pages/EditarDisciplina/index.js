@@ -20,8 +20,6 @@ export function EditarDisciplina() {
     useSelector((state) => state.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
 
-  // console.log(disciplinaID);
-
   const history = useHistory();
 
   useEffect(() => {
@@ -39,17 +37,6 @@ export function EditarDisciplina() {
   function submitEditarDisciplina(event) {
     event.preventDefault();
 
-    console.log(
-      nome,
-      periodo,
-      horario,
-      local,
-      nomeProfessor,
-      material,
-      status,
-      disciplinaID
-    );
-
     api
       .put("disciplinas/" + disciplinaID, {
         nome,
@@ -62,7 +49,6 @@ export function EditarDisciplina() {
         idUsuario: usuario.id,
       })
       .then((response) => {
-        console.log(response.data);
         history.push("/disciplinas/view/" + disciplinaID);
       });
   }

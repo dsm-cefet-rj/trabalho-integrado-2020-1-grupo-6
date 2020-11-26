@@ -21,7 +21,6 @@ export function CriarDisciplina() {
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
   useEffect(() => {
-    // console.log(usuario);
     // if (!usuario) {
     //   history.push("/");
     // }
@@ -29,8 +28,6 @@ export function CriarDisciplina() {
 
   function submitCriarDisciplina(event) {
     event.preventDefault();
-
-    // console.log(nome, periodo, horario, local, nomeProfessor, material, status);
 
     api
       .post("disciplinas", {
@@ -44,7 +41,6 @@ export function CriarDisciplina() {
         idUsuario: usuario.id,
       })
       .then((response) => {
-        console.log(response.data);
         history.push("/disciplinas");
       });
   }

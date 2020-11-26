@@ -4,6 +4,7 @@ import styles from "./EditarAtividade.css";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { FiCheckSquare, FiFile } from "react-icons/fi";
 import { api } from "../../services/api.js";
+import { useSelector } from "react-redux";
 
 export function EditarAtividade() {
   const [nome, setNome] = useState("");
@@ -16,6 +17,7 @@ export function EditarAtividade() {
   const [arquivo, setArquivo] = useState("");
   const [idDisciplina, setIdDisciplina] = useState("");
   const { atividadeID } = useParams();
+  const usuario = useSelector((state) => state.usuario);
 
   const history = useHistory();
 
@@ -36,17 +38,6 @@ export function EditarAtividade() {
   function submitEditarAtividade(event) {
     event.preventDefault();
 
-    console.log(
-      nome,
-      dataEntrega,
-      pontuacaoMax,
-      status,
-      tipo,
-      descricao,
-      notaFinal,
-      arquivo
-    );
-
     api
       .put("atividades/" + atividadeID, {
         nome,
@@ -58,9 +49,9 @@ export function EditarAtividade() {
         notaFinal,
         arquivo,
         idDisciplina,
+        idUsuario: usuario.id,
       })
       .then((response) => {
-        console.log(response.data);
         history.push("/atividades/view/" + atividadeID);
       });
   }

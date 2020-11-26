@@ -15,7 +15,6 @@ export function Login() {
 
   function submitLogin(event) {
     event.preventDefault();
-    console.log(login, senha);
 
     api
       .get("usuarios", {
@@ -26,7 +25,7 @@ export function Login() {
           alert("Usuário e/ou senha estão incorretos");
           return;
         }
-        console.log(response.data);
+
         dispatch({
           type: "fazerLogin",
           payload: response.data[0],

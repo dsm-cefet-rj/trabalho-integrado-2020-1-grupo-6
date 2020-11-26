@@ -16,7 +16,6 @@ export function Atividades() {
   const [filtroStatus, setFiltroStatus] = useState("");
   const history = useHistory();
   const [disciplinas, setDisciplinas] = useState({});
-  // console.log(usuario);
 
   useEffect(() => {
     // if (!usuario) {
@@ -31,7 +30,7 @@ export function Atividades() {
         },
       })
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
 
         setAtividades(response.data);
         console.log(atividades);
@@ -54,7 +53,6 @@ export function Atividades() {
               return;
             }
             disciplinas__[res.data.id] = res.data;
-            // console.log(_disciplinas);
           });
           setDisciplinas(disciplinas__);
         });
@@ -72,10 +70,7 @@ export function Atividades() {
       })
       .then((response) => {
         setAtividades(response.data);
-        // console.log(response.data);
       });
-    console.log(disciplinas);
-    // console.log(atividades);
   }
 
   return (

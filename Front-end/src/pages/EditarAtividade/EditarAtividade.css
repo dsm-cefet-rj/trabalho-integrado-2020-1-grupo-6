@@ -65,21 +65,13 @@
   margin-bottom: 15px;
 }
 
-#editarStatusAtividadeAguardando {
-  color: red;
-}
-
-#editarStatusAtividadeConcluida {
-  color: green;
-}
-
 @media screen and (max-width: 750px) {
   .inputsEditarAtividade {
     padding: 12px;
     width: 320px;
   }
   .tituloEditarAtividade {
-    margin-right: 30px;
+    margin-right: 10px;
     font-size: 34px;
   }
   .editarStatusTipo {
@@ -93,7 +85,7 @@
     width: 275px;
   }
   .tituloEditarAtividade {
-    margin-right: 20px;
+    margin-right: 10px;
     font-size: 31px;
   }
   .editarStatusTipo {

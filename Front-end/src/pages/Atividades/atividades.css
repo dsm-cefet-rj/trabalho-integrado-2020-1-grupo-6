@@ -30,24 +30,13 @@
   color: navy;
 }
 
-.inputsAtividades {
-  font-size: 16px;
-  border-radius: 25px;
-  border-style: none;
-  padding: 15px 40px;
-  outline: none;
-  margin-top: 30px;
-  font-family: "Montserrat", sans-serif;
-  width: 48vh;
-}
-
 #tabelaAtividades {
   border: none;
   text-decoration: none;
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
   background-color: white;
-  margin-top: 30px;
+  margin: 30px;
   border-radius: 10px;
 }
 #tabelaAtividades th,
@@ -92,4 +81,36 @@ td {
 #nomeAtividadeTabela {
   text-decoration: none;
   color: black;
+}
+
+#nomeDisciplina_ {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 750px) {
+  #pesquisaAtividade {
+    width: 250px;
+  }
+  #tabelaAtividades {
+    margin: 30px;
+    font-size: 13px;
+  }
+  .tituloAtividades {
+    margin-right: 35px;
+  }
+  #nomeDisciplina_ {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #pesquisaAtividade {
+    width: 233px;
+  }
+  #tabelaAtividades {
+    font-size: 11px;
+  }
+  .tituloAtividades {
+    margin-right: 25px;
+  }
 }
