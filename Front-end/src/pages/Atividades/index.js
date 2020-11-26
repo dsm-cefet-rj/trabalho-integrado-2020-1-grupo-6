@@ -64,7 +64,7 @@ export function Atividades() {
       .get("Atividades", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
-          ...(filtroNome && { nome: filtroNome }),
+          ...(filtroNome && { nome_filter: filtroNome }),
           idUsuario: usuario.id,
         },
       })
@@ -85,7 +85,7 @@ export function Atividades() {
           id="pesquisaAtividade"
           placeholder="Atividade"
           value={filtroNome}
-          onChange={(e) => setFiltroNome(e.target.value.toUpperCase())}
+          onChange={(e) => setFiltroNome(e.target.value)}
         ></input>
 
         <select

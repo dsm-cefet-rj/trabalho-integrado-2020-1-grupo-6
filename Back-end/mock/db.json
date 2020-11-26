@@ -31,78 +31,54 @@
   ],
   "disciplinas": [
     {
-      "nome": "BANCO DE DADOS",
-      "periodo": "2°",
-      "horario": "20:00",
+      "nome": "Grafos",
+      "periodo": "5º",
+      "horario": "13:30",
       "local": "Pavilhão 4",
-      "professor": "Kelle",
-      "material": "https://google.com",
-      "status": "Concluida",
-      "idUsuario": 1,
-      "id": "qqWUs9f"
-    },
-    {
-      "nome": "ARQUITETURA",
-      "periodo": "1º",
-      "horario": "19:30",
-      "local": "Pavilhão 4",
-      "professor": "Diogo",
+      "professor": "Renata",
       "material": "https://google.com",
       "status": "Em andamento",
       "idUsuario": 1,
-      "id": "_eW3DBG"
+      "id": "9eY48N3"
     },
     {
-      "nome": "GRAFOS",
-      "periodo": "5º",
-      "horario": "19:30",
+      "nome": "PSW",
+      "periodo": "2°",
+      "horario": "20:00",
       "local": "Pavilhão 4",
-      "professor": "João",
+      "professor": "Pedro",
       "material": "https://google.com",
       "status": "Concluida",
-      "idUsuario": "e9AuTpx",
-      "id": "etXA66O"
+      "idUsuario": 1,
+      "id": "7i_Xcbm"
     }
   ],
   "atividades": [
     {
-      "nome": "OPERAÇÃO ATUALIZAÇÃO",
-      "dataEntrega": "15/04/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "",
-      "notaFinal": "9",
-      "arquivo": "",
-      "idDisciplina": "qqWUs9f",
-      "idUsuario": 1,
-      "id": 12
-    },
-    {
-      "nome": "PROVA P1",
-      "dataEntrega": "23/04/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "Relacionamento X Entidade",
-      "notaFinal": "",
-      "arquivo": "",
-      "idDisciplina": "etXA66O",
-      "idUsuario": "e9AuTpx",
-      "id": 13
-    },
-    {
-      "nome": "PROVA P2",
+      "nome": "Prova P1",
       "dataEntrega": "12/12/2020",
       "pontuacaoMax": "10",
       "status": "Aguardando",
       "tipo": "Prova",
-      "descricao": "Probabilidade",
-      "notaFinal": "",
-      "arquivo": "",
-      "idDisciplina": "etXA66O",
-      "idUsuario": "e9AuTpx",
-      "id": 14
+      "descricao": "Relacionamento X Entidade",
+      "notaFinal": "10",
+      "arquivo": "trabalho.pdf",
+      "idDisciplina": "9eY48N3",
+      "idUsuario": 1,
+      "id": 15
+    },
+    {
+      "nome": "Prova P2",
+      "dataEntrega": "23/04/2020",
+      "pontuacaoMax": "10",
+      "status": "Concluida",
+      "tipo": "Prova",
+      "descricao": "HTML e Javascript",
+      "notaFinal": "10",
+      "arquivo": "prova.pdf",
+      "idDisciplina": "7i_Xcbm",
+      "idUsuario": 1,
+      "id": 16
     }
   ]
 }
