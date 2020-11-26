@@ -155,7 +155,6 @@
       "idUsuario": "2bOlUt8",
       "id": "Kpvu8UP"
     }
-    
   ],
   "atividades": [
     {
@@ -209,27 +208,42 @@
     },
     {
       "nome": "lista1",
-      "dataEntrega": "03/12/2020",
-      "pontuacaoMax": "5",
-      "status": "Aguardando",
+      "dataEntrega": "12/12/2020",
+      "pontuacaoMax": "3",
+      "status": "Concluida",
       "tipo": "Trabalho",
-      "descricao": "primeira lista de exercicios",
-      "notaFinal": "",
-      "arquivo": "resolucaoLista1.pdf",
-      "idDisciplina": "3LksGA_",
-      "id": 7
+      "descricao": "Primeira lista de exercicio",
+      "notaFinal": "2",
+      "arquivo": "resolucaolista1.pdf",
+      "idDisciplina": "f2ZBbTk",
+      "idUsuario": "6knp4_x",
+      "id": 9
     },
     {
-      "nome": "prova1",
-      "dataEntrega": "20/11/2020",
+      "nome": "listadecalculo",
+      "dataEntrega": "28/11/2020",
+      "pontuacaoMax": "3",
+      "status": "Aguardando",
+      "tipo": "Trabalho",
+      "descricao": "Lista de exercicios de calculo numerico",
+      "notaFinal": "1",
+      "arquivo": "",
+      "idDisciplina": "3LksGA_",
+      "idUsuario": "6knp4_x",
+      "id": 10
+    },
+    {
+      "nome": "Provap1Geometria",
+      "dataEntrega": "12/03/2020",
       "pontuacaoMax": "10",
       "status": "Concluida",
       "tipo": "Prova",
-      "descricao": "primeira prova do semestre",
-      "notaFinal": "8",
-      "arquivo": "resolucaoprova1.pdf",
+      "descricao": "Primeira prova de Geometria",
+      "notaFinal": "9",
+      "arquivo": "resolucaoProvaP1.docx",
       "idDisciplina": "3LksGA_",
-      "id": 8
+      "idUsuario": "6knp4_x",
+      "id": 11
     }
   ]
 }
