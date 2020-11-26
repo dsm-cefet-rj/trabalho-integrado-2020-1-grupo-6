@@ -168,18 +168,29 @@
       "status": "Em andamento",
       "idUsuario": "2bOlUt8",
       "id": "X2U8FRc"
+    },
+    {
+      "nome": "matematica",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": "2bOlUt8",
+      "id": "Kpvu8UP"
     }
   ],
   "atividades": [
     {
-      "nome": "Prova 1teste edição nome",
-      "dataEntrega": "01/03/2019teste edição entrega",
-      "pontuacaoMax": "10teste edição",
+      "nome": "Prova 1teste edição nometeste edição nome",
+      "dataEntrega": "01/03/2019teste edição entregateste edição entrega",
+      "pontuacaoMax": "10teste ediçãoteste edição",
       "status": "Concluida",
       "tipo": "Prova",
-      "descricao": "análise de relacionamentoteste edição",
-      "notaFinal": "10teste edição",
-      "arquivo": "prova.pdfteste edição",
+      "descricao": "análise de relacionamentoteste ediçãoteste edição",
+      "notaFinal": "10teste ediçãoteste edição",
+      "arquivo": "prova.pdfteste ediçãoteste edição",
       "idDisciplina": "Wa-7kqD",
       "id": 3
     },
@@ -230,6 +241,30 @@
       "arquivo": "atividade.jpg.exeteste ediçãoteste edição",
       "idDisciplina": "ZcRlzKL",
       "id": 1
+    },
+    {
+      "nome": "lista1",
+      "dataEntrega": "03/12/2020",
+      "pontuacaoMax": "5",
+      "status": "Aguardando",
+      "tipo": "Trabalho",
+      "descricao": "primeira lista de exercicios",
+      "notaFinal": "",
+      "arquivo": "resolucaoLista1.pdf",
+      "idDisciplina": "3LksGA_",
+      "id": 7
+    },
+    {
+      "nome": "prova1",
+      "dataEntrega": "20/11/2020",
+      "pontuacaoMax": "10",
+      "status": "Concluida",
+      "tipo": "Prova",
+      "descricao": "primeira prova do semestre",
+      "notaFinal": "8",
+      "arquivo": "resolucaoprova1.pdf",
+      "idDisciplina": "3LksGA_",
+      "id": 8
     }
   ]
 }
