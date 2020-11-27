@@ -13,8 +13,9 @@ Given("que a tela de visualização de atividades é acessada", () => {
 
 }); 
 When("clico em uma atividade", () => {
-    cy.get('#nomeAtividadeTabela').should('have.attr', 'href')
     cy.get('#nomeAtividadeTabela').click()
+    cy.get('#nomeAtividadeTabela').should('have.attr', 'href')
+            
 });
 
 
