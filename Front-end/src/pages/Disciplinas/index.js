@@ -41,7 +41,7 @@ export function Disciplinas() {
       .get("disciplinas", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
-          ...(filtroNome && { nome: filtroNome }),
+          ...(filtroNome && { nome_like: filtroNome }),
           idUsuario: usuario.id,
         },
       })
@@ -68,7 +68,7 @@ export function Disciplinas() {
           className="inputsDisciplinas"
           placeholder="Disciplina"
           value={filtroNome}
-          onChange={(e) => setFiltroNome(e.target.value.toUpperCase())}
+          onChange={(e) => setFiltroNome(e.target.value)}
         ></input>
 
         <select

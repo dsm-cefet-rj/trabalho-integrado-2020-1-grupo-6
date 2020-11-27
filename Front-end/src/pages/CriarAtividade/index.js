@@ -68,7 +68,7 @@ export function CriarAtividade() {
             className="inputsCriarAtividade"
             placeholder="Digite nome da atividade"
             value={nome}
-            onChange={(e) => setNome(e.target.value.toUpperCase())}
+            onChange={(e) => setNome(e.target.value)}
           ></input>
           <input
             type="text"

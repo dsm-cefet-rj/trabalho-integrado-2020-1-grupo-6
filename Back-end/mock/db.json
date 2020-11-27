@@ -21,7 +21,6 @@
       "senha": "1234",
       "id": "6knp4_x"
     },
-    
     {
       "nome": "teste",
       "usuario": "teste",
@@ -32,206 +31,54 @@
   ],
   "disciplinas": [
     {
-      "nome": "matematica",
-      "periodo": "5",
-      "horario": "19:00",
-      "local": "pavilhao",
-      "professor": "diogo",
-      "material": "https://www.google.com/search?channel=fs&client=ubuntu&q=cypress+and+cucumber",
-      "status": "Em andamento",
-      "idUsuario": "e9AuTpx",
-      "id": "d1wHjIf"
-    },
-    {
-      "nome": "Discreta",
-      "periodo": "2°",
-      "horario": "17h",
+      "nome": "Grafos",
+      "periodo": "5º",
+      "horario": "13:30",
       "local": "Pavilhão 4",
       "professor": "Renata",
       "material": "https://google.com",
-      "status": "Concluida",
+      "status": "Em andamento",
       "idUsuario": 1,
-      "id": "Wa-7kqD"
+      "id": "9eY48N3"
     },
     {
-      "nome": "BANCO DE DADOS",
+      "nome": "PSW",
       "periodo": "2°",
       "horario": "20:00",
       "local": "Pavilhão 4",
-      "professor": "Kelle",
+      "professor": "Pedro",
       "material": "https://google.com",
       "status": "Concluida",
       "idUsuario": 1,
-      "id": "qqWUs9f"
-    },
-    {
-      "nome": "Metodologia",
-      "periodo": "5º",
-      "horario": "20:00",
-      "local": "Pavilhão 4",
-      "professor": "João",
-      "material": "https://google.com",
-      "status": "Em andamento",
-      "idUsuario": 1,
-      "id": "ORW7ZCE"
-    },
-    {
-      "nome": "discreta",
-      "periodo": "3",
-      "horario": "14:00",
-      "local": "Sala 2",
-      "professor": "Diego",
-      "material": "https://pt.wikipedia.org/wiki/Matem%C3%A1tica_discreta",
-      "status": "Concluida",
-      "idUsuario": "6knp4_x",
-      "id": "f2ZBbTk"
-    },
-    {
-      "nome": "Estrutura de Dados",
-      "periodo": "2",
-      "horario": "17:00-18:20",
-      "local": "lab2",
-      "professor": "Mirna",
-      "material": "https://sites.google.com/site/proffdesiqueiraed/aulas/aula-1---introducao-a-estrutura-de-dados",
-      "status": "Em andamento",
-      "idUsuario": "6knp4_x",
-      "id": "jABOvvv"
-    },
-    {
-      "nome": "Evolução estelar",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "ZcRlzKL"
-    },
-    {
-      "nome": "matematica",
-      "periodo": "2020.2",
-      "horario": "18:20",
-      "local": "Pavilhão 7",
-      "professor": "Carl Sagan",
-      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
-      "status": "Em andamento",
-      "idUsuario": "2bOlUt8",
-      "id": "Kpvu8UP"
-    },
-    {
-      "nome": "uma coisa",
-      "periodo": "periodo 2",
-      "horario": "4 horas",
-      "local": "n sei",
-      "professor": "n quero",
-      "material": "google.com",
-      "status": "Concluida",
-      "idUsuario": 2,
-      "id": "FjvGV6h"
+      "id": "7i_Xcbm"
     }
   ],
   "atividades": [
     {
-      "nome": "Prova 1teste edição nometeste edição nome",
-      "dataEntrega": "01/03/2019teste edição entregateste edição entrega",
-      "pontuacaoMax": "10teste ediçãoteste edição",
-      "status": "Concluida",
-      "tipo": "Prova",
-      "descricao": "análise de relacionamentoteste ediçãoteste edição",
-      "notaFinal": "10teste ediçãoteste edição",
-      "arquivo": "prova.pdfteste ediçãoteste edição",
-      "idDisciplina": "Wa-7kqD",
-      "id": 3
-    },
-    {
-      "nome": "prova P1",
-      "dataEntrega": "",
-      "pontuacaoMax": "",
-      "status": "Concluida",
-      "tipo": "Prova",
-      "descricao": "",
-      "notaFinal": "",
-      "arquivo": "",
-      "idDisciplina": "d1wHjIf",
-      "idUsuario": "e9AuTpx",
-      "id": 3
-    },
-    {
-      "nome": "Video Proposta Pesquisa",
+      "nome": "Prova P1",
       "dataEntrega": "12/12/2020",
       "pontuacaoMax": "10",
       "status": "Aguardando",
-      "tipo": "Trabalho",
-      "descricao": "Video explicativa de proposta de pesquisa",
-      "notaFinal": "",
-      "arquivo": "",
-      "idDisciplina": "ORW7ZCE",
-      "id": 6
-    },
-    {
-      "nome": "teste de atividadeteste edição nometeste edição nome",
-      "dataEntrega": "teste de datateste edição entregateste edição entrega",
-      "pontuacaoMax": "teste de pontuação máximateste ediçãoteste edição",
-      "status": "Aguardando",
-      "tipo": "Trabalho",
-      "descricao": "teste da funcionalidade de criar atividadeteste ediçãoteste edição",
-      "notaFinal": "teste de nota finalteste ediçãoteste edição",
-      "arquivo": "atividade.jpg.exeteste ediçãoteste edição",
-      "idDisciplina": "ZcRlzKL",
-      "id": 1
-    },
-    {
-      "nome": "lista1",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "3",
-      "status": "Concluida",
-      "tipo": "Trabalho",
-      "descricao": "Primeira lista de exercicio",
-      "notaFinal": "2",
-      "arquivo": "resolucaolista1.pdf",
-      "idDisciplina": "f2ZBbTk",
-      "idUsuario": "6knp4_x",
-      "id": 9
-    },
-    {
-      "nome": "listadecalculo",
-      "dataEntrega": "28/11/2020",
-      "pontuacaoMax": "3",
-      "status": "Aguardando",
-      "tipo": "Trabalho",
-      "descricao": "Lista de exercicios de calculo numerico",
-      "notaFinal": "1",
-      "arquivo": "",
-      "idDisciplina": "3LksGA_",
-      "idUsuario": "6knp4_x",
-      "id": 10
-    },
-    {
-      "nome": "Provap1Geometria",
-      "dataEntrega": "12/03/2020",
-      "pontuacaoMax": "10",
-      "status": "Concluida",
       "tipo": "Prova",
-      "descricao": "Primeira prova de Geometria",
-      "notaFinal": "9",
-      "arquivo": "resolucaoProvaP1.docx",
-      "idDisciplina": "3LksGA_",
-      "idUsuario": "6knp4_x",
-      "id": 11
-    },
-    {
-      "nome": "OPERAÇÃO ATUALIZAÇÃO",
-      "dataEntrega": "15/04/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "",
-      "notaFinal": "9",
-      "arquivo": "",
-      "idDisciplina": "qqWUs9f",
+      "descricao": "Relacionamento X Entidade",
+      "notaFinal": "10",
+      "arquivo": "trabalho.pdf",
+      "idDisciplina": "9eY48N3",
       "idUsuario": 1,
-      "id": 12
+      "id": 15
+    },
+    {
+      "nome": "Prova P2",
+      "dataEntrega": "23/04/2020",
+      "pontuacaoMax": "10",
+      "status": "Concluida",
+      "tipo": "Prova",
+      "descricao": "HTML e Javascript",
+      "notaFinal": "10",
+      "arquivo": "prova.pdf",
+      "idDisciplina": "7i_Xcbm",
+      "idUsuario": 1,
+      "id": 16
     }
   ]
 }
