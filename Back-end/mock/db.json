@@ -51,6 +51,28 @@
       "status": "Concluida",
       "idUsuario": 1,
       "id": "7i_Xcbm"
+    },
+    {
+      "nome": "Matematica",
+      "periodo": "2020.1",
+      "horario": "14:10-15:50",
+      "local": "pavilhão 01",
+      "professor": "Rubianes",
+      "material": "matematica.com",
+      "status": "Em andamento",
+      "idUsuario": 2,
+      "id": "aG-LV-E"
+    },
+    {
+      "nome": "matematica",
+      "periodo": "2020.2",
+      "horario": "18:20",
+      "local": "Pavilhão 7",
+      "professor": "Carl Sagan",
+      "material": "https://www.indeed.com/career-advice/careers/what-does-an-astronomer-do",
+      "status": "Em andamento",
+      "idUsuario": 2,
+      "id": "rznWf0z"
     }
   ],
   "atividades": [
@@ -79,6 +101,19 @@
       "idDisciplina": "7i_Xcbm",
       "idUsuario": 1,
       "id": 16
+    },
+    {
+      "nome": "MATEMATICATESTE EDIÇÃO NOME",
+      "dataEntrega": "14/10teste edição entrega",
+      "pontuacaoMax": "100teste edição",
+      "status": "Aguardando",
+      "tipo": "Prova",
+      "descricao": "Pavilhão 7teste edição",
+      "notaFinal": "100teste edição",
+      "arquivo": "png.pdfteste edição",
+      "idDisciplina": "aG-LV-E",
+      "idUsuario": 2,
+      "id": 18
     }
   ]
 }
