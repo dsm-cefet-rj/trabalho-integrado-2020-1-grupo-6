@@ -13,13 +13,13 @@ Given("que a tela de visualização de atividades é acessada", () => {
 
 }); 
 When("clico em uma atividade", () => {
-    cy.get('#nomeAtividadeTabela').should('have.attr', 'href')
     cy.get('#nomeAtividadeTabela').click()
+    cy.get('#nomeAtividadeTabela').should('have.attr', 'href')
             
 });
 
 
-Then("a atividade é exibida", () => cy.url().should('eq', 'http://localhost:3000/atividades/view/9'));
+Then("a atividade é exibida", () => cy.url().should('eq', 'http://localhost:3000/atividades/view/5'));
 
 /* When("clico em excluir atividade", () => cy.get('#btnRemoverAtividade').click());
 
