@@ -16,10 +16,10 @@ Funcionalidade: Listagem de Disciplinas
             Quando clico em Minhas disciplinas na Home 
             Então as disciplinas são exibidas
 
-        Cenário: Buscar disciplina
-            Quando digito o nome da disciplina que desejo visualizar
-            Então é exibida na tela de listagem de disciplinas 
-                E apenas a disciplina encontrada está nela
+       # Cenário: Buscar disciplina
+        #    Quando digito o nome da disciplina que desejo visualizar
+         #   Então é exibida na tela de listagem de disciplinas 
+          #      E apenas a disciplina encontrada está nela
     
         
         #Cenário: Excluir disciplina

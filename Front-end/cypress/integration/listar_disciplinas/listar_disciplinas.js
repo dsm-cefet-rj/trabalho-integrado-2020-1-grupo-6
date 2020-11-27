@@ -24,18 +24,18 @@ Then('as disciplinas são exibidas', function () {
     
 });
 
-When("digito o nome da disciplina que desejo visualizar", () => {
-    cy.get('#pesquisaDisciplina').type('matematica')
+/*When("digito o nome da disciplina que desejo visualizar", () => {
+    cy.get('#pesquisaDisciplina').type('discreta')
     cy.get('#btnBuscaDisciplina').click()
 });
 
 Then('é exibida na tela de listagem de disciplinas', function () {
-    cy.get('#nomeDisciplinaTabela') //.click()
+    cy.get('#nomeDisciplinaTabela') 
     cy.url().should('eq', 'http://localhost:3000/disciplinas')
 });
 And("apenas a disciplina encontrada está nela", function () {
 
-});
+});*/
 
 
  

@@ -1,0 +1,11 @@
+{
+    "all": true,
+    "check-coverage": true,
+    "require": [
+      "ts-node/register"
+    ],
+    "temp-directory": ".nyc_output",
+    "sourceMap": false,
+    "instrument": false,
+    "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
