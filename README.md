@@ -11,3 +11,20 @@ Organizaremos os arquivos de código-fonte do projeto na seguinte estrutura.
 A gestão do andamento dos projetos será feita com pelos projetos no github na aba projetos.
 
 A documentação do projeto será feita em formato wiki na aba wiki do projeto (utilizem a formatação markdown para o wiki, que é a default).
+
+# Executando Front-end localmente
+
+Execute os comandos:
+
+1. ```https://github.com/dsm-cefet-rj/trabalho-integrado-2020-1-grupo-6.git```
+2. ```cd trabalho-integrado-2020-1-grupo-6```
+3. ```cd Front-end```
+4. ```yarn install```
+5. ```yarn start```
+
+# Executando Back-end mockado
+
+1. ```cd Back-end```
+2. ```yarn json-server```
+
+# [Evidências do teste](https://drive.google.com/drive/folders/10BBvr8W7ZmA_beOiw2NHbrxvkDG3Gp_g?usp=sharing)
