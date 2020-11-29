@@ -16,7 +16,7 @@ A documentação do projeto será feita em formato wiki na aba wiki do projeto (
 
 Execute os comandos:
 
-1. ```https://github.com/dsm-cefet-rj/trabalho-integrado-2020-1-grupo-6.git```
+1. ```git clone https://github.com/dsm-cefet-rj/trabalho-integrado-2020-1-grupo-6.git```
 2. ```cd trabalho-integrado-2020-1-grupo-6```
 3. ```cd Front-end```
 4. ```yarn install```
