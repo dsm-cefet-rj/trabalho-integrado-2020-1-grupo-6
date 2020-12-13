@@ -26,6 +26,7 @@ export function reducer(state = initialState, action) {
       break;
 
     default:
+      return state;
       break;
   }
 }

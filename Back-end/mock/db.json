@@ -55,30 +55,17 @@
   ],
   "atividades": [
     {
-      "nome": "Prova P1",
-      "dataEntrega": "12/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Aguardando",
-      "tipo": "Prova",
-      "descricao": "Relacionamento X Entidade",
-      "notaFinal": "10",
-      "arquivo": "trabalho.pdf",
-      "idDisciplina": "9eY48N3",
-      "idUsuario": 1,
-      "id": 15
-    },
-    {
-      "nome": "Prova P2",
-      "dataEntrega": "23/04/2020",
+      "nome": "Tarefa 1",
+      "dataEntrega": "16/12/2020",
       "pontuacaoMax": "10",
       "status": "Concluida",
       "tipo": "Prova",
-      "descricao": "HTML e Javascript",
-      "notaFinal": "10",
-      "arquivo": "prova.pdf",
+      "descricao": "Matematica",
+      "notaFinal": "12",
+      "arquivo": "",
       "idDisciplina": "7i_Xcbm",
       "idUsuario": 1,
-      "id": 16
+      "id": 1
     }
   ]
 }
