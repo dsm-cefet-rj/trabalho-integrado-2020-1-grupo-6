@@ -11,6 +11,12 @@
   margin-top: 30px;
 }
 
+#voltarVerDisciplinas{
+  position: relative;
+  left: -20px;
+
+}
+
 .box_editardisciplina {
   display: flex;
   flex-direction: column;

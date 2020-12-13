@@ -18,9 +18,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "PORT=3000 react-scripts -r",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts -r @cypress/instrument-cra start --coverage",
+    "test": "react-scripts -r @cypress/instrument-cra start",
     "eject": "react-scripts eject",
     "acc_test": "cucumber-js",
     "cypress:open": "cypress open",

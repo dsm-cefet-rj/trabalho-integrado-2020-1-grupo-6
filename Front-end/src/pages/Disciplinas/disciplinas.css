@@ -29,7 +29,11 @@
   font-size: 38px;
   color: navy;
 }
+ #voltarHome{
+  position: relative;
+  left: -20px;
 
+}
 #tabelaDisciplinas {
   border: none;
   text-decoration: none;

@@ -11,6 +11,12 @@
   margin-top: 15px;
 }
 
+#voltarLogin{
+  position: relative;
+  left: -20px;
+
+}
+
 .box_cadastro {
   display: flex;
   flex-direction: column;

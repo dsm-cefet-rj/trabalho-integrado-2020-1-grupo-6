@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { FiCheckSquare } from "react-icons/fi";
+import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import styles from "./editarperfil.css";
 import { useDispatch, useSelector } from "react-redux";
 import { api } from "../../services/api.js";
@@ -41,11 +41,24 @@ export function EditarPerfil() {
       });
   }
 
+function toPerfil(){
+history.push("/perfil");
+
+}
+
   return (
     <div className="blocoEditarPerfil">
       <form onSubmit={submitEditarPerfil}>
         <div className="boxEditarPerfil">
           <div className="headerEditarPerfil">
+
+          <FiCornerDownLeft
+           id="voltarPerfil"
+           onClick={toPerfil}
+           size={40}
+           color="black"
+           />
+
             <h1 id="tituloEditarPerfil">Editar Perfil</h1>
             <FiCheckSquare size={45} color="black" />
           </div>

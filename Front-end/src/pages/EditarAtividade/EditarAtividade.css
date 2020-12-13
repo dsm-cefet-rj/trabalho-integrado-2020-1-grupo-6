@@ -11,6 +11,12 @@
   margin-top: 30px;
 }
 
+#voltarVerAtividades{
+  position: relative;
+  left: -20px;
+
+}
+
 .boxEditarAtividade {
   display: flex;
   flex-direction: column;

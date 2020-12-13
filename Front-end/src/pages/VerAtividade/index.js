@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./veratividade.css";
 import { useHistory, useParams } from "react-router-dom";
-import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { FiEdit, FiTrash2, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
@@ -63,15 +63,31 @@ export function VerAtividade() {
     });
   }
 
+  function toVerAtividades(){
+    history.push("/atividades/");
+
+  }
+
+
   return (
     <div className="blocoVerAtividade">
       <div className="boxVerAtividade">
-        <div className="header">
+        <div className="header">         
           <div className="headerVerAtividade">
+         
             <h1 id="tituloVerAtividade">{nome}</h1>
             <h2>{disciplina.nome}</h2>
           </div>
           <div className="icons">
+              
+          <FiCornerDownLeft
+           id="voltarVerAtividades"
+           onClick={toVerAtividades}
+           size={40}
+           color="black"
+           />
+  
+
             <FiEdit
               size={40}
               id="editarAtividade"

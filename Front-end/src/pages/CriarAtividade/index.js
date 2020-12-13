@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./CriarAtividade.css";
 import { Link, useHistory } from "react-router-dom";
-import { FiCheckSquare, FiFile } from "react-icons/fi";
+import { FiCheckSquare, FiFile, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
 
@@ -54,11 +54,26 @@ export function CriarAtividade() {
       });
   }
 
+ 
+
+  function toVerDisciplinas(){
+    history.push("/disciplinas/view/"+ disciplina);
+  }
+
+
+
   return (
     <div className="blocoCriarAtividade">
       <form onSubmit={submitCriarAtividade}>
         <div className="boxCriarAtividade">
           <div className="headerCriarAtividade">
+          <FiCornerDownLeft
+           id="voltarVerDisciplinas"
+           onClick={toVerDisciplinas}
+           size={40}
+           color="black"
+           />
+
             <h2 className="tituloCriarAtividade"> Criar Atividade</h2>
             <FiCheckSquare size={40} color="black" />
           </div>
