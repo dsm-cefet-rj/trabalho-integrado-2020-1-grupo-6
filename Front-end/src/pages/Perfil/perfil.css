@@ -17,6 +17,12 @@
   background: radial-gradient(skyblue, transparent);
 }
 
+#voltarHome{
+  position: relative;
+  left: -20px;
+
+}
+
 .headerPerfil {
   display: flex;
   justify-content: center;

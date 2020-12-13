@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./atividades.css";
 import { useHistory } from "react-router-dom";
-import { FiCheckSquare } from "react-icons/fi";
+import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api";
 import { useSelector } from "react-redux";
 
@@ -73,10 +73,24 @@ export function Atividades() {
       });
   }
 
+  function toHome(){
+    history.push("/home");
+
+  }
+
+
   return (
     <div className="blocoAtividades">
       <div className="boxAtividades">
         <div className="headerAtividades">
+        <FiCornerDownLeft
+           id="voltarHome"
+           onClick={toHome}
+           size={40}
+           color="black"
+           />
+         
+
           <h2 className="tituloAtividades">Atividades</h2>
           <FiCheckSquare size={40} color="black" />
         </div>

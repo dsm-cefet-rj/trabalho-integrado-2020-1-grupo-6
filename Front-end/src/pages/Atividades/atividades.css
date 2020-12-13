@@ -24,6 +24,11 @@
   margin-top: 30px;
 }
 
+#voltarHome{
+  position: relative;
+  left: -20px;
+
+}
 .tituloAtividades {
   margin-right: 45px;
   font-size: 40px;

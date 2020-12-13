@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./cadastro.css";
-import { FiCheckSquare } from "react-icons/fi";
+import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 
 export function Cadastro() {
@@ -27,11 +27,22 @@ export function Cadastro() {
     });
   }
 
+  function toLogin(){
+    history.push("/");
+  }
+
+
   return (
     <div className="bloco_cadastro">
       <form onSubmit={submitCadastro}>
         <div className="box_cadastro">
           <div className="header_cadastro">
+          <FiCornerDownLeft
+           id="voltarLogin"
+           onClick={toLogin}
+           size={40}
+           color="black"
+           />
             <h2 className="titulo_cadastro">Faça seu cadastro</h2>
             <FiCheckSquare size={40} color="black" />
           </div>

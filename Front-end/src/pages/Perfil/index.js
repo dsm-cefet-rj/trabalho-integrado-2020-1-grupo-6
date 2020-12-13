@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./perfil.css";
 import { useHistory } from "react-router-dom";
-import { FiCheckSquare } from "react-icons/fi";
+import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { api } from "../../services/api";
 
@@ -33,11 +33,23 @@ export function Perfil() {
       history.push("/");
     });
   }
+  function toHome(){
+history.push("/home");
+  }
 
   return (
     <div className="blocoPerfil">
       <div className="boxPerfil">
         <div className="headerPerfil">
+
+        <FiCornerDownLeft
+           id="voltarHome"
+           onClick={toHome}
+           size={40}
+           color="black"
+           />
+
+
           <h1 id="tituloPerfil">Meu Perfil</h1>
           <FiCheckSquare size={40} color="black" />
         </div>

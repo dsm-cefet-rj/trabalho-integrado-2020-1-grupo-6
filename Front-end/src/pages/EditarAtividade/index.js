@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./EditarAtividade.css";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { FiCheckSquare, FiFile } from "react-icons/fi";
+import { FiCheckSquare,FiCornerDownLeft, FiFile } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
 
@@ -55,12 +55,25 @@ export function EditarAtividade() {
         history.push("/atividades/view/" + atividadeID);
       });
   }
+  function toVerAtividades(){
+
+    history.push("/atividades/view/" + atividadeID);
+  }
 
   return (
     <div className="blocoEditarAtividade">
       <form onSubmit={submitEditarAtividade}>
         <div className="boxEditarAtividade">
           <div className="headerEditarAtividade">
+            
+          <FiCornerDownLeft
+           id="voltarVerAtividades"
+           onClick={toVerAtividades}
+           size={40}
+           color="black"
+           />
+       
+
             <h2 className="tituloEditarAtividade">Editar Atividade</h2>
             <FiCheckSquare size={40} color="black" />
           </div>

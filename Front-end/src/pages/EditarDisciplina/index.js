@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { FiCheckSquare } from "react-icons/fi";
+import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import styles from "./EditarDisciplina.css";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -53,11 +53,24 @@ export function EditarDisciplina() {
       });
   }
 
+  function toVerDisciplinas(){
+    history.push("/disciplinas/view/" + disciplinaID);
+  }
+
   return (
     <div className="bloco_editardisciplina">
       <form onSubmit={submitEditarDisciplina}>
         <div className="box_editardisciplina">
           <div className="header_editardisciplina">
+           
+          <FiCornerDownLeft
+           id="voltarVerDisciplinas"
+           onClick={toVerDisciplinas}
+           size={40}
+           color="black"
+           />
+ 
+
             <h2 className="titulo_editardisciplina">Editar Disciplina</h2>
             <FiCheckSquare size={40} color="black" />
           </div>

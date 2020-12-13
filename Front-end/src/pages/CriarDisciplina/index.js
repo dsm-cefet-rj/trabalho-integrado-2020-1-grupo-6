@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./CriarDisciplina.css";
 import { Link, useHistory } from "react-router-dom";
-import { FiCheckSquare } from "react-icons/fi";
+import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
 
@@ -44,12 +44,23 @@ export function CriarDisciplina() {
         history.push("/disciplinas");
       });
   }
+  function toDisciplinas(){
+    history.push("/disciplinas");
+
+  }
 
   return (
     <div className="blocoCriarDisciplina">
       <form onSubmit={submitCriarDisciplina}>
         <div className="boxCriarDisciplina">
           <div className="headerCriarDisciplina">
+          <FiCornerDownLeft
+           id="voltarHome"
+           onClick={toDisciplinas}
+           size={40}
+           color="black"
+           />
+
             <h2 className="tituloCriarDisciplina">Criar Disciplina</h2>
             <FiCheckSquare size={40} color="black" />
           </div>

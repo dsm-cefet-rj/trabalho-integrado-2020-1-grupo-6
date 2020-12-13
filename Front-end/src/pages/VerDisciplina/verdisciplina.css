@@ -17,6 +17,12 @@
   background: radial-gradient(skyblue, transparent);
 }
 
+#voltarVerDisciplinas{
+  position: relative;
+  left: -20px;
+
+}
+
 .headerVerDisciplina {
   display: flex;
   justify-content: center;

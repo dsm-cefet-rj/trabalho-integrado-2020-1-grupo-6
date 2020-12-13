@@ -19,7 +19,11 @@
   width: 100%;
   font-family: "Montserrat", sans-serif;
 }
+#voltarHome{
+  position: relative;
+  left: -20px;
 
+}
 .blocoCriarDisciplina {
   width: 100%;
   min-height: 100vh;

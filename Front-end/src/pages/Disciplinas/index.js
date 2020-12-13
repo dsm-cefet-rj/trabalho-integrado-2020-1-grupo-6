@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
 import styles from "./disciplinas.css";
 import { Link, useHistory } from "react-router-dom";
-import { FiPlusCircle } from "react-icons/fi";
+import { FiPlusCircle, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api";
 import { useSelector } from "react-redux";
 
@@ -36,6 +36,11 @@ export function Disciplinas() {
     history.push("/disciplinas/create");
   }
 
+  function toHome(){
+    history.push("home");
+
+  }
+
   function requisicaoFiltros() {
     api
       .get("disciplinas", {
@@ -53,14 +58,24 @@ export function Disciplinas() {
   return (
     <div className="blocoDisciplinas">
       <div className="boxDisciplinas">
+     
         <div className="headerDisciplinas">
+      
+        <FiCornerDownLeft
+           id="voltarHome"
+           onClick={toHome}
+           size={40}
+           color="black"
+           />
           <h2 className="tituloDisciplinas">Disciplinas</h2>
+         
           <FiPlusCircle
             id="adicionarDisciplina"
             onClick={toCriarDisciplina}
             size={40}
             color="black"
           />
+         
         </div>
 
         <input
