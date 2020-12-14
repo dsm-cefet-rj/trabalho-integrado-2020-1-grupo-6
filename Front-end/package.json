@@ -9,6 +9,8 @@
     "@testing-library/react": "^11.1.1",
     "@testing-library/user-event": "^12.2.0",
     "axios": "^0.21.0",
+    "cypress-file-upload": "^4.1.1",
+    "file-loader": "6.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",
@@ -18,9 +20,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
-    "test": "react-scripts -r @cypress/instrument-cra start",
+    "test": "cypress open",
     "eject": "react-scripts eject",
     "acc_test": "cucumber-js",
     "cypress:open": "cypress open",
@@ -58,6 +60,10 @@
     "nyc": "^14.1.1"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
-  }
+    "step_definitions": "cypress/integration"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!src/**/*.d.ts"
+  ]
 }
