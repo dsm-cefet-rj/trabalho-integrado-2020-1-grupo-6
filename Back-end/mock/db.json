@@ -48,7 +48,6 @@
       "idUsuario": 1,
       "id": "7i_Xcbm"
     },
-<<<<<<< HEAD
     {
       "nome": "matematica",
       "periodo": "2",
@@ -84,8 +83,6 @@
     }
   ],
   "atividades": [
-=======
->>>>>>> fbe908b722db02cc6b1f73a3b975b9426d693bef
     {
       "nome": "APS",
       "periodo": "5",
@@ -95,7 +92,6 @@
       "material": "www.google.com.br",
       "status": "Em andamento",
       "idUsuario": 1,
-<<<<<<< HEAD
       "id": 1
     },
     {
@@ -123,21 +119,7 @@
       "idDisciplina": "mNxN2JW",
       "idUsuario": "6knp4_x",
       "id": 3
-=======
-      "id": "2WMUWvr"
-    },
-    {
-      "nome": "PSW",
-      "periodo": "6",
-      "horario": "21:00",
-      "local": "Pavilhão 4",
-      "professor": "Diogo",
-      "material": "www.google.com.br",
-      "status": "Em andamento",
-      "idUsuario": 3,
-      "id": "4ewj58Z"
->>>>>>> fbe908b722db02cc6b1f73a3b975b9426d693bef
     }
-  ],
-  "atividades": []
+  ]
+ 
 }

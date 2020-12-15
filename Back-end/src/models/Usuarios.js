@@ -16,6 +16,13 @@ const usuariosSchema = mongoose.Schema({
         minLength: 2,
         maxLength: 25
     },
+     curso: {
+        type: String,
+        required: true,
+        unique: false,        
+        minLength: 2,
+        maxLength: 24
+    },
     senha: {
         type: String,
         required: true,
@@ -23,13 +30,6 @@ const usuariosSchema = mongoose.Schema({
         minLength: 2,
         maxLength: 25
     },
-    curso: {
-        type: String,
-        required: true,
-        unique: false,        
-        minLength: 2,
-        maxLength: 24
-    }
 });
 
 usuariosSchema.plugin(normalize);
