@@ -27,20 +27,16 @@
       "curso": "teste",
       "senha": "teste",
       "id": 2
+    },
+    {
+      "nome": "Felipe Pierre",
+      "usuario": "misterx901",
+      "curso": "Computação",
+      "senha": "cbr90001",
+      "id": 3
     }
   ],
   "disciplinas": [
-    {
-      "nome": "GRAFOS",
-      "periodo": "5º",
-      "horario": "13:30",
-      "local": "Pavilhão 4",
-      "professor": "Renata",
-      "material": "https://google.com",
-      "status": "Em andamento",
-      "idUsuario": 1,
-      "id": "9eY48N3"
-    },
     {
       "nome": "PSW",
       "periodo": "2°",
@@ -51,21 +47,29 @@
       "status": "Concluida",
       "idUsuario": 1,
       "id": "7i_Xcbm"
+    },
+    {
+      "nome": "APS",
+      "periodo": "5",
+      "horario": "20:00",
+      "local": "pavilhao 2",
+      "professor": "Maiani",
+      "material": "www.google.com.br",
+      "status": "Em andamento",
+      "idUsuario": 1,
+      "id": "2WMUWvr"
+    },
+    {
+      "nome": "PSW",
+      "periodo": "6",
+      "horario": "21:00",
+      "local": "Pavilhão 4",
+      "professor": "Diogo",
+      "material": "www.google.com.br",
+      "status": "Em andamento",
+      "idUsuario": 3,
+      "id": "4ewj58Z"
     }
   ],
-  "atividades": [
-    {
-      "nome": "Tarefa 1",
-      "dataEntrega": "16/12/2020",
-      "pontuacaoMax": "10",
-      "status": "Concluida",
-      "tipo": "Prova",
-      "descricao": "Matematica",
-      "notaFinal": "12",
-      "arquivo": "",
-      "idDisciplina": "7i_Xcbm",
-      "idUsuario": 1,
-      "id": 1
-    }
-  ]
+  "atividades": []
 }

@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@cypress/code-coverage": "^3.8.7"
-  }
-}
