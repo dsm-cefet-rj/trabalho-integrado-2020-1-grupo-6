@@ -2,6 +2,7 @@ const express = require('express');
 
 const usuariosController = require('../controllers/usuariosController.js');
 const disciplinasController=require('../controllers/disciplinasController.js');
+const atividadesController=require('../controllers/atividadesController.js');
 
 const routes = express.Router();
 
@@ -28,6 +29,16 @@ routes.put("/atualizarDisciplina/:id", disciplinasController.update);
 routes.delete("/deletarDisciplina/:id", disciplinasController.delete);
 
 
+// Criar uma Atividade
+routes.post("/criarAtividade", atividadesController.create);
+// Read uma Atividade
+routes.get("/mostrarAtividade/:id", atividadesController.show);
+// Read Todas as Atividades
+routes.get("/mostrarAtividade", atividadesController.index);
+// Update de uma Atividade
+routes.put("/atualizarAtividade/:id", atividadesController.update);
+// Deleta uma Atividade
+routes.delete("/deletarAtividade/:id", atividadesController.delete);
 
 
 module.exports = routes;
