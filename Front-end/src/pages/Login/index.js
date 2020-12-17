@@ -16,8 +16,10 @@ export function Login() {
   function submitLogin(event) {
     event.preventDefault();
 
+
+    console.log(login);
     api
-      .get("usuarios", {
+      .get("usuario/login", {
         params: { usuario: login, senha },
       })
       .then((response) => {
