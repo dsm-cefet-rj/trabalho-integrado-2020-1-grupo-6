@@ -11,10 +11,21 @@ module.exports = {
     },
     show: async(req, res, next) =>{
         try {
-            const { id: userId } = req.params;
-            const usuario = await Usuarios.findById(userId);
-            return res.json(usuario);
-        } catch(err) {
+            const { id: userId } = req.query;
+              if(userId){
+                  const usuario=await Usuarios.findById(userId);
+                  return res.json(usuario);
+              }
+               else{
+                   const{usuario,senha}=req.query;
+                   const usuariodata = await Usuarios.findOne({usuario:usuario});                               
+                   if(usuariodata["senha"]==senha)
+                   {
+                    console.log("oi");
+                       return res.json(usuariodata);
+                   }
+               }}
+       catch(err) {
             next(err);
         }
     },

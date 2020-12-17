@@ -23,6 +23,7 @@ export function Login() {
         params: { usuario: login, senha },
       })
       .then((response) => {
+        console.log(response.data);
         if (response.data.length != 1) {
           alert("Usuário e/ou senha estão incorretos");
           return;
