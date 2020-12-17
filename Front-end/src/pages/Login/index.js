@@ -22,16 +22,15 @@ export function Login() {
       .get("usuario/login", {
         params: { usuario: login, senha },
       })
-      .then((response) => {
-        console.log(response.data);
-        if (response.data.length != 1) {
+      .then((response) => {      
+        if (!response.data) {
           alert("Usuário e/ou senha estão incorretos");
           return;
         }
 
         dispatch({
           type: "fazerLogin",
-          payload: response.data[0],
+          payload: response.data.usuario,
         });
         history.push("/home");
       });
