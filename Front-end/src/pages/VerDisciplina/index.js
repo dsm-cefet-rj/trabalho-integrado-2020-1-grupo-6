@@ -32,9 +32,10 @@ export function VerDisciplina() {
     // }
 
     api
-      .get("disciplinas/" + disciplinaID, {
+      .get("/VerDisciplinas/:id" + disciplinaID, {
         params: {
-          idUsuario: usuario.id,
+          idUsuario: usuario,
+          Disciplina:disciplinaID         
         },
       })
       .then((response) => {

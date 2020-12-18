@@ -23,14 +23,18 @@ routes.get("/usuario/login", usuariosController.show);
 // Criar uma Disciplina
 routes.post("/disciplinas", disciplinasController.create);
 // Read um Disciplina
-routes.get("/mostrarDisciplina/:id", disciplinasController.show);
-// Read Todas as Disciplinas
-routes.get("/mostrarDisciplinas", disciplinasController.index);
-// Update de uma Disciplina
-routes.put("/atualizarDisciplina/:id", disciplinasController.update);
-// Deleta uma Disciplina
-routes.delete("/deletarDisciplina/:id", disciplinasController.delete);
+routes.get("/Disciplinas/:id", disciplinasController.show);
 
+routes.get("/VerDisciplinas/:id", disciplinasController.showdisciplina);
+
+routes.get("/DisciplinasFiltro/:id", disciplinasController.showfiltro);
+
+// Read Todas as Disciplinas
+routes.get("/Disciplinas", disciplinasController.index);
+// Update de uma Disciplina
+routes.put("/Disciplinas/:id", disciplinasController.update);
+// Deleta uma Disciplina
+routes.delete("/Disciplinas/:id", disciplinasController.delete);
 
 // Criar uma Atividade
 routes.post("/criarAtividade", atividadesController.create);

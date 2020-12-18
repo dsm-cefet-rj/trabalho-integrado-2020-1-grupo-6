@@ -23,7 +23,13 @@ export function EditarDisciplina() {
   const history = useHistory();
 
   useEffect(() => {
-    api.get("disciplinas/" + disciplinaID).then((response) => {
+    api.get("/VerDisciplinas/:id" + disciplinaID, {
+      params: {
+        idUsuario: usuario,
+        Disciplina:disciplinaID         
+      },
+    })
+      .then((response) => {
       setNome(response.data.nome);
       setPeriodo(response.data.periodo);
       setHorario(response.data.horario);
@@ -38,7 +44,7 @@ export function EditarDisciplina() {
     event.preventDefault();
 
     api
-      .put("disciplinas/" + disciplinaID, {
+      .put("/Disciplinas/" + disciplinaID, {
         nome,
         periodo,
         horario,
@@ -49,6 +55,7 @@ export function EditarDisciplina() {
         idUsuario: usuario.id,
       })
       .then((response) => {
+     
         history.push("/disciplinas/view/" + disciplinaID);
       });
   }
@@ -81,7 +88,7 @@ export function EditarDisciplina() {
             className="inputs_editardisciplina"
             placeholder="Digite nome da disciplina"
             value={nome}
-            onChange={(e) => setNome(e.target.value.toUpperCase())}
+            onChange={(e) => setNome(e.target.value)}
           ></input>
           <input
             type="text"

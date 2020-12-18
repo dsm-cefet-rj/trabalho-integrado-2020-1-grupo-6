@@ -20,11 +20,11 @@ export function Disciplinas() {
     //   history.push("/");
     //   return;
     // }
-
+     console.log(usuario);
     api
-      .get("disciplinas", {
+      .get("/Disciplinas/:id", {
         params: {
-          idUsuario: usuario.id,
+          idUsuario: usuario,
         },
       })
       .then((response) => {
@@ -43,11 +43,11 @@ export function Disciplinas() {
 
   function requisicaoFiltros() {
     api
-      .get("disciplinas", {
+      .get("/DisciplinasFiltro/:id", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
           ...(filtroNome && { nome_like: filtroNome }),
-          idUsuario: usuario.id,
+          idUsuario: usuario,
         },
       })
       .then((response) => {
