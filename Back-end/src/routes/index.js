@@ -7,18 +7,21 @@ const atividadesController=require('../controllers/atividadesController.js');
 const routes = express.Router();
 
 // Criar um Usuário
-routes.post("/criar", usuariosController.create);
+routes.post("/usuario", usuariosController.create);
 // Read um Usuario
-routes.get("/mostrar/:id", usuariosController.show);
+routes.get("/usuario/:id", usuariosController.show);
 // Read Todos os usuarios
-routes.get("/mostrar", usuariosController.index);
+routes.get("/usuario", usuariosController.index);
 // Update de Usuario
-routes.put("/atualizar/:id", usuariosController.update);
+routes.put("/usuario/:id", usuariosController.update);
 // Deleta um usuario
-routes.delete("/deletar/:id", usuariosController.delete);
+routes.delete("/usuario/:id", usuariosController.delete);
+
+//Validar login
+routes.get("/usuario/login", usuariosController.show);
 
 // Criar uma Disciplina
-routes.post("/criarDisciplina", disciplinasController.create);
+routes.post("/disciplinas", disciplinasController.create);
 // Read um Disciplina
 routes.get("/mostrarDisciplina/:id", disciplinasController.show);
 // Read Todas as Disciplinas

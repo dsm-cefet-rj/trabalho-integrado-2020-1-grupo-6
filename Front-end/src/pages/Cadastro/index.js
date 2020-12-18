@@ -5,6 +5,8 @@ import styles from "./cadastro.css";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 
+
+
 export function Cadastro() {
   const [nome, setNome] = useState("");
   const [usuario, setUsuario] = useState("");
@@ -21,7 +23,8 @@ export function Cadastro() {
     }
     console.log(nome, usuario, curso, senha, confirmaSenha);
 
-    api.post("usuarios", { nome, usuario, curso, senha }).then((response) => {
+
+    api.post("usuario", { nome, usuario, curso, senha }).then((response) => {
       console.log(response.data);
       history.push("/");
     });
