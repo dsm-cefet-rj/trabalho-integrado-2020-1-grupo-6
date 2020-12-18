@@ -1,3 +1,4 @@
+const cors = require('cors')
 const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
@@ -8,7 +9,7 @@ mongoose.connect("mongodb://localhost/src", { useCreateIndex: true, useFindAndMo
 
 const server = express();
 server.use(express.json());
-
+server.use(cors());
 server.use(routes);
 
 server.listen("3001");
