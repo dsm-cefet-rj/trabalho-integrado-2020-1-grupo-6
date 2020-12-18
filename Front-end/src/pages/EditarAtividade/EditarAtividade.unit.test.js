@@ -1,11 +1,33 @@
-import React from 'react'; 
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react'
+import {useSelector} from 'react-redux'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+import { MemoryRouter, Route } from 'react-router-dom'
+import { act } from 'react-dom/test-utils';
+import {addProjetoServer, updateProjetoServer} from './ProjetosSlice'
+import {EditarAtividade} from './index'; 
 
-//####### CAMPO NOME ###########################################
 
-test('Nome vazio', () => {
-    
-});
+// Mocking the redux module
+jest.mock("react-redux", () => ({
+    ...jest.requireActual("react-redux"),
+    useSelector: jest.fn(),
+    useDispatch: jest.fn( () => jest.fn((param) => param) )
+}));
+
+// mocking state
+const mockAppState = {
+    atividades: {
+        status: 'not_loaded',
+        error: null,
+        atividades: [{id: 1, nome: 'Projeto 1', sigla: 'P1'}],
+    }
+}
+
+
+
+
 
 // test('Nome limite inferior válido', () => {throw 'Not implemented yet'});
 
