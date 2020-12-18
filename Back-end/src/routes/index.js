@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 
-const usuariosController = require('../controllers/usuariosController.js');
-const disciplinasController=require('../controllers/disciplinasController.js');
-const atividadesController=require('../controllers/atividadesController.js');
+const usuariosController = require("../controllers/usuariosController.js");
+const disciplinasController = require("../controllers/disciplinasController.js");
+const atividadesController = require("../controllers/atividadesController.js");
 
 const routes = express.Router();
 
@@ -57,6 +57,5 @@ routes.get("/mostrarAtividades", atividadesController.index);
 routes.put("/Atividade/:id", atividadesController.update);
 // Deleta uma Atividade
 routes.delete("/Atividade/:id", atividadesController.delete);
-
 
 module.exports = routes;

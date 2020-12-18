@@ -3,6 +3,7 @@ const Usuarios = require('../models/Usuarios.js');
 module.exports = {
     create: async (req, res, next) => {
         try {
+            
             const usuario = await Usuarios.create(req.body);
             return res.json(usuario);
         } catch (err) {
@@ -20,7 +21,7 @@ module.exports = {
                 const { usuario, senha } = req.query;
                 const usuariodata = await Usuarios.findOne({ usuario: usuario });
                 if (usuariodata["senha"] == senha) {
-                    console.log("oi");
+                   
                     return res.json(usuariodata);
                 }
             }

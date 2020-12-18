@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const normalize = require('normalize-mongoose');
+const mongoose = require("mongoose");
+const normalize = require("normalize-mongoose");
 
 const atividadesSchema = mongoose.Schema({
     nome: {
@@ -72,4 +72,4 @@ const atividadesSchema = mongoose.Schema({
 
 atividadesSchema.plugin(normalize);
 
-module.exports = mongoose.model('Atividades', atividadesSchema);
+module.exports = mongoose.model("Atividades", atividadesSchema);
