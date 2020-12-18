@@ -7,6 +7,14 @@ import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api";
 import { useSelector } from "react-redux";
 
+/**
+ * @module atividades/ListagemAtividades
+ */
+
+/**
+ * Renderiza a tela de listagem de todas as atividades de todas as disciplinas do usuário
+ */
+
 export function Atividades() {
   const usuario =
     useSelector((state) => state?.usuario) ||
@@ -73,23 +81,20 @@ export function Atividades() {
       });
   }
 
-  function toHome(){
+  function toHome() {
     history.push("/home");
-
   }
-
 
   return (
     <div className="blocoAtividades">
       <div className="boxAtividades">
         <div className="headerAtividades">
-        <FiCornerDownLeft
-           id="voltarHome"
-           onClick={toHome}
-           size={40}
-           color="black"
-           />
-         
+          <FiCornerDownLeft
+            id="voltarHome"
+            onClick={toHome}
+            size={40}
+            color="black"
+          />
 
           <h2 className="tituloAtividades">Atividades</h2>
           <FiCheckSquare size={40} color="black" />

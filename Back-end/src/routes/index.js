@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 
-const usuariosController = require('../controllers/usuariosController.js');
-const disciplinasController=require('../controllers/disciplinasController.js');
-const atividadesController=require('../controllers/atividadesController.js');
+const usuariosController = require("../controllers/usuariosController.js");
+const disciplinasController = require("../controllers/disciplinasController.js");
+const atividadesController = require("../controllers/atividadesController.js");
 
 const routes = express.Router();
 
@@ -31,7 +31,6 @@ routes.put("/atualizarDisciplina/:id", disciplinasController.update);
 // Deleta uma Disciplina
 routes.delete("/deletarDisciplina/:id", disciplinasController.delete);
 
-
 // Criar uma Atividade
 routes.post("/criarAtividade", atividadesController.create);
 // Read uma Atividade
@@ -42,6 +41,5 @@ routes.get("/mostrarAtividade", atividadesController.index);
 routes.put("/atualizarAtividade/:id", atividadesController.update);
 // Deleta uma Atividade
 routes.delete("/deletarAtividade/:id", atividadesController.delete);
-
 
 module.exports = routes;
