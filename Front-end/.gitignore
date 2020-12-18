@@ -28,3 +28,5 @@ yarn-error.log*
 #cypress video and cypress screenshots
 cypress/videos
 cypress/screenshots
+
+out/

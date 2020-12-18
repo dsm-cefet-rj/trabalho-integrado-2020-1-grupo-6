@@ -5,8 +5,6 @@ import styles from "./cadastro.css";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 
-
-
 export function Cadastro() {
   const [nome, setNome] = useState("");
   const [usuario, setUsuario] = useState("");
@@ -14,6 +12,19 @@ export function Cadastro() {
   const [senha, setSenha] = useState("");
   const [confirmaSenha, setConfirmaSenha] = useState("");
   const history = useHistory();
+
+  /**
+   * @module atividades/Create
+   */
+
+  /**
+   *
+   * @param {*} event
+   */
+
+  /**
+   * Realiza a criação do usuário
+   */
 
   function submitCadastro(event) {
     event.preventDefault();
@@ -23,29 +34,27 @@ export function Cadastro() {
     }
     console.log(nome, usuario, curso, senha, confirmaSenha);
 
-
     api.post("usuario", { nome, usuario, curso, senha }).then((response) => {
       console.log(response.data);
       history.push("/");
     });
   }
 
-  function toLogin(){
+  function toLogin() {
     history.push("/");
   }
-
 
   return (
     <div className="bloco_cadastro">
       <form onSubmit={submitCadastro}>
         <div className="box_cadastro">
           <div className="header_cadastro">
-          <FiCornerDownLeft
-           id="voltarLogin"
-           onClick={toLogin}
-           size={40}
-           color="black"
-           />
+            <FiCornerDownLeft
+              id="voltarLogin"
+              onClick={toLogin}
+              size={40}
+              color="black"
+            />
             <h2 className="titulo_cadastro">Faça seu cadastro</h2>
             <FiCheckSquare size={40} color="black" />
           </div>

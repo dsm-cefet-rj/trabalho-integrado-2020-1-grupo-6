@@ -31,7 +31,7 @@ const usuariosSchema = mongoose.Schema({
 
 function validarUsuario(usuario) {
   const schema = joi.object({
-    nome: joi.string().required().max(30),
+    nome: joi.string().alphanum().required().max(30),
     usuario: joi.string().required().min(3).max(12),
     curso: joi.string().required().max(30),
     senha: joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
