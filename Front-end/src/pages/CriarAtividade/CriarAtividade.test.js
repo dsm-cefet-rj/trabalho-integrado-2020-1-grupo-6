@@ -7,8 +7,45 @@ import { createMemoryHistory } from 'history'
 import { MemoryRouter, Route } from 'react-router-dom'
 import { act } from 'react-dom/test-utils';
 import {CriarAtividade, submitCriarAtividade} from './index.js'
+import Enzyme from "enzyme";
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+configure({ adapter: new Adapter() });
 
-      
+
+describe("<CriarAtividade />", () => {
+    let wrapper;
+    const setState = jest.fn();
+    const useStateSpy = jest.spyOn(React, "useState")
+    useStateSpy.mockImplementation((init) => [init, setState]);
+
+    beforeEach(() => {
+        wrapper = Enzyme.mount(Enzyme.shallow(<CriarAtividade />).get(0))
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    describe("Nome input", () => {
+        it("Deve guardar nome corretamente onChange", () => {
+            const nome = wrapper.find("input").at(0);
+            nome.instance().value = "Teste";
+            nome.simulate("change");
+            expect(setState).toHaveBeenCalledWith("Teste");
+        });
+    });
+
+    describe("dataEntrega input", () => {
+        it("Deve guardar dataEntrega corretamente onChange", () => {
+            const dataEntrega = wrapper.find("input").at(1);
+            dataEntrega.instance().value = "07/01/2021";
+            dataEntrega.simulate("change");
+            expect(setState).toHaveBeenCalledWith("07/01/2021");
+        });
+    });
+
+});
 const fieldTest = async (nomeParam, dataEntregaParam,  pontuacaoMaxParam, statusAguardandoParam,
     statusConcluidaParam, tipoProvaParam, tipoTrabalhoParam, descricaoParam, notaFinalParam, 
     arquivoParam ,isNomeValido, isDataEntregaValida, isPontuacaoMaxValida, isStatusAguardandoValido, 
@@ -43,35 +80,36 @@ const fieldTest = async (nomeParam, dataEntregaParam,  pontuacaoMaxParam, status
         fireEvent.submit(submitButton);
     });
     
+    //não tem msg de erro ainda!!
     if(!isNomeValido){
         expect(container.querySelector("#nome_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isDataEntregaValida){
-        expect(container.querySelector("#sigla_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#data_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isPontuacaoMaxValida){
-        expect(container.querySelector("#nome_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#pontuacao_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isStatusAguardandoValido){
-        expect(container.querySelector("#sigla_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#statusag_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isStatusConcluidaValido){
-        expect(container.querySelector("#sigla_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#statuscl_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isTipoProvaValido){
-        expect(container.querySelector("#nome_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#prova_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isTipoTrabalhoValido){
-        expect(container.querySelector("#nome_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#trab_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isDescricaoValida){
-        expect(container.querySelector("#sigla_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#descricao_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isNotaFinalValida){
-        expect(container.querySelector("#nome_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#nota_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(!isArquivoValido){
-        expect(container.querySelector("#sigla_err_msg").innerHTML).toContain(msgEsperada);
+        expect(container.querySelector("#arquivo_err_msg").innerHTML).toContain(msgEsperada);
     }
     if(isNomeValido && isDataEntregaValida && isPontuacaoMaxValida && isStatusAguardandoValido && 
         isStatusConcluidaValido && isTipoProvaValido && isTipoTrabalhoValido && isDescricaoValida && 
@@ -79,6 +117,24 @@ const fieldTest = async (nomeParam, dataEntregaParam,  pontuacaoMaxParam, status
         expect(history.location.pathname).toBe(path);
     }
 }
+
+describe('Componente de criar atividade', () => {
+    let wrapper;
+    const mockCriarAtividadefn = jest.fn();
+   
+     beforeEach(() => {
+       wrapper = shallow(<submitCriarAtividade criarAtividade={mockCriarAtividadefn}/>)
+})
+
+    describe('Quando eu clico em criar atividade', () => {
+    it('deve chamar a função criarAtividade', () => {
+     wrapper.find('#btnCriarAtividade').simulate(
+       'submit', 
+       {preventDefault() {}}
+     )
+     expect(mockCriarAtividadefn.mock.calls.length).toBe(1)
+    })
+  })
 
 //####### CAMPO NOME ###########################################
 
