@@ -27,10 +27,10 @@ export function CriarDisciplina() {
   }, []);
 
   function submitCriarDisciplina(event) {
-    event.preventDefault();
-
+    event.preventDefault();  
+    console.log(usuario);
     api
-      .post("disciplinas", {
+      .post("/disciplinas", {
         nome,
         periodo,
         horario,
@@ -38,7 +38,7 @@ export function CriarDisciplina() {
         professor: nomeProfessor,
         material,
         status,
-        idUsuario: usuario.id,
+        idUsuario: usuario,
       })
       .then((response) => {
         history.push("/disciplinas");

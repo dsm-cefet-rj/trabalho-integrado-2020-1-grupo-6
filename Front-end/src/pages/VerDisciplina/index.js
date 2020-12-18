@@ -32,9 +32,10 @@ export function VerDisciplina() {
     // }
 
     api
-      .get("disciplinas/" + disciplinaID, {
+      .get("/VerDisciplinas/" + disciplinaID, {
         params: {
-          idUsuario: usuario.id,
+          idUsuario: usuario,
+          Disciplina:disciplinaID         
         },
       })
       .then((response) => {
@@ -48,7 +49,7 @@ export function VerDisciplina() {
       });
 
     api
-      .get("atividades", {
+      .get("/Atividade/:id", {
         params: {
           idDisciplina: disciplinaID,
         },
@@ -83,10 +84,11 @@ export function VerDisciplina() {
 
   function requisicaoFiltros() {
     api
-      .get("atividades", {
+      .get("/AtividadeFiltro/:id", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
-          idUsuario: usuario.id,
+          idUsuario: usuario,
+          idDisciplina: disciplinaID
         },
       })
       .then((response) => {

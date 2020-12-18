@@ -32,9 +32,9 @@ export function Atividades() {
     // }
 
     api
-      .get("Atividades", {
+      .get("/mostrarAtividades", {
         params: {
-          idUsuario: usuario.id,
+          idUsuario: usuario,
         },
       })
       .then((response) => {
@@ -69,11 +69,12 @@ export function Atividades() {
 
   function requisicaoFiltrosAtividades() {
     api
-      .get("Atividades", {
+      .get("/FiltroAtividades/:id", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
           ...(filtroNome && { nome_filter: filtroNome }),
-          idUsuario: usuario.id,
+          idUsuario: usuario,
+
         },
       })
       .then((response) => {
@@ -83,6 +84,7 @@ export function Atividades() {
 
   function toHome() {
     history.push("/home");
+    window.location.reload();
   }
 
   return (

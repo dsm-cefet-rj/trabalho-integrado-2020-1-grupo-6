@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
 export function EditarPerfil() {
-  const [nome, setNome] = useState("");
-  const [curso, setCurso] = useState("");
+  const [nome, setNome] = useState('');
+  const [curso, setCurso] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
   const usuario =
@@ -17,15 +17,15 @@ export function EditarPerfil() {
     JSON.parse(localStorage.getItem("USUARIO"));
 
   useEffect(() => {
-    setNome(usuario.nome);
-    setCurso(usuario.curso);
+  
   }, []);
 
   function submitEditarPerfil(event) {
     event.preventDefault();
-
+    console.log(usuario);
     api
-      .put("usuarios/" + usuario.id, {
+  
+      .put("/editperfil/" +usuario, {
         nome,
         curso,
         usuario: usuario.usuario,
