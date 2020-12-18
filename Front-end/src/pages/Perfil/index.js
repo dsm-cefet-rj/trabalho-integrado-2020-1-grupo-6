@@ -21,6 +21,22 @@ export function Perfil() {
     //   history.push("/");
     //   return;
     // }
+
+    api
+    .get("/perfil/:id", {
+      params: {
+        idUsuario: usuario,      
+      },
+    })
+    .then((response) => {
+      setNome(response.data.nome);
+      setNomeUsuario(usuario);
+      setCurso(response.data.curso);
+
+
+    });
+
+
   }, []);
 
   function toEditarPerfil(event) {
@@ -29,7 +45,7 @@ export function Perfil() {
   }
 
   function toExcluirPerfil() {
-    api.delete("usuarios/" + usuario.id).then((response) => {
+    api.delete("/usuario/" + usuario).then((response) => {
       history.push("/");
     });
   }
@@ -55,9 +71,9 @@ history.push("/home");
         </div>
 
         <div className="opPerfil">
-          <div className="itemsPerfil">Nome completo: {usuario.nome}</div>
-          <div className="itemsPerfil">Nome de usuário: {usuario.usuario}</div>
-          <div className="itemsPerfil">Curso: {usuario.curso}</div>
+          <div className="itemsPerfil">Nome completo: {nome}</div>
+          <div className="itemsPerfil">Nome de usuário: {usuario}</div>
+          <div className="itemsPerfil">Curso: {curso}</div>
         </div>
 
         <div className="btns">

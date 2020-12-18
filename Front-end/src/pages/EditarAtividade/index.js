@@ -22,7 +22,7 @@ export function EditarAtividade() {
   const history = useHistory();
 
   useEffect(() => {
-    api.get("atividades/" + atividadeID).then((response) => {
+    api.get("/VerAtividade/" + atividadeID).then((response) => {
       setNome(response.data.nome);
       setDataEntrega(response.data.dataEntrega);
       setPontuacaoMax(response.data.pontuacaoMax);
@@ -39,7 +39,7 @@ export function EditarAtividade() {
     event.preventDefault();
 
     api
-      .put("atividades/" + atividadeID, {
+      .put("/Atividade/" + atividadeID, {
         nome,
         dataEntrega,
         pontuacaoMax,

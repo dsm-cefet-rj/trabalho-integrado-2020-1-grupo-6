@@ -7,6 +7,7 @@ import { FiEdit, FiTrash2, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
+
 export function VerAtividade() {
   const { atividadeID } = useParams();
   const [nome, setNome] = useState("");
@@ -17,7 +18,9 @@ export function VerAtividade() {
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
   const [disciplina, setDisciplina] = useState({});
+  const { disciplinaID } = useParams();
   const history = useHistory();
+  
 
   const { usuario } = useSelector((state) => {
     return {
@@ -32,9 +35,9 @@ export function VerAtividade() {
     // }
 
     api
-      .get("atividades/" + atividadeID, {
+      .get("/VerAtividade/" + atividadeID, {
         params: {
-          idUsuario: usuario.id,
+          idUsuario: usuario,
         },
       })
       .then((response) => {
@@ -58,14 +61,14 @@ export function VerAtividade() {
   }
 
   function toRemoverAtividade() {
-    api.delete("atividades/" + atividadeID).then((response) => {
-      history.push("/disciplinas/view/" + disciplina.id);
+    api.delete("/Atividade/" + atividadeID).then((response) => {
+      history.push("/disciplinas");
     });
   }
 
   function toVerAtividades(){
-    history.push("/atividades/");
-
+    history.push("/disciplinas");
+    window.location.reload();
   }
 
 

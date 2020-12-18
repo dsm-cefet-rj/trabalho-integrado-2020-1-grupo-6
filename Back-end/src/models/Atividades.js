@@ -5,14 +5,14 @@ const atividadesSchema = mongoose.Schema({
     nome: {
         type: String,
         required: true,
-        unique: true,        
+        unique: false,        
         minLength: 2,
         maxLength: 25
     },
     dataEntrega: {
         type: String,
         required: true,
-        unique: true,        
+        unique: false,        
         minLength: 2,
         maxLength: 25
     },
@@ -48,7 +48,7 @@ const atividadesSchema = mongoose.Schema({
         type: String,
         required: true,
         unique: false,        
-        minLength: 2,
+        minLength: 1,
         maxLength: 25
     },
     arquivo: {

@@ -17,6 +17,11 @@ routes.put("/usuario/:id", usuariosController.update);
 // Deleta um usuario
 routes.delete("/usuario/:id", usuariosController.delete);
 
+//ver perfil
+routes.get("/perfil/:id", usuariosController.showPerfil);
+routes.put("/editperfil/:id",usuariosController.EditarPerfil);
+
+
 //Validar login
 routes.get("/usuario/login", usuariosController.show);
 
@@ -39,13 +44,19 @@ routes.delete("/Disciplinas/:id", disciplinasController.delete);
 // Criar uma Atividade
 routes.post("/criarAtividade", atividadesController.create);
 // Read uma Atividade
-routes.get("/mostrarAtividade/:id", atividadesController.show);
+routes.get("/Atividade/:id", atividadesController.show);
+
+routes.get("/VerAtividade/:id", atividadesController.showatividade);
+
+routes.get("/AtividadeFiltro/:id", atividadesController.showfiltro);
+// Filtra tela atividades
+routes.get("/FiltroAtividades/:id", atividadesController.showfiltroAtividades);
 // Read Todas as Atividades
-routes.get("/mostrarAtividade", atividadesController.index);
+routes.get("/mostrarAtividades", atividadesController.index);
 // Update de uma Atividade
-routes.put("/atualizarAtividade/:id", atividadesController.update);
+routes.put("/Atividade/:id", atividadesController.update);
 // Deleta uma Atividade
-routes.delete("/deletarAtividade/:id", atividadesController.delete);
+routes.delete("/Atividade/:id", atividadesController.delete);
 
 
 module.exports = routes;

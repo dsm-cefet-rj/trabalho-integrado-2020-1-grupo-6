@@ -34,9 +34,9 @@ export function CriarAtividade() {
 
   function submitCriarAtividade(event) {
     event.preventDefault();
-
+       
     api
-      .post("atividades", {
+      .post("/criarAtividade", {
         nome,
         dataEntrega,
         pontuacaoMax,
@@ -46,7 +46,7 @@ export function CriarAtividade() {
         notaFinal,
         arquivo,
         idDisciplina: disciplina,
-        idUsuario: usuario.id,
+        idUsuario: usuario,
       })
       .then((response) => {
         console.log(response.data);

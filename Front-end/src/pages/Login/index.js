@@ -15,19 +15,19 @@ export function Login() {
 
   function submitLogin(event) {
     event.preventDefault();
+    
 
 
-    console.log(login);
     api
       .get("usuario/login", {
         params: { usuario: login, senha },
       })
       .then((response) => {      
-        if (!response.data) {
+        if (response.data==1) {
           alert("Usuário e/ou senha estão incorretos");
           return;
         }
-
+          console.log(response.data);
         dispatch({
           type: "fazerLogin",
           payload: response.data.usuario,

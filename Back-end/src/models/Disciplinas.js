@@ -5,7 +5,7 @@ const disciplinasSchema = mongoose.Schema({
     nome: {
         type: String,
         required: true,
-        unique: true,        
+        unique: false,        
         minLength: 2,
         maxLength: 25
     },

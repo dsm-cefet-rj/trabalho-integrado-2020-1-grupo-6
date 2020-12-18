@@ -62,6 +62,7 @@ export function EditarDisciplina() {
 
   function toVerDisciplinas(){
     history.push("/disciplinas/view/" + disciplinaID);
+    window.location.reload();
   }
 
   return (
