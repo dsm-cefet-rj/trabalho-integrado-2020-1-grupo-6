@@ -20,9 +20,9 @@ export function Disciplinas() {
     //   history.push("/");
     //   return;
     // }
-     console.log(usuario);
+    console.log(usuario);
     api
-      .get("/Disciplinas/:id", {
+      .get("/Disciplinas/", {
         params: {
           idUsuario: usuario,
         },
@@ -32,18 +32,18 @@ export function Disciplinas() {
       });
   }, []);
 
+  console.log(disciplinas);
   function toCriarDisciplina() {
     history.push("/disciplinas/create");
   }
 
-  function toHome(){
+  function toHome() {
     history.push("home");
-
   }
 
   function requisicaoFiltros() {
     api
-      .get("/DisciplinasFiltro/:id", {
+      .get("DisciplinasFiltro/", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
           ...(filtroNome && { nome_like: filtroNome }),
@@ -58,24 +58,21 @@ export function Disciplinas() {
   return (
     <div className="blocoDisciplinas">
       <div className="boxDisciplinas">
-     
         <div className="headerDisciplinas">
-      
-        <FiCornerDownLeft
-           id="voltarHome"
-           onClick={toHome}
-           size={40}
-           color="black"
-           />
+          <FiCornerDownLeft
+            id="voltarHome"
+            onClick={toHome}
+            size={40}
+            color="black"
+          />
           <h2 className="tituloDisciplinas">Disciplinas</h2>
-         
+
           <FiPlusCircle
             id="adicionarDisciplina"
             onClick={toCriarDisciplina}
             size={40}
             color="black"
           />
-         
         </div>
 
         <input

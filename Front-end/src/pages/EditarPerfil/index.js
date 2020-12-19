@@ -8,28 +8,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
 export function EditarPerfil() {
-  const [nome, setNome] = useState('');
-  const [curso, setCurso] = useState('');
+  const [nome, setNome] = useState("");
+  const [curso, setCurso] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
   const usuario =
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
 
-  useEffect(() => {
-  
-  }, []);
+  console.log(usuario);
+
+  // useEffect(() => {
+  //   api.get("/perfil/" + usuario).then((response) => {
+  //     // setNome(response.data.nome);
+  //     // console.log(response.data.nome);
+  //     // setCurso(response.data.curso);
+  //   });
+  // }, []);
 
   function submitEditarPerfil(event) {
     event.preventDefault();
     console.log(usuario);
     api
-  
-      .put("/editperfil/" +usuario, {
+
+      .put("/editperfil/" + usuario, {
         nome,
         curso,
-        usuario: usuario.usuario,
-        senha: usuario.senha,
       })
       .then((response) => {
         dispatch({
@@ -41,23 +45,21 @@ export function EditarPerfil() {
       });
   }
 
-function toPerfil(){
-history.push("/perfil");
-
-}
+  function toPerfil() {
+    history.push("/perfil");
+  }
 
   return (
     <div className="blocoEditarPerfil">
       <form onSubmit={submitEditarPerfil}>
         <div className="boxEditarPerfil">
           <div className="headerEditarPerfil">
-
-          <FiCornerDownLeft
-           id="voltarPerfil"
-           onClick={toPerfil}
-           size={40}
-           color="black"
-           />
+            <FiCornerDownLeft
+              id="voltarPerfil"
+              onClick={toPerfil}
+              size={40}
+              color="black"
+            />
 
             <h1 id="tituloEditarPerfil">Editar Perfil</h1>
             <FiCheckSquare size={45} color="black" />

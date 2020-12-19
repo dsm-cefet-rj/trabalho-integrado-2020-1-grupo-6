@@ -23,21 +23,22 @@ export function EditarDisciplina() {
   const history = useHistory();
 
   useEffect(() => {
-    api.get("/VerDisciplinas/:id" + disciplinaID, {
-      params: {
-        idUsuario: usuario,
-        Disciplina:disciplinaID         
-      },
-    })
+    api
+      .get("VerDisciplinas" + disciplinaID, {
+        params: {
+          idUsuario: usuario,
+          Disciplina: disciplinaID,
+        },
+      })
       .then((response) => {
-      setNome(response.data.nome);
-      setPeriodo(response.data.periodo);
-      setHorario(response.data.horario);
-      setLocal(response.data.local);
-      setNomeProfessor(response.data.professor);
-      setMaterial(response.data.material);
-      setStatus(response.data.status);
-    });
+        setNome(response.data.nome);
+        setPeriodo(response.data.periodo);
+        setHorario(response.data.horario);
+        setLocal(response.data.local);
+        setNomeProfessor(response.data.professor);
+        setMaterial(response.data.material);
+        setStatus(response.data.status);
+      });
   }, []);
 
   function submitEditarDisciplina(event) {
@@ -55,12 +56,11 @@ export function EditarDisciplina() {
         idUsuario: usuario.id,
       })
       .then((response) => {
-     
         history.push("/disciplinas/view/" + disciplinaID);
       });
   }
 
-  function toVerDisciplinas(){
+  function toVerDisciplinas() {
     history.push("/disciplinas/view/" + disciplinaID);
     window.location.reload();
   }
@@ -70,14 +70,12 @@ export function EditarDisciplina() {
       <form onSubmit={submitEditarDisciplina}>
         <div className="box_editardisciplina">
           <div className="header_editardisciplina">
-           
-          <FiCornerDownLeft
-           id="voltarVerDisciplinas"
-           onClick={toVerDisciplinas}
-           size={40}
-           color="black"
-           />
- 
+            <FiCornerDownLeft
+              id="voltarVerDisciplinas"
+              onClick={toVerDisciplinas}
+              size={40}
+              color="black"
+            />
 
             <h2 className="titulo_editardisciplina">Editar Disciplina</h2>
             <FiCheckSquare size={40} color="black" />

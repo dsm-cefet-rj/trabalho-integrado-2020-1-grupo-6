@@ -7,7 +7,6 @@ import { FiEdit, FiTrash2, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
-
 export function VerAtividade() {
   const { atividadeID } = useParams();
   const [nome, setNome] = useState("");
@@ -18,9 +17,7 @@ export function VerAtividade() {
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
   const [disciplina, setDisciplina] = useState({});
-  const { disciplinaID } = useParams();
   const history = useHistory();
-  
 
   const { usuario } = useSelector((state) => {
     return {
@@ -48,8 +45,14 @@ export function VerAtividade() {
         setPontuacaoMax(response.data.pontuacaoMax);
         setNotaFinal(response.data.notaFinal);
         setArquivo(response.data.arquivo);
+        console.log(usuario);
         api
-          .get("disciplinas/" + response.data.idDisciplina)
+          .get("VerDisciplinas/" + response.data.idDisciplina, {
+            params: {
+              idUsuario: usuario,
+              Disciplina: response.data.idDisciplina,
+            },
+          })
           .then((disciplina) => {
             setDisciplina(disciplina.data);
           });
@@ -62,34 +65,30 @@ export function VerAtividade() {
 
   function toRemoverAtividade() {
     api.delete("/Atividade/" + atividadeID).then((response) => {
-      history.push("/disciplinas");
+      history.push("/disciplinas/view/" + disciplina.id);
     });
   }
 
-  function toVerAtividades(){
+  function toVerAtividades() {
     history.push("/disciplinas");
     window.location.reload();
   }
 
-
   return (
     <div className="blocoVerAtividade">
       <div className="boxVerAtividade">
-        <div className="header">         
+        <div className="header">
           <div className="headerVerAtividade">
-         
             <h1 id="tituloVerAtividade">{nome}</h1>
             <h2>{disciplina.nome}</h2>
           </div>
           <div className="icons">
-              
-          <FiCornerDownLeft
-           id="voltarVerAtividades"
-           onClick={toVerAtividades}
-           size={40}
-           color="black"
-           />
-  
+            <FiCornerDownLeft
+              id="voltarVerAtividades"
+              onClick={toVerAtividades}
+              size={40}
+              color="black"
+            />
 
             <FiEdit
               size={40}

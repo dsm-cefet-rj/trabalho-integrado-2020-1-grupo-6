@@ -27,7 +27,7 @@ export function CriarDisciplina() {
   }, []);
 
   function submitCriarDisciplina(event) {
-    event.preventDefault();  
+    event.preventDefault();
     console.log(usuario);
     api
       .post("/disciplinas", {
@@ -44,9 +44,8 @@ export function CriarDisciplina() {
         history.push("/disciplinas");
       });
   }
-  function toDisciplinas(){
+  function toDisciplinas() {
     history.push("/disciplinas");
-
   }
 
   return (
@@ -54,12 +53,12 @@ export function CriarDisciplina() {
       <form onSubmit={submitCriarDisciplina}>
         <div className="boxCriarDisciplina">
           <div className="headerCriarDisciplina">
-          <FiCornerDownLeft
-           id="voltarHome"
-           onClick={toDisciplinas}
-           size={40}
-           color="black"
-           />
+            <FiCornerDownLeft
+              id="voltarHome"
+              onClick={toDisciplinas}
+              size={40}
+              color="black"
+            />
 
             <h2 className="tituloCriarDisciplina">Criar Disciplina</h2>
             <FiCheckSquare size={40} color="black" />
