@@ -8,11 +8,26 @@ import { api } from "../../services/api";
 import { useSelector } from "react-redux";
 
 /**
- * @module atividades/ListagemAtividades
+ * @module atividades/Listar
  */
 
 /**
- * Renderiza a tela de listagem de todas as atividades de todas as disciplinas do usuário
+ * @typedef Atividade
+ * @type {object}
+ * @property {String} nome - nome da atividade
+ * @property {String} data_entrega - data de entrega da atividade
+ * @property {String} status - status atual da atividade
+ * @property {String} idDisciplina - identificador da disciplina da atividade
+ * @property {String} idUsuario - identificador do usuário da atividade
+ *
+ */
+
+/**
+ *
+ * Lista todas as atividades de todas as disciplinas do usuário.
+ * Para isso, faz duas requisições GET:
+ * 1) Para pegar as atividades do usuário
+ * 2) Para pegar o id da disciplina dessas atividades
  */
 
 export function Atividades() {
@@ -73,6 +88,11 @@ export function Atividades() {
       });
   }, []);
 
+  /**
+   * Ao clicar no botão de busca, faz uma requisição GET para realização da filtragem por nome de atividade e por status.
+   * @function requisicaoFiltrosAtividades
+   *
+   */
   function requisicaoFiltrosAtividades() {
     api
       .get("/Atividades/", {
@@ -86,6 +106,12 @@ export function Atividades() {
         setAtividades(response.data);
       });
   }
+
+  /**
+   * Ao clicar na seta para voltar, redireciona o usuário para página Home.
+   * @function toHome
+   *
+   */
 
   function toHome() {
     history.push("/home");

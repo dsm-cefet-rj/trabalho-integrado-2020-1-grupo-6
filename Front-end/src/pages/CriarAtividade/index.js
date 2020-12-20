@@ -6,6 +6,32 @@ import { FiCheckSquare, FiFile, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
 
+/**
+ * @module atividades/Cadastrar
+ */
+
+/**
+ * @typedef Usuário
+ * @type {object}
+ * @property {String} nome - nome da atividade
+ * @property {String} dataEntrega - data de entrega da atividade
+ * @property {String} pontuacaoMax- pontuação máxima da atividade
+ * @property {String} status - status atual da atividade
+ * @property {String} tipo - campo para verificar senha do usuário
+ * @property {String} descricao - descrição da atividade
+ * @property {String} notaFinal - nota final da atividade
+ * @property {String} arquivo - arquivo da atividade
+ *
+ *
+ *
+ *
+ */
+
+/**
+ *
+ * Realiza cadastro da atividade em determinada disciplina do usuário
+ *
+ */
 export function CriarAtividade() {
   const [nome, setNome] = useState("");
   const [dataEntrega, setDataEntrega] = useState("");
@@ -29,6 +55,10 @@ export function CriarAtividade() {
     console.log(disciplina);
   }, []);
 
+  /**
+   * Faz requisição POST para inserir atividade da disciplina do usuário
+   * @function submitCriarAtividade
+   */
   function submitCriarAtividade(event) {
     event.preventDefault();
 
@@ -54,6 +84,11 @@ export function CriarAtividade() {
         alert(erro.response.data.resposta);
       });
   }
+
+  /**
+   *Ao clicar na seta para voltar, redireciona o usuário para página da disciplina.
+   * @function toVerDisciplinas
+   */
 
   function toVerDisciplinas() {
     history.push("/disciplinas/view/" + disciplina);

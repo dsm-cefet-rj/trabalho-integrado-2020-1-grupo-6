@@ -5,6 +5,27 @@ import styles from "./cadastro.css";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 
+/**
+ * @module usuarios/Cadastrar
+ */
+
+/**
+ * @typedef Usuário
+ * @type {object}
+ * @property {String} nome - nome completo do usuário
+ * @property {String} usuario - nome de usuário (utilizado para logar)
+ * @property {String} curso- nome do curso
+ * @property {String} senha - senha do usuário (utilizada para logar)
+ * @property {String} confirmaSenha - campo para verificar senha do usuário
+ *
+ */
+
+/**
+ *
+ * Realiza cadastro do usuário.
+ *
+ */
+
 export function Cadastro() {
   const [nome, setNome] = useState("");
   const [usuario, setUsuario] = useState("");
@@ -14,16 +35,8 @@ export function Cadastro() {
   const history = useHistory();
 
   /**
-   * @module atividades/Create
-   */
-
-  /**
-   *
-   * @param {*} event
-   */
-
-  /**
-   * Realiza a criação do usuário
+   * Faz requisição POST para inserir usuário
+   * @function submitCadastro
    */
 
   function submitCadastro(event) {
@@ -39,6 +52,11 @@ export function Cadastro() {
       history.push("/");
     });
   }
+
+  /**
+   *Ao clicar na seta para voltar, redireciona o usuário para página de Login.
+   * @function toLogin
+   */
 
   function toLogin() {
     history.push("/");
