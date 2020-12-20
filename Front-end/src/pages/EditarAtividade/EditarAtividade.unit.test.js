@@ -1,138 +1,162 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react'
+import Formatividade from './EditarAtividade'
 import {useSelector} from 'react-redux'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import { MemoryRouter, Route } from 'react-router-dom'
 import { act } from 'react-dom/test-utils';
-import {addProjetoServer, updateProjetoServer} from './ProjetosSlice'
-import {EditarAtividade} from './index'; 
+import { EditarAtividade } from '.';
+import {addatividadeServer, updateatividadeServer} from './AtividadeSlice'
 
 
-// Mocking the redux module
+// Mocking redux module
 jest.mock("react-redux", () => ({
     ...jest.requireActual("react-redux"),
     useSelector: jest.fn(),
     useDispatch: jest.fn( () => jest.fn((param) => param) )
 }));
 
-// mocking state
+
+// Mocking the state
 const mockAppState = {
-    atividades: {
+    projetos: {
         status: 'not_loaded',
         error: null,
-        atividades: [{id: 1, nome: 'Projeto 1', sigla: 'P1'}],
+        projetos: [{id: 1, nome: 'Projeto 1', sigla: 'P1'}],
     }
 }
 
 
+describe("EditarAtividade unit", () => {
+
+    beforeEach(() => {
+        useSelector.mockImplementation(callback => {
+          return callback(mockAppState);
+        });
+    });
+    
+    afterEach(() => {
+        useSelector.mockClear();
+        addProjetoServer.mockClear();
+    });
 
 
+    test('Carregar novo formulario', () => {
+        render(<EditarAtividade/>, { wrapper: MemoryRouter });
+        expect(screen.getByText(/Novo Projeto/i)).toBeInTheDocument()
+    });
 
-// test('Nome limite inferior válido', () => {throw 'Not implemented yet'});
+    
+    test('Carregar form update', () => {
+        let atividadeId = 1;
+        render(
+            <MemoryRouter initialEntries={[`/atividades/${atividadeId}`]}>
+                <Route path="/atividades/:id">
+                    <EditarAtividade/>
+                </Route>
+            </MemoryRouter>
+             );
+        expect(screen.getByText(/Alteração de atividade/i)).toBeInTheDocument()
+    });
 
-// test('Nome válido', () => {throw 'Not implemented yet'});
+    test('Update válido', async () => {
+        let atividadeId = 1;
+        let {container} = render(
+            <MemoryRouter initialEntries={[`/EditarAtividades/${atividadeId}`]}>
+                <Route path="/atividades/:id">
+                    <EditarAtividade/>
+                </Route>
+            </MemoryRouter>
+        );
 
-// test('Nome limite superior válido -1', () => {throw 'Not implemented yet'});
+        expect(screen.getByText(/Alteração de atividade/i)).toBeInTheDocument();
 
-// test('Nome limite superior válido', () => {throw 'Not implemented yet'});
+        const nome = container.querySelector("#nome");
+        const sigla = container.querySelector("#sigla");
+        const submitButton = container.querySelector("#Salvar");
+        fireEvent.input(nome, {target: {value: 'Nome'}});
+        fireEvent.input(sigla, {target: {value: 'Sig'}});
 
-// test('Nome limite superior inválido', () => {throw 'Not implemented yet'});
+        await act(async () => {
+            fireEvent.submit(submitButton);
+        });
+        
+        expect(updateatividadeServer).toHaveBeenCalledTimes(1);
+        
+    });
 
-// //####### CAMPO DATA ENTREGA ###################################
+    test('Carregar id que não existe', () => {
+        let atividadeId = 2;
+        render(
+            <MemoryRouter initialEntries={[`/atividades/${atividadeId}`]}>
+                <Route path="/atividades/:id">
+                    <EditarAtividade/>
+                </Route>
+            </MemoryRouter>
+             );
+        expect(screen.getByText(/Novo atividade/i)).toBeInTheDocument();
+    });
 
-// test('Data entrega vazio', () => {throw 'Not implemented yet'});
+    test('Nome Vazio', async () => {
+        fieldTest('', 'abc', false, true, "O campo é obrigatório.")
+    });
 
-// test('Data entrega limite inferior válido', () => {throw 'Not implemented yet'});
+    test('Nome limite inferior válido', async () => {
+        await fieldTest('N', 'abc', true, true, null, '/atividades');
+        expect(addatividadeServer).toHaveBeenCalledTimes(1);
+    });
 
-// test('Data entrega válido', () => {throw 'Not implemented yet'});
+    test('Nome válido', async () => {
+        await fieldTest('Nome', 'abc', true, true, null, '/atividades');
+        expect(addatividadeServer).toHaveBeenCalledTimes(1);
+    });
 
-// test('Data entrega limite superior válido -1', () => {throw 'Not implemented yet'});
+    test('Nome limite superior válido -1', async () => {
+        await fieldTest('01234567890123456789012345678', 'abc', true, true, null, '/atividades');
+        expect(addatividadeServer).toHaveBeenCalledTimes(1);
+    });
 
-// test('Data entrega limite superior válido', () => {throw 'Not implemented yet'});
+    test('Nome limite superior válido', async () => {
+        await fieldTest('012345678901234567890123456789', 'abc', true, true, null, '/atividades');
+        expect(addatividadeServer).toHaveBeenCalledTimes(1);
+    });
 
-// test('Data entrega limite superior inválido', () => {throw 'Not implemented yet'});
+    test('Nome limite superior inválido', async () => {
+        await fieldTest('0123456789012345678901234567890', 'abc', false, true, 'O campo deve ter no máximo 30 caracteres.');
+        expect(addatividadeServer).toHaveBeenCalledTimes(0);
+    });
 
-// //####### CAMPO PONTUAÇÃO MÁXIMA ###############################
+    test('Nome Vazio', async () => {
+        fieldTest('atividade', '', true, false, "O campo é obrigatório.")
+    });
 
-// test('Pontuação máxima vazio', () => {throw 'Not implemented yet'});
+    test('Nome limite inferior válido', async () => {
+        await fieldTest('atividade', 'P', true, true, null, '/atividades');
+        expect(addatividadeServer).toHaveBeenCalledTimes(1);
+    });
 
-// test('Pontuação máxima limite inferior válido', () => {throw 'Not implemented yet'});
+    test('Nome válido', async () => {
+        await fieldTest('atividade', 'PRO', true, true, null, '/atividades');
+        expect(addatividadeServer).toHaveBeenCalledTimes(1);
+    });
 
-// test('Pontuação máxima válido', () => {throw 'Not implemented yet'});
+    test('Nome limite superior válido -1', async () => {
+        await fieldTest('atividade', '1234', true, true, null, '/atividades');
+        expect(addatividadeServer).toHaveBeenCalledTimes(1);
+    });
 
-// test('Pontuação máxima limite superior válido -1', () => {throw 'Not implemented yet'});
+    test('Nome limite superior válido', async () => {
+        await fieldTest('atividade', '12345', true, true, null, '/atividades');
+        expect(addatividadeServer).toHaveBeenCalledTimes(1);
+    });
 
-// test('Pontuação máxima limite superior válido', () => {throw 'Not implemented yet'});
+    test('Nome limite superior inválido', async () => {
+        await fieldTest('atividade', '123456', true, false, 'O campo deve ter no máximo 5 caracteres.');
+        expect(addatividadeServer).toHaveBeenCalledTimes(0);
+    });
 
-// test('Pontuação máxima limite superior inválido', () => {throw 'Not implemented yet'});
+    //##########################################################
 
-// //####### CAMPO STATUS #########################################
 
-// test('Status vazio', () => {throw 'Not implemented yet'});
-
-// test('Status limite inferior válido', () => {throw 'Not implemented yet'});
-
-// test('Status válido', () => {throw 'Not implemented yet'});
-
-// test('Status limite superior válido -1', () => {throw 'Not implemented yet'});
-
-// test('Status limite superior válido', () => {throw 'Not implemented yet'});
-
-// test('Status limite superior inválido', () => {throw 'Not implemented yet'});
-
-// //####### CAMPO TIPO ###########################################
-
-// test('Campo Tipo vazio', () => {throw 'Not implemented yet'});
-
-// test('Campo Tipo limite inferior válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Tipo válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Tipo limite superior válido -1', () => {throw 'Not implemented yet'});
-
-// test('Campo Tipo limite superior válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Tipo limite superior inválido', () => {throw 'Not implemented yet'});
-
-// //####### CAMPO DESCRIÇÃO ######################################
-
-// test('Campo Descrição vazio', () => {throw 'Not implemented yet'});
-
-// test('Campo Descrição limite inferior válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Descrição válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Descrição limite superior válido -1', () => {throw 'Not implemented yet'});
-
-// test('Campo Descrição limite superior válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Descrição limite superior inválido', () => {throw 'Not implemented yet'});
-
-// //####### CAMPO NOTA FINAL #####################################
-
-// test('Campo Nota Final vazio', () => {throw 'Not implemented yet'});
-
-// test('Campo Nota Final limite inferior válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Nota Final válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Nota Final limite superior válido -1', () => {throw 'Not implemented yet'});
-
-// test('Campo Nota Final limite superior válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Nota Final limite superior inválido', () => {throw 'Not implemented yet'});
-
-// //####### CAMPO ARQUIVO ########################################
-
-// test('Campo Arquivo vazio', () => {throw 'Not implemented yet'});
-
-// test('Campo Arquivo limite inferior válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Arquivo válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Arquivo limite superior válido -1', () => {throw 'Not implemented yet'});
-
-// test('Campo Arquivo limite superior válido', () => {throw 'Not implemented yet'});
-
-// test('Campo Arquivo limite superior inválido', () => {throw 'Not implemented yet'});
+});
