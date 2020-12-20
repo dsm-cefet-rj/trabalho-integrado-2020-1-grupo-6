@@ -27,14 +27,11 @@ export function CriarAtividade() {
   useEffect(() => {
     console.log(usuario);
     console.log(disciplina);
-    // if (!usuario) {
-    //   history.push("/");
-    // }
   }, []);
 
   function submitCriarAtividade(event) {
     event.preventDefault();
-       
+
     api
       .post("/criarAtividade", {
         nome,
@@ -51,28 +48,28 @@ export function CriarAtividade() {
       .then((response) => {
         console.log(response.data);
         history.push("/disciplinas/view/" + disciplina);
+      })
+      .catch((erro) => {
+        console.log(erro.response.data);
+        alert(erro.response.data.resposta);
       });
   }
 
- 
-
-  function toVerDisciplinas(){
-    history.push("/disciplinas/view/"+ disciplina);
+  function toVerDisciplinas() {
+    history.push("/disciplinas/view/" + disciplina);
   }
-
-
 
   return (
     <div className="blocoCriarAtividade">
       <form onSubmit={submitCriarAtividade}>
         <div className="boxCriarAtividade">
           <div className="headerCriarAtividade">
-          <FiCornerDownLeft
-           id="voltarVerDisciplinas"
-           onClick={toVerDisciplinas}
-           size={40}
-           color="black"
-           />
+            <FiCornerDownLeft
+              id="voltarVerDisciplinas"
+              onClick={toVerDisciplinas}
+              size={40}
+              color="black"
+            />
 
             <h2 className="tituloCriarAtividade"> Criar Atividade</h2>
             <FiCheckSquare size={40} color="black" />

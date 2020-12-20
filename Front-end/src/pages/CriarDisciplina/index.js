@@ -42,6 +42,10 @@ export function CriarDisciplina() {
       })
       .then((response) => {
         history.push("/disciplinas");
+      })
+      .catch((erro) => {
+        console.log(erro.response.data);
+        alert(erro.response.data.resposta);
       });
   }
   function toDisciplinas() {

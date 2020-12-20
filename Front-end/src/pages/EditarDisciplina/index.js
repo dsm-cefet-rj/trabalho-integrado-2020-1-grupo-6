@@ -24,7 +24,7 @@ export function EditarDisciplina() {
 
   useEffect(() => {
     api
-      .get("VerDisciplinas" + disciplinaID, {
+      .get("VerDisciplinas/" + disciplinaID, {
         params: {
           idUsuario: usuario,
           Disciplina: disciplinaID,

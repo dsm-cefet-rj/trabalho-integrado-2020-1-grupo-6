@@ -3,13 +3,40 @@ const Usuarios = require("../models/Usuarios.js");
 module.exports = {
   create: async (req, res, next) => {
     try {
-      const { idUsuario: userId } = req.body;
+      const { idUsuario: userId, nome } = req.body;
+      // console.log(userId);
 
       const user = await Usuarios.findOne({ usuario: userId });
-      console.log(userId);
+      // console.log(user._id);
+      // console.log(typeof user._id);
+      // console.log(userId);
       console.log(user);
       req.body.idUsuario = user.id;
-      const disciplina = await Disciplinas.create(req.body);
+
+      const nomeIgualDisciplina = await Disciplinas.findOne({
+        idUsuario: user._id,
+        nome: nome,
+      });
+      if (nomeIgualDisciplina) {
+        res.status(409);
+        return res.json({
+          resposta: "Disciplina com mesmo nome já foi criada",
+        });
+      }
+
+      const disciplina = new Disciplinas({
+        nome: req.body.nome,
+        periodo: req.body.periodo,
+        horario: req.body.horario,
+        local: req.body.local,
+        material: req.body.material,
+        professor: req.body.professor,
+        status: req.body.status,
+        idUsuario: user._id,
+      });
+      // console.log(disciplina);
+      await disciplina.save();
+
       return res.json(disciplina);
     } catch (err) {
       next(err);
@@ -17,45 +44,25 @@ module.exports = {
   },
   show: async (req, res, next) => {
     try {
-      const { idUsuario: userId } = req.query;
+      const { idUsuario: userId, nome, status } = req.query;
+      console.log(userId, nome, status);
 
       if (userId) {
-        const user = await Usuarios.findOne({ usuario: userId });
-        const disciplina = await Disciplinas.find({ idUsuario: user.id });
-        console.log();
-        return res.json(disciplina);
-      }
-    } catch (err) {
-      next(err);
-    }
-  },
-  //Filtrar por status
-  showfiltro: async (req, res, next) => {
-    try {
-      const {
-        idUsuario: userId,
-        status: estado,
-        nome_like: filtroNome,
-      } = req.query;
-      console.log(estado);
-      console.log(filtroNome);
-      if (estado != undefined) {
-        const user = await Usuarios.findOne({ usuario: userId });
+        const usuario = await Usuarios.findOne({ usuario: userId });
         const disciplina = await Disciplinas.find({
-          idUsuario: user.id,
-          status: estado,
+          idUsuario: usuario.id,
+          ...(nome && { nome: new RegExp(nome, "ig") }),
+          ...(status && { status: new RegExp(status, "ig") }),
         });
-
-        return res.json(disciplina);
-      } else {
-        const user = await Usuarios.findOne({ usuario: userId });
-        const disciplina = await Disciplinas.find({ idUsuario: user.id });
+        console.log(nome, status);
+        // console.log(disciplina, user);
         return res.json(disciplina);
       }
     } catch (err) {
       next(err);
     }
   },
+
   showdisciplina: async (req, res, next) => {
     try {
       const { idUsuario: userId, Disciplina: disciplinaId } = req.query;
@@ -71,14 +78,6 @@ module.exports = {
     }
   },
 
-  index: async (req, res, next) => {
-    try {
-      const disciplina = await Disciplinas.find();
-      return res.json(disciplina);
-    } catch (err) {
-      next(err);
-    }
-  },
   update: async (req, res, next) => {
     try {
       const { id: disciplinaId } = req.params;

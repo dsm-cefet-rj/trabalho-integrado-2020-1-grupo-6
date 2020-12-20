@@ -22,7 +22,7 @@ export function Disciplinas() {
     // }
     console.log(usuario);
     api
-      .get("/Disciplinas/", {
+      .get("Disciplinas/", {
         params: {
           idUsuario: usuario,
         },
@@ -43,10 +43,10 @@ export function Disciplinas() {
 
   function requisicaoFiltros() {
     api
-      .get("DisciplinasFiltro/", {
+      .get("Disciplinas/", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
-          ...(filtroNome && { nome_like: filtroNome }),
+          ...(filtroNome && { nome: filtroNome }),
           idUsuario: usuario,
         },
       })

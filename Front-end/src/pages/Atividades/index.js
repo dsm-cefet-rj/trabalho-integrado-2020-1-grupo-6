@@ -32,7 +32,7 @@ export function Atividades() {
     // }
 
     api
-      .get("/mostrarAtividades", {
+      .get("/Atividades/", {
         params: {
           idUsuario: usuario,
         },
@@ -52,7 +52,13 @@ export function Atividades() {
               return;
             }
             _disciplinas[atividade.idDisciplina] = atividade.idDisciplina;
-            return api.get("disciplinas/" + atividade.idDisciplina);
+            console.log(atividade.idDisciplina);
+            return api.get("/VerDisciplinas/" + atividade.idDisciplina, {
+              params: {
+                idUsuario: usuario,
+                Disciplina: atividade.idDisciplina,
+              },
+            });
           })
         ).then((disc) => {
           const disciplinas__ = {};
@@ -69,12 +75,11 @@ export function Atividades() {
 
   function requisicaoFiltrosAtividades() {
     api
-      .get("/FiltroAtividades/:id", {
+      .get("/Atividades/", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
           ...(filtroNome && { nome_filter: filtroNome }),
           idUsuario: usuario,
-
         },
       })
       .then((response) => {

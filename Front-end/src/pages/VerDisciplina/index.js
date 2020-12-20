@@ -2,7 +2,12 @@ import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useParams } from "react-router-dom";
-import { FiPlusCircle, FiCornerDownLeft, FiEdit, FiTrash2 } from "react-icons/fi";
+import {
+  FiPlusCircle,
+  FiCornerDownLeft,
+  FiEdit,
+  FiTrash2,
+} from "react-icons/fi";
 import styles from "./verdisciplina.css";
 import { useSelector, useDispatch } from "react-redux";
 import { api } from "../../services/api.js";
@@ -35,7 +40,7 @@ export function VerDisciplina() {
       .get("/VerDisciplinas/" + disciplinaID, {
         params: {
           idUsuario: usuario,
-          Disciplina:disciplinaID         
+          Disciplina: disciplinaID,
         },
       })
       .then((response) => {
@@ -49,8 +54,9 @@ export function VerDisciplina() {
       });
 
     api
-      .get("/Atividade/:id", {
+      .get("/Atividades/", {
         params: {
+          idUsuario: usuario,
           idDisciplina: disciplinaID,
         },
       })
@@ -77,18 +83,17 @@ export function VerDisciplina() {
     });
   }
 
-  function toDisciplinas(){
+  function toDisciplinas() {
     history.push("/disciplinas");
-
   }
 
   function requisicaoFiltros() {
     api
-      .get("/AtividadeFiltro/:id", {
+      .get("/Atividades/", {
         params: {
           ...(filtroStatus && { status: filtroStatus }),
           idUsuario: usuario,
-          idDisciplina: disciplinaID
+          idDisciplina: disciplinaID,
         },
       })
       .then((response) => {
@@ -101,13 +106,12 @@ export function VerDisciplina() {
     <div className="blocoVerDisciplina">
       <div className="boxVerDisciplina">
         <div className="headerVerDisciplina">
-        <FiCornerDownLeft
-           id="voltarVerDisciplinas"
-           onClick={toDisciplinas}
-           size={40}
-           color="black"
-           />
-
+          <FiCornerDownLeft
+            id="voltarVerDisciplinas"
+            onClick={toDisciplinas}
+            size={40}
+            color="black"
+          />
 
           <h1 id="tituloVerDisciplina">{nome}</h1>
           <div className="icones">

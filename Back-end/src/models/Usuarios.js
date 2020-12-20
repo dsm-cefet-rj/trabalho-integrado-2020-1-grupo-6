@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const normalize = require("normalize-mongoose");
 const joi = require("@hapi/joi");
 
-const usuariosSchema = mongoose.Schema({
+const usuariosSchema = new mongoose.Schema({
   nome: {
     type: String,
     required: true,
@@ -22,10 +22,6 @@ const usuariosSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: false,
-  },
-  confirma_senha: {
-    type: String,
-    required: true,
   },
 });
 

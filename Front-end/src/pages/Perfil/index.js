@@ -23,20 +23,16 @@ export function Perfil() {
     // }
 
     api
-    .get("/perfil/:id", {
-      params: {
-        idUsuario: usuario,      
-      },
-    })
-    .then((response) => {
-      setNome(response.data.nome);
-      setNomeUsuario(usuario);
-      setCurso(response.data.curso);
-
-
-    });
-
-
+      .get("/perfil/", {
+        params: {
+          idUsuario: usuario,
+        },
+      })
+      .then((response) => {
+        setNome(response.data.nome);
+        setNomeUsuario(usuario);
+        setCurso(response.data.curso);
+      });
   }, []);
 
   function toEditarPerfil(event) {
@@ -49,22 +45,20 @@ export function Perfil() {
       history.push("/");
     });
   }
-  function toHome(){
-history.push("/home");
+  function toHome() {
+    history.push("/home");
   }
 
   return (
     <div className="blocoPerfil">
       <div className="boxPerfil">
         <div className="headerPerfil">
-
-        <FiCornerDownLeft
-           id="voltarHome"
-           onClick={toHome}
-           size={40}
-           color="black"
-           />
-
+          <FiCornerDownLeft
+            id="voltarHome"
+            onClick={toHome}
+            size={40}
+            color="black"
+          />
 
           <h1 id="tituloPerfil">Meu Perfil</h1>
           <FiCheckSquare size={40} color="black" />

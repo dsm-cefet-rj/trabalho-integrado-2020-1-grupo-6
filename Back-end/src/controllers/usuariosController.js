@@ -63,6 +63,7 @@ module.exports = {
     try {
       const { idUsuario: userId } = req.query;
       const user = await Usuarios.findOne({ usuario: userId });
+      console.log(user);
       return res.json(user);
     } catch (err) {
       next(err);

@@ -16,24 +16,31 @@ export function EditarPerfil() {
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
 
-  console.log(usuario);
+  // console.log(usuario);
 
-  // useEffect(() => {
-  //   api.get("/perfil/" + usuario).then((response) => {
-  //     // setNome(response.data.nome);
-  //     // console.log(response.data.nome);
-  //     // setCurso(response.data.curso);
-  //   });
-  // }, []);
+  useEffect(() => {
+    api
+      .get("/perfil/", {
+        params: {
+          idUsuario: usuario,
+        },
+      })
+      .then((response) => {
+        setNome(response.data.nome);
+        console.log(response.data.nome);
+        setCurso(response.data.curso);
+      });
+  }, []);
 
   function submitEditarPerfil(event) {
     event.preventDefault();
     console.log(usuario);
     api
 
-      .put("/editperfil/" + usuario, {
-        nome,
-        curso,
+      .put("/editperfil/", {
+        params: {
+          idUsuario: usuario,
+        },
       })
       .then((response) => {
         dispatch({

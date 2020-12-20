@@ -4,9 +4,18 @@ const Usuarios = require("../models/Usuarios.js");
 module.exports = {
   create: async (req, res, next) => {
     try {
-      const { idUsuario: userId } = req.body;
+      const { idUsuario: userId, nome, idDisciplina } = req.body;
       const user = await Usuarios.findOne({ usuario: userId });
       req.body.idUsuario = user.id;
+      const nomeIgualAtividade = await Atividades.findOne({
+        nome: nome,
+        idDisciplina: idDisciplina,
+      });
+      if (nomeIgualAtividade) {
+        res.status(409);
+        return res.json({ resposta: "Atividade com mesmo nome já foi criada" });
+      }
+      // console.log(nomeIgualAtividade);
       const atividade = await Atividades.create(req.body);
       return res.json(atividade);
     } catch (err) {
@@ -15,13 +24,25 @@ module.exports = {
   },
   show: async (req, res, next) => {
     try {
-      const { idDisciplina: disciplinaID } = req.query;
-      const atividade = await Atividades.find({ idDisciplina: disciplinaID });
-      return res.json(atividade);
+      const { idUsuario: username, idDisciplina, status, nome } = req.query;
+
+      if (username) {
+        const usuario = await Usuarios.findOne({ usuario: username });
+        const atividade = await Atividades.find({
+          idUsuario: usuario.id,
+          ...(idDisciplina && { idDisciplina: idDisciplina }),
+          ...(status && { status: new RegExp(status, "ig") }),
+          ...(nome && { nome: new RegExp(nome, "ig") }),
+        });
+        // console.log(status);
+        console.log(atividade);
+        return res.json(atividade);
+      }
     } catch (err) {
       next(err);
     }
   },
+
   showatividade: async (req, res, next) => {
     try {
       console.log(req.query);
@@ -33,44 +54,17 @@ module.exports = {
     }
   },
 
-  showfiltro: async (req, res, next) => {
-    try {
-      const {
-        idUsuario: userId,
-        status: estado,
-        idDisciplina: disciplinaID,
-      } = req.query;
-
-      if (estado != undefined) {
-        const user = await Usuarios.findOne({ usuario: userId });
-        const atividade = await Atividades.find({
-          idUsuario: user.id,
-          status: estado,
-          idDisciplina: disciplinaID,
-        });
-        return res.json(atividade);
-      } else {
-        const user = await Usuarios.findOne({ usuario: userId });
-        const atividade = await Atividades.find({
-          idUsuario: user.id,
-          idDisciplina: disciplinaID,
-        });
-        return res.json(atividade);
-      }
-    } catch (err) {
-      next(err);
-    }
-  },
-  index: async (req, res, next) => {
-    try {
-      const { idUsuario: userId } = req.query;
-      const user = await Usuarios.findOne({ usuario: userId });
-      const atividade = await Atividades.find({ idUsuario: user.id });
-      return res.json(atividade);
-    } catch (err) {
-      next(err);
-    }
-  },
+  // index: async (req, res, next) => {
+  //   try {
+  //     const { idUsuario: userId } = req.query;
+  //     const user = await Usuarios.findOne({ usuario: userId });
+  //     const atividade = await Atividades.find({ idUsuario: user.id });
+  //     console.log(atividade);
+  //     return res.json(atividade);
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // },
   update: async (req, res, next) => {
     try {
       const { id: atividadeID } = req.params;
@@ -93,26 +87,26 @@ module.exports = {
       next(err);
     }
   },
-  showfiltroAtividades: async (req, res, next) => {
-    try {
-      console.log(req.query);
-      console.log("oi");
-      const { idUsuario: userId, status: estado } = req.query;
+  // showfiltroAtividades: async (req, res, next) => {
+  //   try {
+  //     console.log(req.query);
+  //     console.log("oi");
+  //     const { idUsuario: userId, status: estado } = req.query;
 
-      if (estado != undefined) {
-        const user = await Usuarios.findOne({ usuario: userId });
-        const atividade = await Atividades.find({
-          idUsuario: user.id,
-          status: estado,
-        });
-        return res.json(atividade);
-      } else {
-        const user = await Usuarios.findOne({ usuario: userId });
-        const atividade = await Atividades.find({ idUsuario: user.id });
-        return res.json(atividade);
-      }
-    } catch (err) {
-      next(err);
-    }
-  },
+  //     if (estado != undefined) {
+  //       const user = await Usuarios.findOne({ usuario: userId });
+  //       const atividade = await Atividades.find({
+  //         idUsuario: user.id,
+  //         status: estado,
+  //       });
+  //       return res.json(atividade);
+  //     } else {
+  //       const user = await Usuarios.findOne({ usuario: userId });
+  //       const atividade = await Atividades.find({ idUsuario: user.id });
+  //       return res.json(atividade);
+  //     }
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // },
 };
