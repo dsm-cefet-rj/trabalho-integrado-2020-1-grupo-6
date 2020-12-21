@@ -6,6 +6,34 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
+/**
+ * @module disciplinas/Editar
+ */
+
+/**
+ * @typedef Disciplina
+ * @type {object}
+ * @property {String} nome - nome da disciplina
+ * @property {String} periodo - período cursado na disciplina
+ * @property {String} horario- horário da aula
+ * @property {String} local - local da aula
+ * @property {String} nomeProfessor - nome do professor que ministra a disciplina
+ * @property {String} material - link de material da disciplina
+ * @property {String} status - status da disciplina
+ * @property {String} idDisciplina - identificador da disciplina
+ * @property {String} idUsuario - identificador do usuário da disciplina
+ *
+ */
+
+/**
+ *
+ * Edita informações dos campos da disciplina do usuário.
+ * Para isso, faz uma requisição GET para pegar as informações da disciplina e adicionar nos inputs para melhor visualização.
+ *
+ *
+ *
+ */
+
 export function EditarDisciplina() {
   const [nome, setNome] = useState("");
   const [periodo, setPeriodo] = useState("");
@@ -41,6 +69,11 @@ export function EditarDisciplina() {
       });
   }, []);
 
+  /**
+   * Faz requisição PUT para editar os campos da disciplina do usuário
+   * @function submitEditarDisciplina
+   */
+
   function submitEditarDisciplina(event) {
     event.preventDefault();
 
@@ -59,6 +92,11 @@ export function EditarDisciplina() {
         history.push("/disciplinas/view/" + disciplinaID);
       });
   }
+
+  /**
+   * Ao clicar no botão de voltar, redireciona o usuário para a página da disciplina
+   * @function toVerDisciplinas
+   */
 
   function toVerDisciplinas() {
     history.push("/disciplinas/view/" + disciplinaID);

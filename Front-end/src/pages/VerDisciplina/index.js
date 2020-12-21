@@ -12,6 +12,35 @@ import styles from "./verdisciplina.css";
 import { useSelector, useDispatch } from "react-redux";
 import { api } from "../../services/api.js";
 
+/**
+ * @module disciplinas/Visualizar
+ */
+
+/**
+ * @typedef Disciplina
+ * @type {object}
+ * @property {String} nome - nome da disciplina
+ * @property {String} periodo - período cursado na disciplina
+ * @property {String} horario- horário da aula
+ * @property {String} local - local da aula
+ * @property {String} nomeProfessor - nome do professor que ministra a disciplina
+ * @property {String} material - link de material da disciplina
+ * @property {String} status - status da disciplina
+ * @property {String} idDisciplina - identificador da disciplina
+ * @property {String} idUsuario - identificador do usuário
+ *
+ *
+ */
+
+/**
+ *
+ * Mostra disciplina do usuário.
+ * Para isso, faz duas requisições GET:
+ * 1) Para pegar a disciplina do usuário
+ * 2) Para pegar as atividades dessa disciplina
+ *
+ */
+
 export function VerDisciplina() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -65,6 +94,11 @@ export function VerDisciplina() {
       });
   }, []);
 
+  /**
+   * Ao clicar no botão de "Mais", usuário é redirecionado para página de criar atividade
+   * @function toCriarAtividade
+   */
+
   function toCriarAtividade() {
     dispatch({
       type: "criarAtividade",
@@ -73,9 +107,19 @@ export function VerDisciplina() {
     history.push("/atividades/create");
   }
 
+  /**
+   * Ao clicar no botão de editar, usuário é redirecionado para página de editar disciplina
+   * @function toEditarDisciplina
+   */
+
   function toEditarDisciplina() {
     history.push("/disciplinas/edit/" + disciplinaID);
   }
+
+  /**
+   * Ao clicar no botão de excluir, disciplina é excluída e usuário é redirecionado para página de listagem das disciplinas
+   * @function toRemoverAtividade
+   */
 
   function toRemoveDisciplina() {
     api.delete("disciplinas/" + disciplinaID).then((response) => {
@@ -83,9 +127,19 @@ export function VerDisciplina() {
     });
   }
 
+  /**
+   *Ao clicar na seta para voltar, redireciona o usuário para página de listagem das disciplinas.
+   * @function toDisciplinas
+   */
+
   function toDisciplinas() {
     history.push("/disciplinas");
   }
+
+  /**
+   * Ao clicar no botão de busca, faz uma requisição GET para realização da filtragem por status da atividade
+   * @function requisicaoFiltros
+   */
 
   function requisicaoFiltros() {
     api

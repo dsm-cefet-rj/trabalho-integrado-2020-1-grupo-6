@@ -1,51 +1,39 @@
 const mongoose = require("mongoose");
 const normalize = require("normalize-mongoose");
-
 const atividadesSchema = new mongoose.Schema({
   nome: {
     type: String,
     required: true,
-    minLength: 2,
-    maxLength: 25,
+    maxLength: 30,
   },
   dataEntrega: {
     type: String,
     required: true,
-    minLength: 2,
-    maxLength: 25,
+    maxLength: 10,
   },
   pontuacaoMax: {
     type: String,
     required: true,
-    minLength: 1,
-    maxLength: 3,
+    maxLength: 4,
   },
   status: {
     type: String,
     required: true,
-    minLength: 2,
-    maxLength: 25,
   },
   tipo: {
     type: String,
     required: true,
-    minLength: 2,
-    maxLength: 25,
   },
   descricao: {
     type: String,
-    minLength: 2,
-    maxLength: 25,
+    maxLength: 50,
   },
   notaFinal: {
     type: String,
-    minLength: 1,
-    maxLength: 25,
+    maxLength: 4,
   },
   arquivo: {
     type: String,
-    minLength: 2,
-    maxLength: 25,
   },
   idDisciplina: {
     type: mongoose.Types.ObjectId,
@@ -58,6 +46,19 @@ const atividadesSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+function validarAtividades(atividade) {
+  const schema = joi.object({
+    nome: joi.string().alphanum().required(),
+    dataEntrega: joi.string().required(),
+    pontuacaoMax: joi.string().required(),
+    descricao: joi.string(),
+    notaFinal: joi.string(),
+    arquivo: joi.string(),
+  });
+
+  return schema.validate(atividade);
+}
 
 atividadesSchema.plugin(normalize);
 

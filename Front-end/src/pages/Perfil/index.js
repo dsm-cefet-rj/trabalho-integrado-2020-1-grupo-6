@@ -7,6 +7,27 @@ import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { api } from "../../services/api";
 
+/**
+ * @module usuarios/Perfil
+ */
+
+/**
+ @typedef Usuário
+ * @type {object}
+ * @property {String} nome - nome completo do usuário
+ * @property {String} usuario - nome de usuário 
+ * @property {String} curso- nome do curso
+ * @property {String} idUsuario - identificador do usuário
+ */
+
+/**
+ *
+ * Permite que usuário visualize seu perfil.
+ * Para isso, faz requisição GET, pegando o perfil relacionado ao idUsuário
+ *
+ *
+ */
+
 export function Perfil() {
   const [nome, setNome] = useState("");
   const [nomeUsuario, setNomeUsuario] = useState("");
@@ -35,16 +56,32 @@ export function Perfil() {
       });
   }, []);
 
+  /**
+   * Ao clicar no botão de editar, usuário é redirecionado para página de editar perfil
+   * @function toEditarPerfil
+   */
+
   function toEditarPerfil(event) {
     event.preventDefault();
     history.push("/perfil/edit");
   }
+
+  /**
+   * Ao clicar no botão de excluir, usuário é excluído e redirecionado para página inicial
+   * @function toExcluirPerfil
+   */
 
   function toExcluirPerfil() {
     api.delete("/usuario/" + usuario).then((response) => {
       history.push("/");
     });
   }
+
+  /**
+   *Ao clicar na seta para voltar, redireciona o usuário para página Home.
+   * @function toHome
+   */
+
   function toHome() {
     history.push("/home");
   }

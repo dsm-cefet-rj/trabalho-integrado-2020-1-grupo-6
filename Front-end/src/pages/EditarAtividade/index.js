@@ -6,6 +6,36 @@ import { FiCheckSquare, FiCornerDownLeft, FiFile } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
 
+/**
+ * @module atividades/Editar
+ */
+
+/**
+ * @typedef Atividade
+ * @type {object}
+ * @property {String} nome - nome da atividade
+ * @property {String} dataEntrega - data de entrega da atividade
+ * @property {String} pontuacaoMax- pontuação máxima da atividade
+ * @property {String} status - status atual da atividade
+ * @property {String} tipo - campo para verificar senha do usuário
+ * @property {String} descricao - descrição da atividade
+ * @property {String} notaFinal - nota final da atividade
+ * @property {String} arquivo - arquivo da atividade
+ * @property {String} idDisciplina - identificador da disciplina do usuário
+ * @property {String} idUsuario - identificador do usuário
+ *
+ *
+ */
+
+/**
+ *
+ * Edita informações dos campos da atividade da disciplina do usuário.
+ * Para isso, faz uma requisição GET para pegar as informações da atividade e adicionar nos inputs para melhor visualização.
+ *
+ *
+ *
+ */
+
 export function EditarAtividade() {
   const [nome, setNome] = useState("");
   const [dataEntrega, setDataEntrega] = useState("");
@@ -35,6 +65,11 @@ export function EditarAtividade() {
     });
   }, []);
 
+  /**
+   * Faz requisição PUT para editar os campos da atividade da disciplina do usuário
+   * @function submitEditarAtividade
+   */
+
   function submitEditarAtividade(event) {
     event.preventDefault();
 
@@ -55,6 +90,12 @@ export function EditarAtividade() {
         history.push("/atividades/view/" + atividadeID);
       });
   }
+
+  /**
+   * Ao clicar no botão de voltar, redireciona o usuário paraa página da atividade
+   * @function toVerAtividades
+   */
+
   function toVerAtividades() {
     history.push("/atividades/view/" + atividadeID);
   }

@@ -1,11 +1,11 @@
 const Disciplinas = require("../models/Disciplinas.js");
 const Usuarios = require("../models/Usuarios.js");
+
 module.exports = {
   create: async (req, res, next) => {
     try {
       const { idUsuario: userId, nome } = req.body;
       // console.log(userId);
-
       const user = await Usuarios.findOne({ usuario: userId });
       // console.log(user._id);
       // console.log(typeof user._id);
@@ -42,6 +42,7 @@ module.exports = {
       next(err);
     }
   },
+
   show: async (req, res, next) => {
     try {
       const { idUsuario: userId, nome, status } = req.query;
@@ -91,6 +92,7 @@ module.exports = {
       next(err);
     }
   },
+
   delete: async (req, res, next) => {
     try {
       const { id: disciplinaId } = req.params;

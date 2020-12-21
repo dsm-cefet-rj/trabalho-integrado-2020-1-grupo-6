@@ -1,6 +1,7 @@
 const Atividades = require("../models/Atividades.js");
 const Disciplinas = require("../models/Disciplinas.js");
 const Usuarios = require("../models/Usuarios.js");
+
 module.exports = {
   create: async (req, res, next) => {
     try {
@@ -22,6 +23,7 @@ module.exports = {
       next(err);
     }
   },
+
   show: async (req, res, next) => {
     try {
       const { idUsuario: username, idDisciplina, status, nome } = req.query;
@@ -54,17 +56,6 @@ module.exports = {
     }
   },
 
-  // index: async (req, res, next) => {
-  //   try {
-  //     const { idUsuario: userId } = req.query;
-  //     const user = await Usuarios.findOne({ usuario: userId });
-  //     const atividade = await Atividades.find({ idUsuario: user.id });
-  //     console.log(atividade);
-  //     return res.json(atividade);
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // },
   update: async (req, res, next) => {
     try {
       const { id: atividadeID } = req.params;
@@ -78,6 +69,7 @@ module.exports = {
       next(err);
     }
   },
+
   delete: async (req, res, next) => {
     try {
       const { id: atividadeId } = req.params;
@@ -87,26 +79,4 @@ module.exports = {
       next(err);
     }
   },
-  // showfiltroAtividades: async (req, res, next) => {
-  //   try {
-  //     console.log(req.query);
-  //     console.log("oi");
-  //     const { idUsuario: userId, status: estado } = req.query;
-
-  //     if (estado != undefined) {
-  //       const user = await Usuarios.findOne({ usuario: userId });
-  //       const atividade = await Atividades.find({
-  //         idUsuario: user.id,
-  //         status: estado,
-  //       });
-  //       return res.json(atividade);
-  //     } else {
-  //       const user = await Usuarios.findOne({ usuario: userId });
-  //       const atividade = await Atividades.find({ idUsuario: user.id });
-  //       return res.json(atividade);
-  //     }
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // },
 };

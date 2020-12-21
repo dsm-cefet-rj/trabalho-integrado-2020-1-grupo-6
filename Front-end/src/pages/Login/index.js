@@ -7,27 +7,51 @@ import { useHistory } from "react-router-dom";
 import { api } from "../../services/api.js";
 import { useDispatch } from "react-redux";
 
+/**
+ * @module usuarios/Login
+ */
+
+/**
+ * @typedef Usuário
+ * @type {object}
+ * @property {String} usuario - nome de usuário (utilizado para logar)
+ * @property {String} senha - senha do usuário (utilizada para logar)
+ * @property {String} idUsuario - identificador do usuário
+ *
+ */
+
+/**
+ *
+ * Permite que usuário entre com usuário e senha na aplicação.
+ *
+ *
+ */
+
 export function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
 
+  /**
+   * FAz requisição GET para pegar id do usuário.
+   * @function submitLogin
+   * @throws Lança tratamento de erro se usuário inserir login ou senha incorretos
+   */
+
   function submitLogin(event) {
     event.preventDefault();
-    
-
 
     api
       .get("usuario/login", {
         params: { usuario: login, senha },
       })
-      .then((response) => {      
-        if (response.data==1) {
+      .then((response) => {
+        if (response.data == 1) {
           alert("Usuário e/ou senha estão incorretos");
           return;
         }
-          console.log(response.data);
+        console.log(response.data);
         dispatch({
           type: "fazerLogin",
           payload: response.data.usuario,
