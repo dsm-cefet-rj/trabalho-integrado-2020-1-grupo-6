@@ -12,8 +12,8 @@ import Enzyme from "enzyme";
 import React from 'react';
 
 
-const create = require ('../../../Back-end/src/controller/atividadesController.js')
-const routes = require ('../../../Back-end/src/routes/server.js')
+const create = require ('../../../../Back-end/src/controllers/atividadesController')
+const routes = require ('../../../../Back-end/src/routes/index')
 
 configure({ adapter: new Adapter() });
 
