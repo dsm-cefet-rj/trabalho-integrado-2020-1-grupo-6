@@ -89,7 +89,7 @@ export function Atividades() {
   }, []);
 
   /**
-   * Ao clicar no botão de busca, faz uma requisição GET para realização da filtragem por nome de atividade e por status.
+   * Ao clicar no botão de busca, faz uma requisição GET para realização da filtragem por nome de atividade e por status
    * @function requisicaoFiltrosAtividades
    *
    */

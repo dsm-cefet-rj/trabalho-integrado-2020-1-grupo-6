@@ -6,6 +6,31 @@ import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
 
+/**
+ * @module disciplinas/Cadastrar
+ */
+
+/**
+ * @typedef Disciplina
+ * @type {object}
+ * @property {String} nome - nome da disciplina
+ * @property {String} periodo - período cursado na disciplina
+ * @property {String} horario- horário da aula
+ * @property {String} local - local da aula
+ * @property {String} nomeProfessor - nome do professor que ministra a disciplina
+ * @property {String} material - link de material da disciplina
+ * @property {String} status - status da disciplina
+ * @property {String} idUsuario - identificador do usuário
+ *
+ *
+ */
+
+/**
+ *
+ * Realiza cadastro da disciplina no usuário
+ *
+ */
+
 export function CriarDisciplina() {
   const [nome, setNome] = useState("");
   const [periodo, setPeriodo] = useState("");
@@ -25,6 +50,12 @@ export function CriarDisciplina() {
     //   history.push("/");
     // }
   }, []);
+
+  /**
+   * Faz requisição POST para inserir disciplina no perfil do usuário
+   *
+   * @function submitCriarDisciplina
+   */
 
   function submitCriarDisciplina(event) {
     event.preventDefault();
@@ -48,6 +79,12 @@ export function CriarDisciplina() {
         alert(erro.response.data.resposta);
       });
   }
+
+  /**
+   * Ao clicar na seta para voltar, redireciona o usuário para página de listagem das disciplinas
+   *
+   * @function toDisciplinas
+   */
   function toDisciplinas() {
     history.push("/disciplinas");
   }

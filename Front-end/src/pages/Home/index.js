@@ -6,6 +6,23 @@ import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+/**
+ * @module usuarios/Home
+ */
+
+/**
+ * @typedef Usuário
+ * @type {object}
+ * @property {String} idUsuario - identificador do usuário
+ *
+ */
+
+/**
+ *
+ * Mostra um menu para utilização da aplicação, com as opções "Minhas disciplinas", "Minhas atividades" e "Meu Perfil"
+ *
+ */
+
 export function Home() {
   const history = useHistory();
   const usuario =

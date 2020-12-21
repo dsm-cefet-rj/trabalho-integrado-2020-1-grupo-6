@@ -21,8 +21,8 @@ import { useSelector } from "react-redux";
  * @property {String} descricao - descrição da atividade
  * @property {String} notaFinal - nota final da atividade
  * @property {String} arquivo - arquivo da atividade
- *
- *
+ * @property {String} idUsuario - identificador do usuário
+ * @property {String} idDisciplina - identificador da disciplina
  *
  *
  */
@@ -58,6 +58,7 @@ export function CriarAtividade() {
   /**
    * Faz requisição POST para inserir atividade da disciplina do usuário
    * @function submitCriarAtividade
+   * @throws Lança erro se coloca atividade com mesmo nome para a mesma disciplina
    */
   function submitCriarAtividade(event) {
     event.preventDefault();

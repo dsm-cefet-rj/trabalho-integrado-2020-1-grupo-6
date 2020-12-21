@@ -5,44 +5,32 @@ const disciplinasSchema = new mongoose.Schema({
   nome: {
     type: String,
     required: true,
-    minLength: 2,
-    maxLength: 25,
+    maxLength: 30,
   },
   periodo: {
     type: String,
     required: true,
-    minLength: 1,
-    maxLength: 2,
+    maxLength: 3,
   },
   horario: {
     type: String,
-    required: true,
-    minLength: 2,
-    maxLength: 25,
+    maxLength: 5,
   },
   local: {
     type: String,
-    required: true,
-    minLength: 2,
-    maxLength: 25,
+    maxLength: 30,
   },
   professor: {
     type: String,
-    required: true,
-    minLength: 2,
-    maxLength: 25,
+    maxLength: 30,
   },
   material: {
     type: String,
-    required: true,
-    minLength: 2,
-    maxLength: 25,
+    maxLength: 200,
   },
   status: {
     type: String,
     required: true,
-    minLength: 2,
-    maxLength: 25,
   },
 
   idUsuario: {
@@ -54,11 +42,11 @@ const disciplinasSchema = new mongoose.Schema({
 
 function validarDisciplinas(disciplina) {
   const schema = joi.object({
-    nomeDisciplina: joi.string().alphanum().required().max(30),
-    periodo: joi.string().required().min(3).max(12),
-    horario: joi.string().required().max(30),
-    local: joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
-    nomeProfessor: joi.ref("senha"),
+    nomeDisciplina: joi.string().alphanum().required(),
+    periodo: joi.string().required(),
+    horario: joi.string(),
+    local: joi.string(),
+    nomeProfessor: joi.string(),
   });
 
   return schema.validate(usuario);

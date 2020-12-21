@@ -6,6 +6,30 @@ import { FiPlusCircle, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api";
 import { useSelector } from "react-redux";
 
+/**
+ * @module disciplinas/Listar
+ */
+
+/**
+ * @typedef Disciplina
+ * @type {object}
+ * @property {String} nome - nome da disciplina
+ * @property {String} periodo- periodo da disciplina
+ * @property {String} status - status da disciplina
+ * @property {String} idDisciplina - identificador da disciplina
+ * @property {String} idUsuario - identificador do usuário da disciplina
+ *
+ */
+
+/**
+ *
+ * Lista todas as disciplinas do usuário.
+ * Para isso, faz uma requisição GET para pegar as disciplinas do usuário
+ *
+ *
+ *
+ */
+
 export function Disciplinas() {
   const usuario =
     useSelector((state) => state?.usuario) ||
@@ -33,13 +57,29 @@ export function Disciplinas() {
   }, []);
 
   console.log(disciplinas);
+
+  /**
+   * Ao clicar no botão de "Mais", redireciona o usuário para página de criar disciplina
+   * @function toCriarDisciplina
+   */
+
   function toCriarDisciplina() {
     history.push("/disciplinas/create");
   }
 
+  /**
+   * Ao clicar no botão de voltar, redireciona o usuário para página Home
+   * @function toHome
+   */
+
   function toHome() {
     history.push("home");
   }
+
+  /**
+   * Ao clicar no botão de busca, faz uma requisição GET para realização da filtragem por nome e status da disciplina
+   * @function requisicaoFiltros
+   */
 
   function requisicaoFiltros() {
     api

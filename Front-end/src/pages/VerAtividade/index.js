@@ -7,6 +7,39 @@ import { FiEdit, FiTrash2, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
+/**
+ * @module atividades/Visualizar
+ */
+
+/**
+ * @typedef Atividade
+ * @type {object}
+ * @property {String} nome - nome da atividade
+ * @property {String} dataEntrega - data de entrega da atividade
+ * @property {String} pontuacaoMax- pontuação máxima da atividade
+ * @property {String} status - status atual da atividade
+ * @property {String} tipo - campo para verificar senha do usuário
+ * @property {String} descricao - descrição da atividade
+ * @property {String} notaFinal - nota final da atividade
+ * @property {String} arquivo - arquivo da atividade
+ * @property {String} idDisciplina - identificador da disciplina do usuário
+ * @property {String} idUsuario - identificador do usuário
+ *
+ *
+ */
+
+/**
+ *
+ * Mostra atividade da disciplina do usuário
+ * Para isso, faz duas requisições GET:
+ * 1) Para pegar a disciplina do usuário
+ * 2) Para pegar a atividade dessa disciplina
+ *
+ *
+ *
+ *
+ */
+
 export function VerAtividade() {
   const { atividadeID } = useParams();
   const [nome, setNome] = useState("");
@@ -59,15 +92,30 @@ export function VerAtividade() {
       });
   }, []);
 
+  /**
+   * Ao clicar no botão de editar, usuário é redirecionado para página de editar atividade
+   * @function toEditarAtividade
+   */
+
   function toEditarAtividade() {
     history.push("/atividades/edit/" + atividadeID);
   }
+
+  /**
+   * Ao clicar no botão de excluir, atividade é excluída e usuário é redirecionado para página de listagem das disciplinas
+   * @function toRemoverAtividade
+   */
 
   function toRemoverAtividade() {
     api.delete("/Atividade/" + atividadeID).then((response) => {
       history.push("/disciplinas/view/" + disciplina.id);
     });
   }
+
+  /**
+   *Ao clicar na seta para voltar, redireciona o usuário para página de listagem das disciplinas.
+   * @function toVerAtividades
+   */
 
   function toVerAtividades() {
     history.push("/disciplinas");

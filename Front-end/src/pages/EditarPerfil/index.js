@@ -7,6 +7,28 @@ import styles from "./editarperfil.css";
 import { useDispatch, useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 
+/**
+ * @module usuarios/Editar
+ */
+
+/**
+ * @typedef Usuário
+ * @type {object}
+ * @property {String} nome - nome completo do usuário
+ * @property {String} curso- nome do curso
+ * @property {String} idUsuario - identificador do usuário
+ *
+ *
+ *
+ */
+
+/**
+ *
+ * Edita informações dos campos da disciplina do usuário.
+ * Para isso, faz uma requisição GET para pegar as informações da disciplina e adicionar nos inputs para melhor visualização.
+ *
+ */
+
 export function EditarPerfil() {
   const [nome, setNome] = useState("");
   const [curso, setCurso] = useState("");
@@ -32,6 +54,11 @@ export function EditarPerfil() {
       });
   }, []);
 
+  /**
+   * Faz requisição PUT para editar os campos do perfil do usuário
+   * @function submitEditarPerfil
+   */
+
   function submitEditarPerfil(event) {
     event.preventDefault();
     console.log(usuario);
@@ -51,6 +78,11 @@ export function EditarPerfil() {
         history.push("/perfil");
       });
   }
+
+  /**
+   * Ao clicar no botão de voltar, redireciona o usuário para a página de visualização do perfil do usuário
+   * @function toPerfil
+   */
 
   function toPerfil() {
     history.push("/perfil");
