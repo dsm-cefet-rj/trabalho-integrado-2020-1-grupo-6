@@ -5,5 +5,5 @@
         "plugins": ["istanbul"]
       }
     },
-    "plugins": ["transform-class-properties", "istanbul"]
+    "plugins": ["istanbul", "@babel/plugin-syntax-jsx"]
   } 
