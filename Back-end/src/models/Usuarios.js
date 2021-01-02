@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const normalize = require("normalize-mongoose");
 const joi = require("@hapi/joi");
+const disciplinas = require("../models/Disciplinas.js");
+const atividades = require("../models/Atividades.js");
 
 const usuariosSchema = new mongoose.Schema({
   nome: {
@@ -39,5 +41,15 @@ function validarUsuario(usuario) {
 }
 
 usuariosSchema.plugin(normalize);
+
+usuariosSchema.post(
+  "findOneAndDelete",
+  { document: false, query: true },
+  function (obj) {
+    console.log(obj);
+    disciplinas.deleteMany({ idUsuario: obj._id }).exec();
+    atividades.deleteMany({ idUsuario: obj._id }).exec();
+  }
+);
 
 module.exports = mongoose.model("Usuarios", usuariosSchema);

@@ -18,7 +18,7 @@ routes.delete("/usuario/:id", usuariosController.delete);
 
 routes.get("/perfil/", usuariosController.showPerfil);
 
-routes.put("/editperfil/:id", usuariosController.EditarPerfil);
+routes.put("/editperfil/", usuariosController.EditarPerfil);
 
 routes.get("/usuario/login", usuariosController.show);
 

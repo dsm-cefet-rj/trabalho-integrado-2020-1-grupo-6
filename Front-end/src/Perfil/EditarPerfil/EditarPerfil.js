@@ -38,7 +38,7 @@ export function EditarPerfil() {
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
 
-  // console.log(usuario);
+  console.log(usuario);
 
   useEffect(() => {
     api
@@ -62,12 +62,11 @@ export function EditarPerfil() {
   function submitEditarPerfil(event) {
     event.preventDefault();
     console.log(usuario);
-    api
 
-      .put("/editperfil/", {
-        params: {
-          idUsuario: usuario,
-        },
+    api
+      .put("/usuario/" + usuario, {
+        nome,
+        curso,
       })
       .then((response) => {
         dispatch({

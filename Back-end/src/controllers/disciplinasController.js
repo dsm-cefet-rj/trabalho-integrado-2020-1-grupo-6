@@ -1,13 +1,15 @@
+const { db } = require("../models/Disciplinas.js");
 const Disciplinas = require("../models/Disciplinas.js");
 const Usuarios = require("../models/Usuarios.js");
+const atividades = require("../models/Atividades.js");
 
 module.exports = {
   create: async (req, res, next) => {
     try {
       const { idUsuario: userId, nome } = req.body;
-      // console.log(userId);
+      console.log(userId);
       const user = await Usuarios.findOne({ usuario: userId });
-      // console.log(user._id);
+      console.log(user._id);
       // console.log(typeof user._id);
       // console.log(userId);
       console.log(user);
@@ -56,7 +58,7 @@ module.exports = {
           ...(status && { status: new RegExp(status, "ig") }),
         });
         console.log(nome, status);
-        // console.log(disciplina, user);
+        console.log(disciplina, usuario);
         return res.json(disciplina);
       }
     } catch (err) {
