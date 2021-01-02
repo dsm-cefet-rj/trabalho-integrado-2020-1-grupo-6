@@ -70,14 +70,16 @@ module.exports = {
 
   EditarPerfil: async (req, res, next) => {
     try {
-      console.log(req.params);
-      const { idUsuario: userId } = req.params;
-      console.log(userId);
-      const user = await Usuarios.findOne({ idUsuario: userId });
-      console.log(user);
+      // console.log(req.params);
+      const { id: userId } = req.params;
+      // console.log(userId);
+      const user = await Usuarios.findOne({ usuario: userId });
+      // console.log(user);
+      // console.log(user.id);
       const updateBody = req.body;
+      // console.log(updateBody);
       const usuario = await Usuarios.findByIdAndUpdate(user.id, updateBody);
-      console.log(usuario);
+      // console.log(usuario);
 
       return res.json(usuario);
     } catch (err) {

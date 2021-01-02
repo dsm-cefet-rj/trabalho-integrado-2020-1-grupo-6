@@ -46,7 +46,7 @@ export function VerPerfil() {
     api
       .get("/perfil/", {
         params: {
-          idUsuario: usuario,
+          idUsuario: typeof usuario == "object" ? usuario.usuario : usuario,
         },
       })
       .then((response) => {
@@ -103,7 +103,10 @@ export function VerPerfil() {
 
         <div className="opPerfil">
           <div className="itemsPerfil">Nome completo: {nome}</div>
-          <div className="itemsPerfil">Nome de usuário: {usuario}</div>
+          <div className="itemsPerfil">
+            Nome de usuário:{" "}
+            {typeof usuario == "object" ? usuario.usuario : usuario}
+          </div>
           <div className="itemsPerfil">Curso: {curso}</div>
         </div>
 

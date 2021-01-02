@@ -3,6 +3,7 @@ const normalize = require("normalize-mongoose");
 const joi = require("@hapi/joi");
 const disciplinas = require("../models/Disciplinas.js");
 const atividades = require("../models/Atividades.js");
+var passportLocalMongoose = require("passport-local-mongoose");
 
 const usuariosSchema = new mongoose.Schema({
   nome: {
@@ -41,6 +42,8 @@ function validarUsuario(usuario) {
 }
 
 usuariosSchema.plugin(normalize);
+
+// usuariosSchema.plugin(passportLocalMongoose);
 
 usuariosSchema.post(
   "findOneAndDelete",

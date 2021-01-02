@@ -85,10 +85,12 @@ module.exports = {
     try {
       const { id: disciplinaId } = req.params;
       const updateBody = req.body;
+      console.log(updateBody);
       const disciplina = await Disciplinas.findByIdAndUpdate(
         disciplinaId,
         updateBody
       );
+      console.log(disciplina);
       return res.json(disciplina);
     } catch (err) {
       next(err);

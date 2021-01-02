@@ -38,13 +38,15 @@ export function EditarPerfil() {
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
 
-  console.log(usuario);
+  console.log(useSelector((state) => state?.usuario));
+  console.log(JSON.parse(localStorage.getItem("USUARIO")));
+  // console.log(usuario);
 
   useEffect(() => {
     api
       .get("/perfil/", {
         params: {
-          idUsuario: usuario,
+          idUsuario: typeof usuario == "object" ? usuario.usuario : usuario,
         },
       })
       .then((response) => {
@@ -64,17 +66,17 @@ export function EditarPerfil() {
     console.log(usuario);
 
     api
-      .put("/usuario/" + usuario, {
+      .put("/editperfil/" + usuario, {
         nome,
         curso,
       })
       .then((response) => {
         dispatch({
           type: "atualizarUsuario",
-          payload: response.data,
+          payload: response.data.usuario,
         });
 
-        history.push("/perfil");
+        history.push("/perfil/");
       });
   }
 
