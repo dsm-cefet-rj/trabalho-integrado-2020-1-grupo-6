@@ -1,11 +1,11 @@
 const Usuarios = require("../models/Usuarios.js");
-const bcrypt=require('bcryptjs');
+const bcrypt = require("bcryptjs");
 module.exports = {
   create: async (req, res, next) => {
     try {
       console.log(req.body);
-   //   req.body.senhaHash="5";
-      req.body.senha = await bcrypt.hash(req.body.senha, 8)
+      //   req.body.senhaHash="5";
+      req.body.senha = await bcrypt.hash(req.body.senha, 8);
       console.log(req.body);
       const usuario = await Usuarios.create(req.body);
       return res.json(usuario);
@@ -16,22 +16,19 @@ module.exports = {
 
   show: async (req, res, next) => {
     try {
-      
-
-      const { id: userId } = req.query;
+      const { id: userId } = req.body;
       if (userId) {
         const usuario = await Usuarios.findById(userId);
-        const iscorrect= bcrypt.compareSync(req.query.senha,usuario.senha);
+        const iscorrect = bcrypt.compareSync(req.body.senha, usuario.senha);
         return res.json(usuario);
       } else {
-        const { usuario, senha } = req.query;
+        const { usuario, senha } = req.body;
         const usuariodata = await Usuarios.findOne({ usuario: usuario });
-        const iscorrect= bcrypt.compareSync(req.query.senha,usuariodata.senha);
+        const iscorrect = bcrypt.compareSync(req.body.senha, usuariodata.senha);
         console.log(iscorrect);
         if (iscorrect) {
           return res.json(usuariodata);
-        }
-        else{
+        } else {
           return res.json(1);
         }
       }

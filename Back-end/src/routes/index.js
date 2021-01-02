@@ -20,7 +20,7 @@ routes.get("/perfil/", usuariosController.showPerfil);
 
 routes.put("/editperfil/:id", usuariosController.EditarPerfil);
 
-routes.get("/usuario/login", usuariosController.show);
+routes.post("/usuario/login", usuariosController.show);
 
 //DISCIPLINAS
 
