@@ -8,7 +8,7 @@ import {
   FiEdit,
   FiTrash2,
 } from "react-icons/fi";
-import styles from "./verdisciplina.css";
+import styles from "./VerDisciplina.css";
 import { useSelector, useDispatch } from "react-redux";
 import { api } from "../../services/api.js";
 

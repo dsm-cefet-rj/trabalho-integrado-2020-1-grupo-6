@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link, useHistory } from "react-router-dom";
-import styles from "./cadastro.css";
+import styles from "./CriarPerfil.css";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 
@@ -26,7 +26,7 @@ import { api } from "../../services/api.js";
  *
  */
 
-export function Cadastro() {
+export function CriarPerfil() {
   const [nome, setNome] = useState("");
   const [usuario, setUsuario] = useState("");
   const [curso, setCurso] = useState("");

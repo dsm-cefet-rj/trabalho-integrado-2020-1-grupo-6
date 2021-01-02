@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "./perfil.css";
+import styles from "./VerPerfil.css";
 import { useHistory } from "react-router-dom";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
@@ -28,7 +28,7 @@ import { api } from "../../services/api";
  *
  */
 
-export function Perfil() {
+export function VerPerfil() {
   const [nome, setNome] = useState("");
   const [nomeUsuario, setNomeUsuario] = useState("");
   const [curso, setCurso] = useState("");

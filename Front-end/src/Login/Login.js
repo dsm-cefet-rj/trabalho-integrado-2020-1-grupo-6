@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-import styles from "./login.css";
+import styles from "./Login.css";
 import { FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
-import { api } from "../../services/api.js";
+import { api } from "../services/api.js";
 import { useDispatch } from "react-redux";
 
 /**

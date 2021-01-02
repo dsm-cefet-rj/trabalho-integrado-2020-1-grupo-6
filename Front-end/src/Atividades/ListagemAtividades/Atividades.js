@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "./atividades.css";
+import styles from "./Atividades.css";
 import { useHistory } from "react-router-dom";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api";

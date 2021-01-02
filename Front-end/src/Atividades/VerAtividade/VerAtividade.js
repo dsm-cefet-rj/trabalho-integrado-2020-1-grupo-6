@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "./veratividade.css";
+import styles from "./VerAtividade.css";
 import { useHistory, useParams } from "react-router-dom";
 import { FiEdit, FiTrash2, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector } from "react-redux";

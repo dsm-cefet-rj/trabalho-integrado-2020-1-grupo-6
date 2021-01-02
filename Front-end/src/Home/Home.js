@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import styles from "./home.css";
+import styles from "./Home.css";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";

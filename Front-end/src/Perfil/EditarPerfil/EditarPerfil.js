@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
-import styles from "./editarperfil.css";
+import styles from "./EditarPerfil.css";
 import { useDispatch, useSelector } from "react-redux";
 import { api } from "../../services/api.js";
 

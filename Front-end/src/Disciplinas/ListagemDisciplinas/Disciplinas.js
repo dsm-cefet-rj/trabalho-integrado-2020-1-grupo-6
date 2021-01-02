@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
-import styles from "./disciplinas.css";
+import styles from "./Disciplinas.css";
 import { Link, useHistory } from "react-router-dom";
 import { FiPlusCircle, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api";
