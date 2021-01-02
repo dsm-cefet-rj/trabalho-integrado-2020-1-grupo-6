@@ -5,8 +5,7 @@ module.exports = {
     try {
       console.log(req.body);
    //   req.body.senhaHash="5";
-  req.body.senhaHash= await bcrypt.hash(req.body.senha, 8)
-  req.body.senha="*******"
+      req.body.senha = await bcrypt.hash(req.body.senha, 8)
       console.log(req.body);
       const usuario = await Usuarios.create(req.body);
       return res.json(usuario);
@@ -22,12 +21,13 @@ module.exports = {
       const { id: userId } = req.query;
       if (userId) {
         const usuario = await Usuarios.findById(userId);
-        const iscorrect= bcrypt.compareSync(req.query.senha,usuario.senhaHash);
+        const iscorrect= bcrypt.compareSync(req.query.senha,usuario.senha);
         return res.json(usuario);
       } else {
         const { usuario, senha } = req.query;
         const usuariodata = await Usuarios.findOne({ usuario: usuario });
-        const iscorrect= bcrypt.compareSync(req.query.senha,usuariodata.senhaHash);
+        const iscorrect= bcrypt.compareSync(req.query.senha,usuariodata.senha);
+        console.log(iscorrect);
         if (iscorrect) {
           return res.json(usuariodata);
         }
