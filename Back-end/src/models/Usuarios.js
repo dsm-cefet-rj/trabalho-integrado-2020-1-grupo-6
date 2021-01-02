@@ -28,11 +28,6 @@ const usuariosSchema = new mongoose.Schema({
     required: true,
     minLength: 6,
   },
-   senhaHash:{
-    type: String,
-    
-  }, 
- 
 
 });
 
