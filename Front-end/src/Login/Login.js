@@ -6,7 +6,6 @@ import { FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 import { api } from "../services/api.js";
 import { useDispatch } from "react-redux";
-
 /**
  * @module usuarios/Login
  */
@@ -41,6 +40,8 @@ export function Login() {
 
   function submitLogin(event) {
     event.preventDefault();
+
+
 
     api
       .get("usuario/login", {
