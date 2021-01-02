@@ -34,6 +34,7 @@ module.exports = {
       const { id: userId } = req.params;
       const updateBody = req.body;
       const usuario = await Usuarios.findByIdAndUpdate(userId, updateBody);
+      console.log(usuario);
       return res.json(usuario);
     } catch (err) {
       next(err);
@@ -48,6 +49,7 @@ module.exports = {
 
       const { id: userId } = req.params;
       const user = await Usuarios.findOne({ usuario: userId });
+      console.log(userId);
       await Usuarios.findByIdAndDelete(user.id);
       return res.json({ ok: true });
     } catch (err) {
@@ -70,6 +72,7 @@ module.exports = {
     try {
       console.log(req.params);
       const { idUsuario: userId } = req.params;
+      console.log(userId);
       const user = await Usuarios.findOne({ idUsuario: userId });
       console.log(user);
       const updateBody = req.body;

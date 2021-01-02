@@ -27,7 +27,7 @@ module.exports = {
   show: async (req, res, next) => {
     try {
       const { idUsuario: username, idDisciplina, status, nome } = req.query;
-
+      console.log(username, idDisciplina, status, nome);
       if (username) {
         const usuario = await Usuarios.findOne({ usuario: username });
         const atividade = await Atividades.find({

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const normalize = require("normalize-mongoose");
+const atividades = require("../models/Atividades.js");
 
 const disciplinasSchema = new mongoose.Schema({
   nome: {
@@ -53,5 +54,15 @@ function validarDisciplinas(disciplina) {
 }
 
 disciplinasSchema.plugin(normalize);
+
+disciplinasSchema.post(
+  "findOneAndDelete",
+  { document: false, query: true },
+  function (obj) {
+    console.log("oi");
+    console.log(obj);
+    atividades.deleteMany({ idDisciplina: obj._id }).exec();
+  }
+);
 
 module.exports = mongoose.model("Disciplinas", disciplinasSchema);
