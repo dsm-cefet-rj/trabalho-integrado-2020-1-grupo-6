@@ -1,8 +1,13 @@
 const Usuarios = require("../models/Usuarios.js");
-
+const bcrypt=require('bcryptjs');
 module.exports = {
   create: async (req, res, next) => {
     try {
+      console.log(req.body);
+   //   req.body.senhaHash="5";
+  req.body.senhaHash= await bcrypt.hash(req.body.senha, 8)
+  req.body.senha="*******"
+      console.log(req.body);
       const usuario = await Usuarios.create(req.body);
       return res.json(usuario);
     } catch (err) {
@@ -12,16 +17,22 @@ module.exports = {
 
   show: async (req, res, next) => {
     try {
+      
+
       const { id: userId } = req.query;
       if (userId) {
         const usuario = await Usuarios.findById(userId);
-        console.log(usuario);
+        const iscorrect= bcrypt.compareSync(req.query.senha,usuario.senhaHash);
         return res.json(usuario);
       } else {
         const { usuario, senha } = req.query;
         const usuariodata = await Usuarios.findOne({ usuario: usuario });
-        if (usuariodata["senha"] == senha) {
+        const iscorrect= bcrypt.compareSync(req.query.senha,usuariodata.senhaHash);
+        if (iscorrect) {
           return res.json(usuariodata);
+        }
+        else{
+          return res.json(1);
         }
       }
     } catch (err) {

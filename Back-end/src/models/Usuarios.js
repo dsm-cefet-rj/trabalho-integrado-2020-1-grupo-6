@@ -5,6 +5,8 @@ const disciplinas = require("../models/Disciplinas.js");
 const atividades = require("../models/Atividades.js");
 var passportLocalMongoose = require("passport-local-mongoose");
 
+
+
 const usuariosSchema = new mongoose.Schema({
   nome: {
     type: String,
@@ -27,7 +29,15 @@ const usuariosSchema = new mongoose.Schema({
     required: true,
     minLength: 6,
   },
+   senhaHash:{
+    type: String,
+    
+  }, 
+ 
+
 });
+
+
 
 function validarUsuario(usuario) {
   const schema = joi.object({
@@ -54,5 +64,7 @@ usuariosSchema.post(
     atividades.deleteMany({ idUsuario: obj._id }).exec();
   }
 );
+
+
 
 module.exports = mongoose.model("Usuarios", usuariosSchema);
