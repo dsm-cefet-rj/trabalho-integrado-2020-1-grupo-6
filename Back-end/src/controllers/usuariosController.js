@@ -1,16 +1,28 @@
 const Usuarios = require("../models/Usuarios.js");
 const bcrypt = require("bcryptjs");
+const { schema } = require("../models/Usuarios.js");
+const { model } = require("mongoose");
+const joi = require("@hapi/joi");
+
 module.exports = {
   create: async (req, res, next) => {
     try {
       console.log(req.body);
-      //   req.body.senhaHash="5";
       req.body.senha = await bcrypt.hash(req.body.senha, 8);
       console.log(req.body);
+
+      const user = await Usuarios.findOne({ usuario: req.body.usuario });
+      if (user) {
+        res.status(409);
+        return res.json({
+          resposta: "Usuário já existe. Favor escolher outro.",
+        });
+      }
+
       const usuario = await Usuarios.create(req.body);
       return res.json(usuario);
-    } catch (err) {
-      next(err);
+    } catch (error) {
+      next(error);
     }
   },
 

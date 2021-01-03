@@ -6,6 +6,8 @@ import { FiCheckSquare } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 import { api } from "../services/api.js";
 import { useDispatch } from "react-redux";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 /**
  * @module usuarios/Login
  */
@@ -29,6 +31,8 @@ import { useDispatch } from "react-redux";
 export function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -43,7 +47,7 @@ export function Login() {
 
     api.post("usuario/login", { usuario: login, senha }).then((response) => {
       if (response.data == 1) {
-        alert("Usuário e/ou senha estão incorretos");
+        setSnackbarOpen(true);
         return;
       }
       console.log(response.data);
@@ -51,9 +55,25 @@ export function Login() {
         type: "fazerLogin",
         payload: response.data.usuario,
       });
-      history.push("/home");
+      setOpen(true);
+      window.setTimeout(() => {
+        history.push("/home");
+      }, 3000);
     });
   }
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+    setSnackbarOpen(false);
+  };
 
   return (
     <div className="bloco_login">
@@ -93,6 +113,27 @@ export function Login() {
           Cadastre-se aqui
         </Link>
       </div>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          Usuário e/ou senha incorretos!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Usuário logado com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

@@ -5,6 +5,8 @@ import { Link, useHistory } from "react-router-dom";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module disciplinas/Cadastrar
@@ -39,6 +41,8 @@ export function CriarDisciplina() {
   const [nomeProfessor, setNomeProfessor] = useState("");
   const [material, setMaterial] = useState("");
   const [status, setStatus] = useState("Em andamento");
+  const [nomeIgual, setNomeIgual] = useState(false);
+  const [nomeDiferente, setNomeDiferente] = useState(false);
 
   const history = useHistory();
 
@@ -72,11 +76,14 @@ export function CriarDisciplina() {
         idUsuario: usuario,
       })
       .then((response) => {
-        history.push("/disciplinas");
+        setNomeDiferente(true);
+        window.setTimeout(() => {
+          history.push("/disciplinas");
+        }, 4000);
       })
       .catch((erro) => {
         console.log(erro.response.data);
-        alert(erro.response.data.resposta);
+        setNomeIgual(true);
       });
   }
 
@@ -88,6 +95,19 @@ export function CriarDisciplina() {
   function toDisciplinas() {
     history.push("/disciplinas");
   }
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setNomeDiferente(false);
+    setNomeIgual(false);
+  };
 
   return (
     <div className="blocoCriarDisciplina">
@@ -171,6 +191,28 @@ export function CriarDisciplina() {
           </button>
         </div>
       </form>
+
+      <Snackbar
+        open={nomeIgual}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          Disciplina com mesmo nome já existe!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={nomeDiferente}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Disciplina criada com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

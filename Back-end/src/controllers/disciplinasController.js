@@ -7,18 +7,19 @@ module.exports = {
   create: async (req, res, next) => {
     try {
       const { idUsuario: userId, nome } = req.body;
-      console.log(userId);
+      // console.log(userId);
       const user = await Usuarios.findOne({ usuario: userId });
-      console.log(user._id);
+      // console.log(user._id);
       // console.log(typeof user._id);
       // console.log(userId);
-      console.log(user);
+      // console.log(user);
       req.body.idUsuario = user.id;
-
+      // console.log(nome);
       const nomeIgualDisciplina = await Disciplinas.findOne({
         idUsuario: user._id,
         nome: nome,
       });
+      console.log(nomeIgualDisciplina);
       if (nomeIgualDisciplina) {
         res.status(409);
         return res.json({
@@ -36,7 +37,7 @@ module.exports = {
         status: req.body.status,
         idUsuario: user._id,
       });
-      // console.log(disciplina);
+      console.log(disciplina);
       await disciplina.save();
 
       return res.json(disciplina);

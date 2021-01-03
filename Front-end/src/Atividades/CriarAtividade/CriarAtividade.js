@@ -5,6 +5,8 @@ import { Link, useHistory } from "react-router-dom";
 import { FiCheckSquare, FiFile, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module atividades/Cadastrar
@@ -42,6 +44,8 @@ export function CriarAtividade() {
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
   const [disciplinas, setDisciplinas] = useState("");
+  const [nomeIgual, setNomeIgual] = useState(false);
+  const [nomeDiferente, setNomeDiferente] = useState(false);
 
   const history = useHistory();
 
@@ -78,11 +82,14 @@ export function CriarAtividade() {
       })
       .then((response) => {
         console.log(response.data);
-        history.push("/disciplinas/view/" + disciplina);
+        setNomeDiferente(true);
+        window.setTimeout(() => {
+          history.push("/disciplinas/view/" + disciplina);
+        }, 4000);
       })
       .catch((erro) => {
         console.log(erro.response.data);
-        alert(erro.response.data.resposta);
+        setNomeIgual(true);
       });
   }
 
@@ -94,6 +101,19 @@ export function CriarAtividade() {
   function toVerDisciplinas() {
     history.push("/disciplinas/view/" + disciplina);
   }
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setNomeDiferente(false);
+    setNomeIgual(false);
+  };
 
   return (
     <div className="blocoCriarAtividade">
@@ -195,6 +215,28 @@ export function CriarAtividade() {
           </button>
         </div>
       </form>
+
+      <Snackbar
+        open={nomeIgual}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          Atividade com mesmo nome já existe!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={nomeDiferente}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Atividade criada com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

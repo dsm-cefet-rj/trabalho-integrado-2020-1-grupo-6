@@ -4,6 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "./CriarPerfil.css";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { api } from "../../services/api.js";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module usuarios/Cadastrar
@@ -33,6 +35,9 @@ export function CriarPerfil() {
   const [senha, setSenha] = useState("");
   const [confirmaSenha, setConfirmaSenha] = useState("");
   const history = useHistory();
+  const [nomeIgual, setNomeIgual] = useState(false);
+  const [nomeDiferente, setNomeDiferente] = useState(false);
+  const [senhasIguais, setSenhasIguais] = useState(false);
 
   /**
    * Faz requisição POST para inserir usuário
@@ -42,15 +47,24 @@ export function CriarPerfil() {
   function submitCadastro(event) {
     event.preventDefault();
     if (confirmaSenha != senha) {
-      alert("As senhas precisam ser iguais");
+      setSenhasIguais(true);
       return;
     }
     console.log(nome, usuario, curso, senha, confirmaSenha);
 
-    api.post("usuario", { nome, usuario, curso, senha }).then((response) => {
-      console.log(response.data);
-      history.push("/");
-    });
+    api
+      .post("usuario", { nome, usuario, curso, senha })
+      .then((response) => {
+        console.log(response.data);
+        setNomeDiferente(true);
+        window.setTimeout(() => {
+          history.push("/");
+        }, 4000);
+      })
+      .catch((erro) => {
+        console.log(erro.response.data);
+        setNomeIgual(true);
+      });
   }
 
   /**
@@ -61,6 +75,20 @@ export function CriarPerfil() {
   function toLogin() {
     history.push("/");
   }
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setSenhasIguais(false);
+    setNomeDiferente(false);
+    setNomeIgual(false);
+  };
 
   return (
     <div className="bloco_cadastro">
@@ -121,6 +149,38 @@ export function CriarPerfil() {
           </button>
         </div>
       </form>
+      <Snackbar
+        open={nomeIgual}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          Usuário já existe! Favor escolher outro usuário.
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={nomeDiferente}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Usuário criado com sucesso!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={senhasIguais}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="warning">
+          As senhas precisam ser iguais!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
