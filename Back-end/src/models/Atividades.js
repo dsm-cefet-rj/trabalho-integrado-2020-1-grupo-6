@@ -49,9 +49,9 @@ const atividadesSchema = new mongoose.Schema({
 
 function validarAtividades(atividade) {
   const schema = joi.object({
-    nome: joi.string().alphanum().required(),
-    dataEntrega: joi.string().required(),
-    pontuacaoMax: joi.string().required(),
+    nome: joi.string().min(2).max(30).required(),
+    dataEntrega: joi.string().min(5).max(14).required(),
+    pontuacaoMax: joi.string().required().pattern(new RegExp("[^a-z]{1,4}")),
     descricao: joi.string(),
     notaFinal: joi.string(),
     arquivo: joi.string(),
