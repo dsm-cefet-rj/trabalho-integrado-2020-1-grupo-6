@@ -11,6 +11,8 @@ import {
 import styles from "./VerDisciplina.css";
 import { useSelector, useDispatch } from "react-redux";
 import { api } from "../../services/api.js";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module disciplinas/Visualizar
@@ -53,6 +55,7 @@ export function VerDisciplina() {
   const [status, setStatus] = useState("Em andamento");
   const [atividades, setAtividades] = useState("");
   const [filtroStatus, setFiltroStatus] = useState("");
+  const [sucesso, setSucesso] = useState(false);
   const { disciplinaID } = useParams();
 
   const usuario =
@@ -116,6 +119,18 @@ export function VerDisciplina() {
     history.push("/disciplinas/edit/" + disciplinaID);
   }
 
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setSucesso(false);
+  };
+
   /**
    * Ao clicar no botão de excluir, disciplina é excluída e usuário é redirecionado para página de listagem das disciplinas
    * @function toRemoverAtividade
@@ -123,7 +138,10 @@ export function VerDisciplina() {
 
   function toRemoveDisciplina() {
     api.delete("disciplinas/" + disciplinaID).then((response) => {
-      history.push("/disciplinas");
+      setSucesso(true);
+      window.setTimeout(() => {
+        history.push("/disciplinas");
+      }, 2000);
     });
   }
 
@@ -250,6 +268,17 @@ export function VerDisciplina() {
       ) : (
         ""
       )}
+
+      <Snackbar
+        open={sucesso}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Disciplina removida com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

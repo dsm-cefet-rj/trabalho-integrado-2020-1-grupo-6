@@ -66,10 +66,10 @@ function validarAtividades(atividade) {
       .string()
       .max(4)
       .required()
-      .pattern(new RegExp("[^a-z]{1,4}")) //não pode espaço e não pode letras (refazer)
+      .pattern(new RegExp("[^a-z]{1,4}")) //não pode espaço e não pode letras
       .messages({
         "string.empty": `A pontuação máxima não pode ficar vazia`,
-        "string.pattern.base": `A pontuação máxima não cumpriu o regex`,
+        "string.pattern.base": `A pontuação máxima não pode conter letras`,
         "string.max": `A pontuação máxima precisa ter no máximo {#limit} caracteres`,
       }),
     descricao: joi.string().max(500).allow("").messages({
@@ -82,7 +82,7 @@ function validarAtividades(atividade) {
       .allow("")
       .messages({
         "string.max": `A nota final precisa ter no máximo {#limit} caracteres`,
-        "string.pattern.base": `A nota final não cumpriu o regex`,
+        "string.pattern.base": `A nota final não pode conter letras`,
       }),
     arquivo: joi.string().allow(""),
     idDisciplina: joi.required(),

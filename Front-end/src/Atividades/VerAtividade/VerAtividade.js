@@ -126,7 +126,7 @@ export function VerAtividade() {
       setSucesso(true);
       window.setTimeout(() => {
         history.push("/disciplinas/view/" + disciplina.id);
-      }, 4000);
+      }, 2000);
     });
   }
 

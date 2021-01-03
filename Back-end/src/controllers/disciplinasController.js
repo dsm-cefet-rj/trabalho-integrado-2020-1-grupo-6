@@ -1,20 +1,28 @@
 const { db } = require("../models/Disciplinas.js");
-const Disciplinas = require("../models/Disciplinas.js");
+const {
+  DisciplinasModel: Disciplinas,
+  validarDisciplinas,
+} = require("../models/Disciplinas.js");
 const Usuarios = require("../models/Usuarios.js");
-const atividades = require("../models/Atividades.js");
+const {
+  AtividadesModel: Atividades,
+  validarAtividades,
+} = require("../models/Atividades.js");
 
 module.exports = {
   create: async (req, res, next) => {
     try {
       const { idUsuario: userId, nome } = req.body;
-      // console.log(userId);
+      const disciplinaValidated = validarDisciplinas(req.body);
+      console.log(disciplinaValidated);
+
+      if (disciplinaValidated.error) {
+        return res.status(400).json({
+          resposta: disciplinaValidated.error.details[0].message,
+        });
+      }
       const user = await Usuarios.findOne({ usuario: userId });
-      // console.log(user._id);
-      // console.log(typeof user._id);
-      // console.log(userId);
-      // console.log(user);
       req.body.idUsuario = user.id;
-      // console.log(nome);
       const nomeIgualDisciplina = await Disciplinas.findOne({
         idUsuario: user._id,
         nome: nome,
@@ -85,8 +93,35 @@ module.exports = {
   update: async (req, res, next) => {
     try {
       const { id: disciplinaId } = req.params;
+      const { idUsuario } = req.body;
+      console.log(idUsuario);
+
       const updateBody = req.body;
-      console.log(updateBody);
+      // console.log(updateBody);
+      const user = await Usuarios.findOne({ usuario: idUsuario });
+      console.log(user);
+      updateBody.idUsuario = user._id;
+
+      const disciplinaValidated = validarDisciplinas(req.body);
+      console.log(disciplinaValidated);
+      if (disciplinaValidated.error) {
+        return res.status(400).json({
+          resposta: disciplinaValidated.error.details[0].message,
+        });
+      }
+
+      const nomeIgualDisciplina = await Disciplinas.findOne({
+        nome: updateBody.nome,
+        idUsuario: updateBody.idUsuario,
+      });
+      console.log(nomeIgualDisciplina);
+      if (nomeIgualDisciplina) {
+        res.status(409);
+        return res.json({
+          resposta: "Disciplina com mesmo nome já foi criada",
+        });
+      }
+
       const disciplina = await Disciplinas.findByIdAndUpdate(
         disciplinaId,
         updateBody

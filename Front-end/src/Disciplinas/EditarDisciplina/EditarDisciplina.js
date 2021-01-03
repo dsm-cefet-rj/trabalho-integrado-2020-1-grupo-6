@@ -45,7 +45,9 @@ export function EditarDisciplina() {
   const [material, setMaterial] = useState("");
   const [status, setStatus] = useState("Em andamento");
   const { disciplinaID } = useParams();
-  const [open, setOpen] = useState(false);
+  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState(false);
+  const [mensagem, setMensagem] = useState("");
 
   const usuario =
     useSelector((state) => state.usuario) ||
@@ -89,13 +91,17 @@ export function EditarDisciplina() {
         professor: nomeProfessor,
         material,
         status,
-        idUsuario: usuario.id,
+        idUsuario: usuario,
       })
       .then((response) => {
-        setOpen(true);
+        setSucesso(true);
         window.setTimeout(() => {
           history.push("/disciplinas/view/" + disciplinaID);
-        }, 4000);
+        }, 2000);
+      })
+      .catch((erro) => {
+        setErro(true);
+        setMensagem(erro.response.data.resposta);
       });
   }
 
@@ -118,7 +124,8 @@ export function EditarDisciplina() {
       return;
     }
 
-    setOpen(false);
+    setSucesso(false);
+    setErro(false);
   };
 
   return (
@@ -207,13 +214,24 @@ export function EditarDisciplina() {
       </form>
 
       <Snackbar
-        open={open}
+        open={sucesso}
         autoHideDuration={6000}
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "left" }}
       >
         <Alert onClose={handleClose} severity="success">
           Disciplina editada com sucesso!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={erro}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          {mensagem}
         </Alert>
       </Snackbar>
     </div>

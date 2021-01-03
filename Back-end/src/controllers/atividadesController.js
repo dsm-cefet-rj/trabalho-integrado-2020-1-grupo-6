@@ -3,7 +3,10 @@ const {
   AtividadesModel: Atividades,
   validarAtividades,
 } = require("../models/Atividades.js");
-const Disciplinas = require("../models/Disciplinas.js");
+const {
+  DisciplinasModel: Disciplinas,
+  validarDisciplinas,
+} = require("../models/Disciplinas.js");
 const Usuarios = require("../models/Usuarios.js");
 
 module.exports = {

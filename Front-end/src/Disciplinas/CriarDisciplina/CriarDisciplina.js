@@ -41,8 +41,9 @@ export function CriarDisciplina() {
   const [nomeProfessor, setNomeProfessor] = useState("");
   const [material, setMaterial] = useState("");
   const [status, setStatus] = useState("Em andamento");
-  const [nomeIgual, setNomeIgual] = useState(false);
-  const [nomeDiferente, setNomeDiferente] = useState(false);
+  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState(false);
+  const [mensagem, setMensagem] = useState("");
 
   const history = useHistory();
 
@@ -76,14 +77,15 @@ export function CriarDisciplina() {
         idUsuario: usuario,
       })
       .then((response) => {
-        setNomeDiferente(true);
+        setSucesso(true);
         window.setTimeout(() => {
           history.push("/disciplinas");
-        }, 4000);
+        }, 2000);
       })
       .catch((erro) => {
-        console.log(erro.response.data);
-        setNomeIgual(true);
+        setErro(true);
+        console.log(erro.response.data.resposta);
+        setMensagem(erro.response.data.resposta);
       });
   }
 
@@ -105,8 +107,8 @@ export function CriarDisciplina() {
       return;
     }
 
-    setNomeDiferente(false);
-    setNomeIgual(false);
+    setSucesso(false);
+    setErro(false);
   };
 
   return (
@@ -193,24 +195,24 @@ export function CriarDisciplina() {
       </form>
 
       <Snackbar
-        open={nomeIgual}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: "top", horizontal: "left" }}
-      >
-        <Alert onClose={handleClose} severity="error">
-          Disciplina com mesmo nome já existe!
-        </Alert>
-      </Snackbar>
-
-      <Snackbar
-        open={nomeDiferente}
+        open={sucesso}
         autoHideDuration={6000}
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "left" }}
       >
         <Alert onClose={handleClose} severity="success">
           Disciplina criada com sucesso!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={erro}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          {mensagem}
         </Alert>
       </Snackbar>
     </div>

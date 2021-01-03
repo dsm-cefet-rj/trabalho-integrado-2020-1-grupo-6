@@ -96,7 +96,7 @@ export function EditarAtividade() {
         setSucesso(true);
         window.setTimeout(() => {
           history.push("/atividades/view/" + atividadeID);
-        }, 4000);
+        }, 2000);
       })
       .catch((erro) => {
         setErro(true);

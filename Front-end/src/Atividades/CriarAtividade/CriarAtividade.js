@@ -86,7 +86,7 @@ export function CriarAtividade() {
         setSucesso(true);
         window.setTimeout(() => {
           history.push("/disciplinas/view/" + disciplina);
-        }, 4000);
+        }, 2000);
       })
       .catch((erro) => {
         // console.log(erro.response.data);
