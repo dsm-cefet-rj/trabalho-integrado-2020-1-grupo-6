@@ -5,6 +5,8 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { FiCheckSquare, FiCornerDownLeft, FiFile } from "react-icons/fi";
 import { api } from "../../services/api.js";
 import { useSelector } from "react-redux";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module atividades/Editar
@@ -47,9 +49,13 @@ export function EditarAtividade() {
   const [arquivo, setArquivo] = useState("");
   const [idDisciplina, setIdDisciplina] = useState("");
   const { atividadeID } = useParams();
+  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState(false);
+  const [mensagem, setMensagem] = useState("");
   const usuario = useSelector((state) => state.usuario);
 
   const history = useHistory();
+  console.log(usuario);
 
   useEffect(() => {
     api.get("/VerAtividade/" + atividadeID).then((response) => {
@@ -84,10 +90,17 @@ export function EditarAtividade() {
         notaFinal,
         arquivo,
         idDisciplina,
-        idUsuario: usuario.id,
+        idUsuario: usuario,
       })
       .then((response) => {
-        history.push("/atividades/view/" + atividadeID);
+        setSucesso(true);
+        window.setTimeout(() => {
+          history.push("/atividades/view/" + atividadeID);
+        }, 4000);
+      })
+      .catch((erro) => {
+        setErro(true);
+        setMensagem(erro.response.data.resposta);
       });
   }
 
@@ -99,6 +112,19 @@ export function EditarAtividade() {
   function toVerAtividades() {
     history.push("/atividades/view/" + atividadeID);
   }
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setSucesso(false);
+    setErro(false);
+  };
 
   return (
     <div className="blocoEditarAtividade">
@@ -200,6 +226,28 @@ export function EditarAtividade() {
           </button>
         </div>
       </form>
+
+      <Snackbar
+        open={sucesso}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Atividade editada com sucesso!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={erro}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          {mensagem}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

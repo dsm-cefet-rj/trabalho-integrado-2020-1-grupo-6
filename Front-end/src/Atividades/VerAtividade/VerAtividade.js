@@ -6,6 +6,8 @@ import { useHistory, useParams } from "react-router-dom";
 import { FiEdit, FiTrash2, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { api } from "../../services/api.js";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module atividades/Visualizar
@@ -50,6 +52,7 @@ export function VerAtividade() {
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
   const [disciplina, setDisciplina] = useState({});
+  const [sucesso, setSucesso] = useState(false);
   const history = useHistory();
 
   const { usuario } = useSelector((state) => {
@@ -101,6 +104,18 @@ export function VerAtividade() {
     history.push("/atividades/edit/" + atividadeID);
   }
 
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setSucesso(false);
+  };
+
   /**
    * Ao clicar no botão de excluir, atividade é excluída e usuário é redirecionado para página de listagem das disciplinas
    * @function toRemoverAtividade
@@ -108,7 +123,10 @@ export function VerAtividade() {
 
   function toRemoverAtividade() {
     api.delete("/Atividade/" + atividadeID).then((response) => {
-      history.push("/disciplinas/view/" + disciplina.id);
+      setSucesso(true);
+      window.setTimeout(() => {
+        history.push("/disciplinas/view/" + disciplina.id);
+      }, 4000);
     });
   }
 
@@ -167,6 +185,17 @@ export function VerAtividade() {
           <div className="itemsVerAtividade">Arquivo: {arquivo}</div>
         </div>
       </div>
+
+      <Snackbar
+        open={sucesso}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Atividade removida com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

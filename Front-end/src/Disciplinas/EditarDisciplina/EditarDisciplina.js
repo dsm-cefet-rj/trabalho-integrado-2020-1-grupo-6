@@ -5,6 +5,8 @@ import styles from "./EditarDisciplina.css";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { api } from "../../services/api.js";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module disciplinas/Editar
@@ -43,6 +45,7 @@ export function EditarDisciplina() {
   const [material, setMaterial] = useState("");
   const [status, setStatus] = useState("Em andamento");
   const { disciplinaID } = useParams();
+  const [open, setOpen] = useState(false);
 
   const usuario =
     useSelector((state) => state.usuario) ||
@@ -89,7 +92,10 @@ export function EditarDisciplina() {
         idUsuario: usuario.id,
       })
       .then((response) => {
-        history.push("/disciplinas/view/" + disciplinaID);
+        setOpen(true);
+        window.setTimeout(() => {
+          history.push("/disciplinas/view/" + disciplinaID);
+        }, 4000);
       });
   }
 
@@ -102,6 +108,18 @@ export function EditarDisciplina() {
     history.push("/disciplinas/view/" + disciplinaID);
     window.location.reload();
   }
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   return (
     <div className="bloco_editardisciplina">
@@ -187,6 +205,17 @@ export function EditarDisciplina() {
           </button>
         </div>
       </form>
+
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Disciplina editada com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

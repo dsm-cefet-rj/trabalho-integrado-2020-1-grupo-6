@@ -44,8 +44,9 @@ export function CriarAtividade() {
   const [notaFinal, setNotaFinal] = useState("");
   const [arquivo, setArquivo] = useState("");
   const [disciplinas, setDisciplinas] = useState("");
-  const [nomeIgual, setNomeIgual] = useState(false);
-  const [nomeDiferente, setNomeDiferente] = useState(false);
+  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState(false);
+  const [mensagem, setMensagem] = useState("");
 
   const history = useHistory();
 
@@ -81,15 +82,18 @@ export function CriarAtividade() {
         idUsuario: usuario,
       })
       .then((response) => {
-        console.log(response.data);
-        setNomeDiferente(true);
+        // console.log(response.data);
+        setSucesso(true);
         window.setTimeout(() => {
           history.push("/disciplinas/view/" + disciplina);
         }, 4000);
       })
       .catch((erro) => {
-        console.log(erro.response.data);
-        setNomeIgual(true);
+        // console.log(erro.response.data);
+        // console.log(erro.status);
+        setErro(true);
+        console.log(erro.response.data.resposta);
+        setMensagem(erro.response.data.resposta);
       });
   }
 
@@ -111,8 +115,8 @@ export function CriarAtividade() {
       return;
     }
 
-    setNomeDiferente(false);
-    setNomeIgual(false);
+    setSucesso(false);
+    setErro(false);
   };
 
   return (
@@ -217,24 +221,24 @@ export function CriarAtividade() {
       </form>
 
       <Snackbar
-        open={nomeIgual}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: "top", horizontal: "left" }}
-      >
-        <Alert onClose={handleClose} severity="error">
-          Atividade com mesmo nome já existe!
-        </Alert>
-      </Snackbar>
-
-      <Snackbar
-        open={nomeDiferente}
+        open={sucesso}
         autoHideDuration={6000}
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "left" }}
       >
         <Alert onClose={handleClose} severity="success">
           Atividade criada com sucesso!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={erro}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          {mensagem}
         </Alert>
       </Snackbar>
     </div>
