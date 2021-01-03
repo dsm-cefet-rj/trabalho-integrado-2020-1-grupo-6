@@ -35,8 +35,9 @@ export function CriarPerfil() {
   const [senha, setSenha] = useState("");
   const [confirmaSenha, setConfirmaSenha] = useState("");
   const history = useHistory();
-  const [nomeIgual, setNomeIgual] = useState(false);
-  const [nomeDiferente, setNomeDiferente] = useState(false);
+  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState(false);
+  const [mensagem, setMensagem] = useState("");
   const [senhasIguais, setSenhasIguais] = useState(false);
 
   /**
@@ -56,14 +57,15 @@ export function CriarPerfil() {
       .post("usuario", { nome, usuario, curso, senha })
       .then((response) => {
         console.log(response.data);
-        setNomeDiferente(true);
+        setSucesso(true);
         window.setTimeout(() => {
           history.push("/");
-        }, 4000);
+        }, 2000);
       })
       .catch((erro) => {
-        console.log(erro.response.data);
-        setNomeIgual(true);
+        setErro(true);
+        console.log(erro.response.data.resposta);
+        setMensagem(erro.response.data.resposta);
       });
   }
 
@@ -86,8 +88,8 @@ export function CriarPerfil() {
     }
 
     setSenhasIguais(false);
-    setNomeDiferente(false);
-    setNomeIgual(false);
+    setErro(false);
+    setSucesso(false);
   };
 
   return (
@@ -150,24 +152,24 @@ export function CriarPerfil() {
         </div>
       </form>
       <Snackbar
-        open={nomeIgual}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: "top", horizontal: "left" }}
-      >
-        <Alert onClose={handleClose} severity="error">
-          Usuário já existe! Favor escolher outro usuário.
-        </Alert>
-      </Snackbar>
-
-      <Snackbar
-        open={nomeDiferente}
+        open={sucesso}
         autoHideDuration={6000}
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "left" }}
       >
         <Alert onClose={handleClose} severity="success">
           Usuário criado com sucesso!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={erro}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          {mensagem}
         </Alert>
       </Snackbar>
 

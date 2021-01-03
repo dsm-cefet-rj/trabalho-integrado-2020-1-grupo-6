@@ -3,7 +3,12 @@ const {
   DisciplinasModel: Disciplinas,
   validarDisciplinas,
 } = require("../models/Disciplinas.js");
-const Usuarios = require("../models/Usuarios.js");
+
+const {
+  UsuariosModel: Usuarios,
+  validarUsuario,
+} = require("../models/Usuarios.js");
+
 const {
   AtividadesModel: Atividades,
   validarAtividades,
@@ -94,16 +99,17 @@ module.exports = {
     try {
       const { id: disciplinaId } = req.params;
       const { idUsuario } = req.body;
-      console.log(idUsuario);
+      // console.log(idUsuario);
 
       const updateBody = req.body;
       // console.log(updateBody);
       const user = await Usuarios.findOne({ usuario: idUsuario });
-      console.log(user);
+      // console.log(user);
       updateBody.idUsuario = user._id;
 
       const disciplinaValidated = validarDisciplinas(req.body);
-      console.log(disciplinaValidated);
+      // console.log(disciplinaValidated);
+
       if (disciplinaValidated.error) {
         return res.status(400).json({
           resposta: disciplinaValidated.error.details[0].message,
@@ -114,8 +120,8 @@ module.exports = {
         nome: updateBody.nome,
         idUsuario: updateBody.idUsuario,
       });
-      console.log(nomeIgualDisciplina);
-      if (nomeIgualDisciplina) {
+
+      if (nomeIgualDisciplina && nomeIgualDisciplina._id != disciplinaId) {
         res.status(409);
         return res.json({
           resposta: "Disciplina com mesmo nome já foi criada",

@@ -62,7 +62,7 @@ function validarDisciplinas(disciplina) {
       .required()
       .messages({
         "string.empty": `O período não pode ficar vazio`,
-        "string.pattern.base": `A período não pode conter números`,
+        "string.pattern.base": `O período não pode conter números`,
         "string.max": `O período precisa ter no máximo {#limit} caracteres`,
       }),
     horario: joi
@@ -92,7 +92,7 @@ function validarDisciplinas(disciplina) {
     material: joi.string().max(500).allow("").messages({
       "string.max": `O link do material precisa ter no máximo {#limit} caracteres`,
     }),
-    status: joi.required().valid("Em andamento", "Concluída"),
+    status: joi.required().valid("Em andamento", "Concluida"),
     idUsuario: joi.required(),
   });
 

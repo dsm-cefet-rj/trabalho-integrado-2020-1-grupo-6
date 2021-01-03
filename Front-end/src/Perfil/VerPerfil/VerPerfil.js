@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { api } from "../../services/api";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module usuarios/Perfil
@@ -32,6 +34,7 @@ export function VerPerfil() {
   const [nome, setNome] = useState("");
   const [nomeUsuario, setNomeUsuario] = useState("");
   const [curso, setCurso] = useState("");
+  const [sucesso, setSucesso] = useState(false);
   const history = useHistory();
   const usuario =
     useSelector((state) => state?.usuario) ||
@@ -66,6 +69,18 @@ export function VerPerfil() {
     history.push("/perfil/edit");
   }
 
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setSucesso(false);
+  };
+
   /**
    * Ao clicar no botão de excluir, usuário é excluído e redirecionado para página inicial
    * @function toExcluirPerfil
@@ -73,7 +88,10 @@ export function VerPerfil() {
 
   function toExcluirPerfil() {
     api.delete("/usuario/" + usuario).then((response) => {
-      history.push("/");
+      setSucesso(true);
+      window.setTimeout(() => {
+        history.push("/");
+      }, 2000);
     });
   }
 
@@ -119,6 +137,17 @@ export function VerPerfil() {
           </button>
         </div>
       </div>
+
+      <Snackbar
+        open={sucesso}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Usuário removido com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

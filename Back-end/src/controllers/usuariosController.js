@@ -1,14 +1,15 @@
-const Usuarios = require("../models/Usuarios.js");
+const {
+  UsuariosModel: Usuarios,
+  validarUsuario,
+} = require("../models/Usuarios.js");
+
 const bcrypt = require("bcryptjs");
-const { schema } = require("../models/Usuarios.js");
 const { model } = require("mongoose");
 const joi = require("@hapi/joi");
 
 module.exports = {
   create: async (req, res, next) => {
     try {
-      console.log(req.body);
-      req.body.senha = await bcrypt.hash(req.body.senha, 8);
       console.log(req.body);
 
       const user = await Usuarios.findOne({ usuario: req.body.usuario });
@@ -18,6 +19,17 @@ module.exports = {
           resposta: "Usuário já existe. Favor escolher outro.",
         });
       }
+
+      const usuariosValidated = validarUsuario(req.body);
+      // console.log(usuariosValidated);
+      // // console.log(usuariosValidated.error.details);
+      if (usuariosValidated.error) {
+        return res.status(400).json({
+          resposta: usuariosValidated.error.details[0].message,
+        });
+      }
+      req.body.senha = await bcrypt.hash(req.body.senha, 8);
+      console.log(req.body);
 
       const usuario = await Usuarios.create(req.body);
       return res.json(usuario);
@@ -63,14 +75,11 @@ module.exports = {
 
   delete: async (req, res, next) => {
     try {
-      console.log(req.query);
-      console.log(req.body);
-      console.log(req.params);
-
       const { id: userId } = req.params;
       const user = await Usuarios.findOne({ usuario: userId });
-      console.log(userId);
-      await Usuarios.findByIdAndDelete(user.id);
+      // console.log(user);
+      // console.log(userId);
+      await Usuarios.findByIdAndDelete(user._id);
       return res.json({ ok: true });
     } catch (err) {
       next(err);
@@ -90,16 +99,24 @@ module.exports = {
 
   EditarPerfil: async (req, res, next) => {
     try {
-      // console.log(req.params);
       const { id: userId } = req.params;
-      // console.log(userId);
+
       const user = await Usuarios.findOne({ usuario: userId });
-      // console.log(user);
-      // console.log(user.id);
+      console.log(user);
       const updateBody = req.body;
-      // console.log(updateBody);
+      updateBody.usuario = user.usuario;
+      console.log(req.body);
+
+      const usuariosValidated = validarUsuario(req.body);
+      console.log(usuariosValidated);
+
+      if (usuariosValidated.error) {
+        return res.status(400).json({
+          resposta: usuariosValidated.error.details[0].message,
+        });
+      }
+
       const usuario = await Usuarios.findByIdAndUpdate(user.id, updateBody);
-      // console.log(usuario);
 
       return res.json(usuario);
     } catch (err) {

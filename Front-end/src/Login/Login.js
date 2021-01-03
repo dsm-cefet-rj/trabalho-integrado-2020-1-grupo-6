@@ -58,7 +58,7 @@ export function Login() {
       setOpen(true);
       window.setTimeout(() => {
         history.push("/home");
-      }, 3000);
+      }, 2000);
     });
   }
 

@@ -3,11 +3,16 @@ const {
   AtividadesModel: Atividades,
   validarAtividades,
 } = require("../models/Atividades.js");
+
 const {
   DisciplinasModel: Disciplinas,
   validarDisciplinas,
 } = require("../models/Disciplinas.js");
-const Usuarios = require("../models/Usuarios.js");
+
+const {
+  UsuariosModel: Usuarios,
+  validarUsuario,
+} = require("../models/Usuarios.js");
 
 module.exports = {
   create: async (req, res, next) => {
@@ -93,8 +98,9 @@ module.exports = {
         nome: updateBody.nome,
         idDisciplina: updateBody.idDisciplina,
       });
+
       console.log(nomeIgualAtividade);
-      if (nomeIgualAtividade) {
+      if (nomeIgualAtividade && nomeIgualAtividade._id != atividadeID) {
         res.status(409);
         return res.json({ resposta: "Atividade com mesmo nome já foi criada" });
       }
@@ -108,41 +114,6 @@ module.exports = {
       next(err);
     }
   },
-  // update: async (req, res, next) => {
-  //   try {
-  //     const { id: atividadeID, idUsuario } = req.params;
-  //     const updateBody = req.body;
-  //     // console.log(idUsuario);
-  //     // console.log(atividadeID);
-  //     // console.log(idDisciplina);
-
-  //     const atividadeValidated = validarAtividades(req.body);
-  //     // console.log(atividadeValidated);
-  //     // console.log(atividadeValidated.error.details);
-  //     if (atividadeValidated.error) {
-  //       return res.status(400).json({
-  //         resposta: atividadeValidated.error.details[0].message,
-  //       });
-  //     }
-
-  //     // const nomeIgualAtividade = await Atividades.findOne({
-  //     //   nome: nome,
-  //     //   idDisciplina: idDisciplina,
-  //     // });
-  //     // console.log(nomeIgualAtividade);
-  //     // if (nomeIgualAtividade) {
-  //     //   res.status(409);
-  //     //   return res.json({ resposta: "Atividade com mesmo nome já foi criada" });
-  //     // }
-  //     const atividade = await Atividades.findByIdAndUpdate(
-  //       atividadeID,
-  //       updateBody
-  //     );
-  //     return res.json(atividade);
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // },
 
   delete: async (req, res, next) => {
     try {

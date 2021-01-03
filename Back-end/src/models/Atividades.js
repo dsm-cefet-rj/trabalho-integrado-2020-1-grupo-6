@@ -60,7 +60,7 @@ function validarAtividades(atividade) {
       "string.min": `A data de entrega precisa ter no mínimo {#limit} caracteres`,
       "string.max": `A data de entrega precisa ter no máximo {#limit} caracteres`,
     }),
-    status: joi.required().valid("Aguardando", "Concluída"),
+    status: joi.required().valid("Aguardando", "Concluida"),
     tipo: joi.required().valid("Prova", "Trabalho"),
     pontuacaoMax: joi
       .string()

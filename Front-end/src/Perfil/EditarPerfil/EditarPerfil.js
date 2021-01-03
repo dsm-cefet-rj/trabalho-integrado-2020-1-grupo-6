@@ -6,6 +6,8 @@ import { FiCheckSquare, FiCornerDownLeft } from "react-icons/fi";
 import styles from "./EditarPerfil.css";
 import { useDispatch, useSelector } from "react-redux";
 import { api } from "../../services/api.js";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 /**
  * @module usuarios/Editar
@@ -32,6 +34,9 @@ import { api } from "../../services/api.js";
 export function EditarPerfil() {
   const [nome, setNome] = useState("");
   const [curso, setCurso] = useState("");
+  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState(false);
+  const [mensagem, setMensagem] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
   const usuario =
@@ -75,8 +80,14 @@ export function EditarPerfil() {
           type: "atualizarUsuario",
           payload: response.data.usuario,
         });
-
-        history.push("/perfil/");
+        setSucesso(true);
+        window.setTimeout(() => {
+          history.push("/perfil/");
+        }, 2000);
+      })
+      .catch((erro) => {
+        setErro(true);
+        setMensagem(erro.response.data.resposta);
       });
   }
 
@@ -88,6 +99,19 @@ export function EditarPerfil() {
   function toPerfil() {
     history.push("/perfil");
   }
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setSucesso(false);
+    setErro(false);
+  };
 
   return (
     <div className="blocoEditarPerfil">
@@ -126,6 +150,28 @@ export function EditarPerfil() {
           </button>
         </div>
       </form>
+
+      <Snackbar
+        open={sucesso}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          Perfil editado com sucesso!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={erro}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      >
+        <Alert onClose={handleClose} severity="error">
+          {mensagem}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
