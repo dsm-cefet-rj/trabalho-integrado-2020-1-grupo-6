@@ -47,12 +47,16 @@ export function EditarPerfil() {
   console.log(JSON.parse(localStorage.getItem("USUARIO")));
   // console.log(usuario);
 
+  const token = localStorage.getItem("jwt");
+  console.log(token);
+
   useEffect(() => {
     api
       .get("/perfil/", {
         params: {
           idUsuario: typeof usuario == "object" ? usuario.usuario : usuario,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setNome(response.data.nome);
@@ -71,10 +75,14 @@ export function EditarPerfil() {
     console.log(usuario);
 
     api
-      .put("/editperfil/" + usuario, {
-        nome,
-        curso,
-      })
+      .put(
+        "/editperfil/" + usuario,
+        {
+          nome,
+          curso,
+        },
+        { headers: { Authorization: "Bearer " + token } }
+      )
       .then((response) => {
         dispatch({
           type: "atualizarUsuario",

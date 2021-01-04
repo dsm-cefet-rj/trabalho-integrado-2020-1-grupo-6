@@ -3,6 +3,7 @@ const express = require("express");
 const usuariosController = require("../controllers/usuariosController.js");
 const disciplinasController = require("../controllers/disciplinasController.js");
 const atividadesController = require("../controllers/atividadesController.js");
+const authController = require("../controllers/authController");
 
 const routes = express.Router();
 
@@ -10,40 +11,100 @@ const routes = express.Router();
 
 routes.post("/usuario", usuariosController.create);
 
-routes.get("/usuario/:id", usuariosController.show);
+routes.get(
+  "/usuario/:id",
+  authController.validaUsuario,
+  usuariosController.show
+);
 
-routes.put("/usuario/:id", usuariosController.update);
+routes.put(
+  "/usuario/:id",
+  authController.validaUsuario,
+  usuariosController.update
+);
 
-routes.delete("/usuario/:id", usuariosController.delete);
+routes.delete(
+  "/usuario/:id",
+  authController.validaUsuario,
+  usuariosController.delete
+);
 
-routes.get("/perfil/", usuariosController.showPerfil);
+routes.get(
+  "/perfil/",
+  authController.validaUsuario,
+  usuariosController.showPerfil
+);
 
-routes.put("/editperfil/:id", usuariosController.EditarPerfil);
+routes.put(
+  "/editperfil/:id",
+  authController.validaUsuario,
+  usuariosController.EditarPerfil
+);
 
 routes.post("/usuario/login", usuariosController.show);
 
 //DISCIPLINAS
 
-routes.post("/disciplinas", disciplinasController.create);
+routes.post(
+  "/disciplinas",
+  authController.validaUsuario,
+  disciplinasController.create
+);
 
-routes.get("/Disciplinas/", disciplinasController.show);
+routes.get(
+  "/Disciplinas/",
+  authController.validaUsuario,
+  disciplinasController.show
+);
 
-routes.get("/VerDisciplinas/:id", disciplinasController.showdisciplina);
+routes.get(
+  "/VerDisciplinas/:id",
+  authController.validaUsuario,
+  disciplinasController.showdisciplina
+);
 
-routes.put("/Disciplinas/:id", disciplinasController.update);
+routes.put(
+  "/Disciplinas/:id",
+  authController.validaUsuario,
+  disciplinasController.update
+);
 
-routes.delete("/Disciplinas/:id", disciplinasController.delete);
+routes.delete(
+  "/Disciplinas/:id",
+  authController.validaUsuario,
+  disciplinasController.delete
+);
 
 //ATIVIDADES
 
-routes.post("/criarAtividade", atividadesController.create);
+routes.post(
+  "/criarAtividade",
+  authController.validaUsuario,
+  atividadesController.create
+);
 
-routes.get("/Atividades/", atividadesController.show);
+routes.get(
+  "/Atividades/",
+  authController.validaUsuario,
+  atividadesController.show
+);
 
-routes.get("/VerAtividade/:id", atividadesController.showatividade);
+routes.get(
+  "/VerAtividade/:id",
+  authController.validaUsuario,
+  atividadesController.showatividade
+);
 
-routes.put("/Atividade/:id", atividadesController.update);
+routes.put(
+  "/Atividade/:id",
+  authController.validaUsuario,
+  atividadesController.update
+);
 
-routes.delete("/Atividade/:id", atividadesController.delete);
+routes.delete(
+  "/Atividade/:id",
+  authController.validaUsuario,
+  atividadesController.delete
+);
 
 module.exports = routes;

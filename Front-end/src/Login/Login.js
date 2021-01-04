@@ -50,11 +50,14 @@ export function Login() {
         setSnackbarOpen(true);
         return;
       }
-      console.log(response.data);
+      console.log(response);
+      // console.log(response.headers.authorization);
       dispatch({
         type: "fazerLogin",
         payload: response.data.usuario,
       });
+
+      localStorage.setItem("jwt", response.headers.authorization);
       setOpen(true);
       window.setTimeout(() => {
         history.push("/home");

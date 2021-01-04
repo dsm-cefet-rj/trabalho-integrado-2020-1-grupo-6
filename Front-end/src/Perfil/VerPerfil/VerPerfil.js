@@ -40,6 +40,9 @@ export function VerPerfil() {
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
 
+  const token = localStorage.getItem("jwt");
+  console.log(token);
+
   useEffect(() => {
     // if (!usuario) {
     //   history.push("/");
@@ -51,6 +54,7 @@ export function VerPerfil() {
         params: {
           idUsuario: typeof usuario == "object" ? usuario.usuario : usuario,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setNome(response.data.nome);
@@ -87,12 +91,16 @@ export function VerPerfil() {
    */
 
   function toExcluirPerfil() {
-    api.delete("/usuario/" + usuario).then((response) => {
-      setSucesso(true);
-      window.setTimeout(() => {
-        history.push("/");
-      }, 2000);
-    });
+    api
+      .delete("/usuario/" + usuario, {
+        headers: { Authorization: "Bearer " + token },
+      })
+      .then((response) => {
+        setSucesso(true);
+        window.setTimeout(() => {
+          history.push("/");
+        }, 2000);
+      });
   }
 
   /**

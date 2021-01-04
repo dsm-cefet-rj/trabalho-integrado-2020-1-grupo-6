@@ -57,18 +57,25 @@ export function EditarAtividade() {
   const history = useHistory();
   console.log(usuario);
 
+  const token = localStorage.getItem("jwt");
+  console.log(token);
+
   useEffect(() => {
-    api.get("/VerAtividade/" + atividadeID).then((response) => {
-      setNome(response.data.nome);
-      setDataEntrega(response.data.dataEntrega);
-      setPontuacaoMax(response.data.pontuacaoMax);
-      setStatus(response.data.status);
-      setTipo(response.data.tipo);
-      setDescricao(response.data.descricao);
-      setNotaFinal(response.data.notaFinal);
-      setArquivo(response.data.arquivo);
-      setIdDisciplina(response.data.idDisciplina);
-    });
+    api
+      .get("/VerAtividade/" + atividadeID, {
+        headers: { Authorization: "Bearer " + token },
+      })
+      .then((response) => {
+        setNome(response.data.nome);
+        setDataEntrega(response.data.dataEntrega);
+        setPontuacaoMax(response.data.pontuacaoMax);
+        setStatus(response.data.status);
+        setTipo(response.data.tipo);
+        setDescricao(response.data.descricao);
+        setNotaFinal(response.data.notaFinal);
+        setArquivo(response.data.arquivo);
+        setIdDisciplina(response.data.idDisciplina);
+      });
   }, []);
 
   /**
@@ -80,18 +87,22 @@ export function EditarAtividade() {
     event.preventDefault();
 
     api
-      .put("/Atividade/" + atividadeID, {
-        nome,
-        dataEntrega,
-        pontuacaoMax,
-        status,
-        tipo,
-        descricao,
-        notaFinal,
-        arquivo,
-        idDisciplina,
-        idUsuario: usuario,
-      })
+      .put(
+        "/Atividade/" + atividadeID,
+        {
+          nome,
+          dataEntrega,
+          pontuacaoMax,
+          status,
+          tipo,
+          descricao,
+          notaFinal,
+          arquivo,
+          idDisciplina,
+          idUsuario: usuario,
+        },
+        { headers: { Authorization: "Bearer " + token } }
+      )
       .then((response) => {
         setSucesso(true);
         window.setTimeout(() => {

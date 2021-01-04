@@ -40,6 +40,9 @@ export function Atividades() {
   const history = useHistory();
   const [disciplinas, setDisciplinas] = useState({});
 
+  const token = localStorage.getItem("jwt");
+  console.log(token);
+
   useEffect(() => {
     // if (!usuario) {
     //   history.push("/");
@@ -51,6 +54,7 @@ export function Atividades() {
         params: {
           idUsuario: usuario,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         console.log(response.data);
@@ -73,6 +77,7 @@ export function Atividades() {
                 idUsuario: usuario,
                 Disciplina: atividade.idDisciplina,
               },
+              headers: { Authorization: "Bearer " + token },
             });
           })
         ).then((disc) => {
@@ -101,6 +106,7 @@ export function Atividades() {
           ...(filtroNome && { nome_filter: filtroNome }),
           idUsuario: usuario,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setAtividades(response.data);

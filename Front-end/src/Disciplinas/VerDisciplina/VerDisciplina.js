@@ -62,6 +62,9 @@ export function VerDisciplina() {
     useSelector((state) => state?.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
 
+  const token = localStorage.getItem("jwt");
+  console.log(token);
+
   useEffect(() => {
     // if (!usuario) {
     //   history.push("/");
@@ -74,6 +77,7 @@ export function VerDisciplina() {
           idUsuario: usuario,
           Disciplina: disciplinaID,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setNome(response.data.nome);
@@ -91,6 +95,7 @@ export function VerDisciplina() {
           idUsuario: usuario,
           idDisciplina: disciplinaID,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setAtividades(response.data);
@@ -137,12 +142,16 @@ export function VerDisciplina() {
    */
 
   function toRemoveDisciplina() {
-    api.delete("disciplinas/" + disciplinaID).then((response) => {
-      setSucesso(true);
-      window.setTimeout(() => {
-        history.push("/disciplinas");
-      }, 2000);
-    });
+    api
+      .delete("disciplinas/" + disciplinaID, {
+        headers: { Authorization: "Bearer " + token },
+      })
+      .then((response) => {
+        setSucesso(true);
+        window.setTimeout(() => {
+          history.push("/disciplinas");
+        }, 2000);
+      });
   }
 
   /**
@@ -167,6 +176,7 @@ export function VerDisciplina() {
           idUsuario: usuario,
           idDisciplina: disciplinaID,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         console.log(response.data);

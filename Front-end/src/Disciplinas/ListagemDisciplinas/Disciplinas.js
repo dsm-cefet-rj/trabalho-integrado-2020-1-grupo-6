@@ -39,6 +39,9 @@ export function Disciplinas() {
   const [filtroStatus, setFiltroStatus] = useState("");
   const history = useHistory();
 
+  const token = localStorage.getItem("jwt");
+  console.log(token);
+
   useEffect(() => {
     // if (!usuario) {
     //   history.push("/");
@@ -50,6 +53,7 @@ export function Disciplinas() {
         params: {
           idUsuario: usuario,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setDisciplinas(response.data);
@@ -89,6 +93,7 @@ export function Disciplinas() {
           ...(filtroNome && { nome: filtroNome }),
           idUsuario: usuario,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setDisciplinas(response.data);

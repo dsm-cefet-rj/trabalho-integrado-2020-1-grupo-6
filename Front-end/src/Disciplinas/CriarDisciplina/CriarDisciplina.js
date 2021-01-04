@@ -65,17 +65,25 @@ export function CriarDisciplina() {
   function submitCriarDisciplina(event) {
     event.preventDefault();
     console.log(usuario);
+
+    const token = localStorage.getItem("jwt");
+    console.log(token);
+
     api
-      .post("/disciplinas", {
-        nome,
-        periodo,
-        horario,
-        local,
-        professor: nomeProfessor,
-        material,
-        status,
-        idUsuario: usuario,
-      })
+      .post(
+        "/disciplinas",
+        {
+          nome,
+          periodo,
+          horario,
+          local,
+          professor: nomeProfessor,
+          material,
+          status,
+          idUsuario: usuario,
+        },
+        { headers: { Authorization: "Bearer " + token } }
+      )
       .then((response) => {
         setSucesso(true);
         window.setTimeout(() => {

@@ -61,6 +61,9 @@ export function VerAtividade() {
     };
   });
 
+  const token = localStorage.getItem("jwt");
+  console.log(token);
+
   useEffect(() => {
     // if (!usuario) {
     //   history.push("/");
@@ -72,6 +75,7 @@ export function VerAtividade() {
         params: {
           idUsuario: usuario,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setNome(response.data.nome);
@@ -88,6 +92,7 @@ export function VerAtividade() {
               idUsuario: usuario,
               Disciplina: response.data.idDisciplina,
             },
+            headers: { Authorization: "Bearer " + token },
           })
           .then((disciplina) => {
             setDisciplina(disciplina.data);
@@ -122,12 +127,16 @@ export function VerAtividade() {
    */
 
   function toRemoverAtividade() {
-    api.delete("/Atividade/" + atividadeID).then((response) => {
-      setSucesso(true);
-      window.setTimeout(() => {
-        history.push("/disciplinas/view/" + disciplina.id);
-      }, 2000);
-    });
+    api
+      .delete("/Atividade/" + atividadeID, {
+        headers: { Authorization: "Bearer " + token },
+      })
+      .then((response) => {
+        setSucesso(true);
+        window.setTimeout(() => {
+          history.push("/disciplinas/view/" + disciplina.id);
+        }, 2000);
+      });
   }
 
   /**

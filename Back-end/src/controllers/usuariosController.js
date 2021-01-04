@@ -6,6 +6,7 @@ const {
 const bcrypt = require("bcryptjs");
 const { model } = require("mongoose");
 const joi = require("@hapi/joi");
+const authController = require("./authController");
 
 module.exports = {
   create: async (req, res, next) => {
@@ -41,22 +42,35 @@ module.exports = {
   show: async (req, res, next) => {
     try {
       const { id: userId } = req.body;
+
       if (userId) {
         const usuario = await Usuarios.findById(userId);
         const iscorrect = bcrypt.compareSync(req.body.senha, usuario.senha);
+        const Authorization = authController.generateToken(
+          userId,
+          usuario.usuario
+        );
+        res.set({ Authorization });
         return res.json(usuario);
       } else {
         const { usuario, senha } = req.body;
         const usuariodata = await Usuarios.findOne({ usuario: usuario });
+        console.log(usuariodata);
         const iscorrect = bcrypt.compareSync(req.body.senha, usuariodata.senha);
         console.log(iscorrect);
         if (iscorrect) {
+          const Authorization = authController.generateToken(
+            usuariodata._id,
+            usuario
+          );
+          res.set({ Authorization });
           return res.json(usuariodata);
         } else {
           return res.json(1);
         }
       }
     } catch (err) {
+      console.log(err);
       return res.json(1);
     }
   },

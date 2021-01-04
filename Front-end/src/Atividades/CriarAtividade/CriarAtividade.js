@@ -68,19 +68,26 @@ export function CriarAtividade() {
   function submitCriarAtividade(event) {
     event.preventDefault();
 
+    const token = localStorage.getItem("jwt");
+    console.log(token);
+
     api
-      .post("/criarAtividade", {
-        nome,
-        dataEntrega,
-        pontuacaoMax,
-        status,
-        tipo,
-        descricao,
-        notaFinal,
-        arquivo,
-        idDisciplina: disciplina,
-        idUsuario: usuario,
-      })
+      .post(
+        "/criarAtividade",
+        {
+          nome,
+          dataEntrega,
+          pontuacaoMax,
+          status,
+          tipo,
+          descricao,
+          notaFinal,
+          arquivo,
+          idDisciplina: disciplina,
+          idUsuario: usuario,
+        },
+        { headers: { Authorization: "Bearer " + token } }
+      )
       .then((response) => {
         // console.log(response.data);
         setSucesso(true);

@@ -53,6 +53,9 @@ export function EditarDisciplina() {
     useSelector((state) => state.usuario) ||
     JSON.parse(localStorage.getItem("USUARIO"));
 
+  const token = localStorage.getItem("jwt");
+  console.log(token);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -62,6 +65,7 @@ export function EditarDisciplina() {
           idUsuario: usuario,
           Disciplina: disciplinaID,
         },
+        headers: { Authorization: "Bearer " + token },
       })
       .then((response) => {
         setNome(response.data.nome);
@@ -83,16 +87,20 @@ export function EditarDisciplina() {
     event.preventDefault();
 
     api
-      .put("/Disciplinas/" + disciplinaID, {
-        nome,
-        periodo,
-        horario,
-        local,
-        professor: nomeProfessor,
-        material,
-        status,
-        idUsuario: usuario,
-      })
+      .put(
+        "/Disciplinas/" + disciplinaID,
+        {
+          nome,
+          periodo,
+          horario,
+          local,
+          professor: nomeProfessor,
+          material,
+          status,
+          idUsuario: usuario,
+        },
+        { headers: { Authorization: "Bearer " + token } }
+      )
       .then((response) => {
         setSucesso(true);
         window.setTimeout(() => {
